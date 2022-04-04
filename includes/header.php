@@ -12,4 +12,5 @@
             <h1 id='pageTitle'>2022 WALMART PP GANG READING CHALLENGE</h1>
             <?php
                 var_dump($conn->query('SELECT * FROM users'));
+                var_dump($conn->query('SELECT * FROM books'));
             ?>
