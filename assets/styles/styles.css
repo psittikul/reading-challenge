@@ -1,6 +1,26 @@
 body {
   background-image: url("/assets/images/cherry-blossoms.jpeg");
   background-size: cover;
+  font-family: "Maven Pro", sans-serif;
+}
+
+#pageTitle {
+  font-family: "Maven Pro", sans-serif;
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem auto 2rem auto;
+  background: rgba(247, 182, 212, 0.75);
+  border-radius: 2rem;
+}
+
+.user-row {
+  margin: 4rem auto;
+}
+.user-row .user-pic {
+  text-align: center;
+}
+.user-row .user-pic img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
