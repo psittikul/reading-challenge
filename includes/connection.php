@@ -6,12 +6,10 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 
-if ($conn = new mysqli($server, $username, $password, $db)) {
-    echo "Success!";
-}
+$conn = new mysqli($server, $username, $password, $db);
 
-else {
-    echo mysqli_error($conn);
+if($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 ?>
