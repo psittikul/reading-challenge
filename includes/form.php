@@ -1,7 +1,7 @@
-<form data-user='<?php echo $row['userID'];?>' method='post'>
+<form data-user='<?php echo $row['userID'];?>' method='post' action="save.php">
     <div class="mb-3">
         <p>Add Book</p>
-        <input type="text" class="form-control" data-column="title" placeholder="Title">
+        <input type="text" class="form-control" data-column="title" data-user='<?php echo $row['user_id'];?>' placeholder="Title">
     </div>
     <div class="mb-3">
         <input type="text" class="form-control" data-column="author" placeholder="Author">

@@ -1,5 +1,6 @@
 <?php 
     $result = $conn->query('SELECT users.id as userID, name, image_path, color, count(books.id) AS bookCount FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC');
+    var_dump($result);
     while($row = $result->fetch_assoc()) {
 ?>
         <div class='row user-row'>
@@ -23,6 +24,7 @@
                         <h4>Currently Reading: </h4>
                     </div>
                 </div>
+                <?php include "form.php";?>
             </div>
         </div>
 <?php
