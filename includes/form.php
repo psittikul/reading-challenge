@@ -19,8 +19,6 @@
             <label>Date Read</label>
             <input type="date" class="form-control" data-column='date_read'>
         </div>
-        <div class='col-sm-2'>
-            <button type="button" class="update-btn btn btn-primary" id="addBook<?php echo $row['userID'];?>">Save</button>
-        </div>
+        <button type="button" class="update-btn btn btn-primary" id="addBook<?php echo $row['userID'];?>">Save</button>
     </div>
 </form>
