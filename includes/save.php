@@ -1,9 +1,9 @@
 <?php
     include "connection.php";
     // $query = "INSERT INTO books(title, user_id) VALUES('Alif the Unseen', " . $_POST['user_id'] . ");";
-    $query = "INSERT INTO books(id, title, user_id) VALUES(124, 'Alif the Unseen', 24);";
+    $query = "INSERT INTO books(id, title, user_id) VALUES(NULL, 'Alif the Unseen', 24);";
     if($conn->query($query)) {
-        echo json_encode(['data'=>$query, 'message'=>'maybe ID issue']);
+        echo json_encode(['data'=>$query, 'message'=>'SUCCESS????????']);
     }
     else {
         echo json_encode("Error: " . $query . "<br>" . $conn->error);
