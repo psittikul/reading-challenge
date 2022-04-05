@@ -37,3 +37,13 @@ body {
         }
     }
 }
+
+form {
+    margin: 2rem 0;
+    text-transform: uppercase;
+
+    .update-btn {
+        float: right;
+        background: rgba(204, 204, 255, 1);
+    }
+}

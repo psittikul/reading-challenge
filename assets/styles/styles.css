@@ -31,4 +31,13 @@ body {
   width: 100%;
 }
 
+form {
+  margin: 2rem 0;
+  text-transform: uppercase;
+}
+form .update-btn {
+  float: right;
+  background: #ccccff;
+}
+
 /*# sourceMappingURL=styles.css.map */

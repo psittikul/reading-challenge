@@ -6,7 +6,7 @@
     <div class="mb-3">
         <input type="text" class="form-control" data-column="author" placeholder="Author">
     </div>
-    <div class="mb-3 input-group row">
+    <div class="mb-3 row">
         <div class='col-sm-6'>
             <label>Status</label>
             <select class="form-select" data-column="status">
