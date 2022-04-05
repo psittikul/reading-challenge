@@ -22,7 +22,7 @@ $('.update-btn').on('click', function() {
         data: {
             title: title,
             author: author,
-            date_read: dateRead,
+            date_read: dateRead != '' ? dateRead : null,
             status: status,
             user_id: user_id,
         },
