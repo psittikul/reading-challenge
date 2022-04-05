@@ -1,5 +1,5 @@
 <?php
-    $query = "INSERT INTO books(title, author, user_id) VALUES('Alif the Unseen', 'G. Willow Wilson', " . $_POST['user_id'] . ");";
+    $query = "INSERT INTO books(title, user_id) VALUES('Alif the Unseen', " . $_POST['user_id'] . ");";
     if($conn->query($query)) {
         echo json_encode(['data'=>$query, 'msg'=>'HOORAY']);
     }
