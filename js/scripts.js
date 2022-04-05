@@ -1,6 +1,10 @@
 $("[data-column='status']").on('change', function() {
+    var dateRead = $(this).parent().next().find("[data-column='date_read']");
     console.log("Status changed to: " + $(this).val());
-    console.log($(this).next());
+    console.log(dateRead);
+    if($(dateRead).val() !== 'Read') {
+        $(dateRead).prop('disabled', true);
+    }
 });
 
 $('.update-btn').on('click', function() {
