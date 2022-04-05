@@ -10,7 +10,9 @@
                 <img src='<?php echo $row['image_path'];?>'>
             </div>
             <div class='col-sm stats'>
+                <canvas class="stat-chart" width="400" height="400"></canvas>
                 <h1>📚 <?php echo $row['bookCount'];?></h1>
+                <h2>Last Read: </h2>
             </div>
         </div>
 <?php
