@@ -12,5 +12,5 @@
         echo "SUCCESS?????????";
     }
     else {
-        echo $query . ": " . $conn->error;
+        echo $date_read;
     }
