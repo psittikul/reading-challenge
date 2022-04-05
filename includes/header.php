@@ -10,7 +10,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
         <link rel='stylesheet' href='assets/styles/styles.css'>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <link href="https://www.jsdelivr.com/package/npm/chart.js">
     </head>
     <body>
         <div class='container-fluid'>
