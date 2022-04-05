@@ -4,6 +4,9 @@
     if($conn->query($query)) {
         echo json_encode(['data'=>$query, 'message'=>'maybe ID issue']);
     }
+    else {
+        echo json_encode("Error: " . $query . "<br>" . $conn->error);
+    }
     // if($conn->query($query)) {
     //     echo json_encode(['data'=>$query, 'msg'=>'HOORAY']);
     // }
