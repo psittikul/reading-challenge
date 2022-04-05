@@ -10,7 +10,6 @@ $("[data-column='status']").on('change', function() {
 });
 
 $('.update-btn').on('click', function() {
-    console.log('UHHHHHHHHH?');
     var user_id = $(this).data('user');
     var title = $(this).parent().find("[data-column='title']").val();
     var author = $(this).parent().find("[data-column='author']").val();
@@ -29,10 +28,10 @@ $('.update-btn').on('click', function() {
         },
         success: function(response) {
             console.log(response);
-            // location.refresh;
+            location.refresh;
         },
         fail: function(response) {
-            console.log('fail?');
+            console.log(response);
         }
     });
 });
