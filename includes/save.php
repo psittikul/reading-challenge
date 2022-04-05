@@ -1,6 +1,9 @@
 <?php
-    $query = "INSERT INTO books(title, user_id) VALUES('Alif the Unseen', " . $_POST['user_id'] . ");";
-    echo json_encode(['data'=>$query, 'message'=>'maybe ID issue']);
+    // $query = "INSERT INTO books(title, user_id) VALUES('Alif the Unseen', " . $_POST['user_id'] . ");";
+    $query = "INSERT INTO books(title, user_id) VALUES('Alif the Unseen', 24);";
+    if($conn->query($query)) {
+        echo json_encode(['data'=>$query, 'message'=>'maybe ID issue']);
+    }
     // if($conn->query($query)) {
     //     echo json_encode(['data'=>$query, 'msg'=>'HOORAY']);
     // }
