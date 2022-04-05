@@ -1,6 +1,6 @@
 <form data-user='<?php echo $row['userID'];?>' method='post'>
     <div class="mb-3">
-        <h3>Add Book</h3>
+        <p>Add Book</p>
         <input type="text" class="form-control" data-column="title" placeholder="Title">
     </div>
     <div class="mb-3">
