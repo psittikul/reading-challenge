@@ -1,9 +1,10 @@
 $Maven: 'Maven Pro', sans-serif;
 $Oswald: 'Oswald', sans-serif;
+$Periwinkli: rgba(204, 204, 255, .65);
 
 body {
     background-image: url('/assets/images/cherry-blossoms.jpeg');
-    background-size:cover;
+    background-size: cover;
     font-family: $Maven;
 }
 
@@ -12,12 +13,18 @@ body {
     text-align: center;
     padding: 2rem;
     margin: 2rem auto 2rem auto;
-    background: rgba(247, 182, 212, .75);
-    border-radius: 2rem;
+    background: $Periwinkli;
+    border-radius: 1rem;
 }
 
 .user-row {
     margin: 4rem auto;
+    
+    .user-name {
+        border-radius: .75rem;
+        text-transform: uppercase;
+    }
+
     .user-pic {
         text-align: center;
         img {
