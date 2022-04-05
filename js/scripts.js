@@ -20,7 +20,7 @@ $('.update-btn').on('click', function() {
     $.ajax({
         method: "POST",
         url: "../includes/save.php",
-        dataType: 'JSON',
+        // dataType: 'JSON',
         data: {
             title: title,
             author: author,
