@@ -1,7 +1,7 @@
 <?php 
     $result = $conn->query('SELECT users.id as userID, name, image_path, color, count(books.id) AS bookCount FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC');
-    var_dump($result);
     while($row = $result->fetch_assoc()) {
+        var_dump($row);
 ?>
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
