@@ -10,6 +10,7 @@ $("[data-column='status']").on('change', function() {
 });
 
 $('.update-btn').on('click', function() {
+    console.log('UHHHHHHHHH?');
     var user_id = $(this).data('user');
     var title = $(this).parent().find("[data-column='title']").val();
     var author = $(this).parent().find("[data-column='author']").val();
@@ -18,7 +19,7 @@ $('.update-btn').on('click', function() {
     $.ajax({
         method: "POST",
         url: "../includes/save.php",
-        dataType: 'JSON',
+        // dataType: 'JSON',
         data: {
             title: title,
             author: author,
