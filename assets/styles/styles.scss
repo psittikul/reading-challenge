@@ -45,5 +45,8 @@ form {
     .update-btn {
         float: right;
         background: rgba(204, 204, 255, 1);
+        border: none;
+        text-transform: uppercase;
+        color: darkslategray;
     }
 }

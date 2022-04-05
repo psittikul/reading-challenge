@@ -38,6 +38,9 @@ form {
 form .update-btn {
   float: right;
   background: #ccccff;
+  border: none;
+  text-transform: uppercase;
+  color: darkslategray;
 }
 
 /*# sourceMappingURL=styles.css.map */

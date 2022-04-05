@@ -1,5 +1,6 @@
 $('.update-btn').on('click', function() {
-    console.log('Update standings with this info: user ID=' + $(this).parent().data('user'));
+    var title = $(this).parent().find(["data-column='title'"]);
+    console.log('Update standings with this info: user ID=' + $(this).parent().data('user') + ' title: ' + title);
     // $.ajax({
     //     method: "POST",
     //     url: "save.php",

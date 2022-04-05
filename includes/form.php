@@ -7,7 +7,7 @@
         <input type="text" class="form-control" data-column="author" placeholder="Author">
     </div>
     <div class="mb-3 row">
-        <div class='col-sm-6'>
+        <div class='col-sm-5'>
             <label>Status</label>
             <select class="form-select" data-column="status">
                 <option selected value="Read">Read</option>
@@ -15,10 +15,12 @@
                 <option value="To Be Read">To Be Read</option>
             </select>
         </div>
-        <div class='col-sm-6'>
+        <div class='col-sm-5'>
             <label>Date Read</label>
             <input type="date" class="form-control" data-column='date_read'>
         </div>
+        <div class='col-sm-2'>
+            <button type="button" class="update-btn btn btn-primary" id="addBook<?php echo $row['userID'];?>">Save</button>
+        </div>
     </div>
-    <button type="button" class="update-btn btn btn-primary" id="addBook<?php echo $row['userID'];?>">Save</button>
 </form>
