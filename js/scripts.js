@@ -23,7 +23,7 @@ $('.update-btn').on('click', function() {
             author: author,
             date_read: dateRead,
             status: status,
-            user_id: 
+            user_id: user_id,
         },
         success: function(response) {
             console.log(response);
