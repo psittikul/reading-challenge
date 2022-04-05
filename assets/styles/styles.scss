@@ -20,12 +20,9 @@ body {
 
 .user-row {
     margin: 4rem auto;
-    background: $pale;
-    border-radius: .75rem;
 
     .user-name {
-        border-top-left-radius: .75rem;
-        border-top-right-radius: .75rem;
+        border-radius: 0.75rem;
         text-transform: uppercase;
         color: white;
     }

@@ -23,7 +23,6 @@
                         <h4>Currently Reading: </h4>
                     </div>
                 </div>
-                <?php include 'form.php';?>
             </div>
         </div>
 <?php
