@@ -29,8 +29,8 @@ $('.update-btn').on('click', function() {
             console.log(response);
             // location.refresh;
         },
-        // fail: function(response) {
-        //     console.log(response);
-        // }
+        fail: function(response) {
+            console.log('fail?');
+        }
     });
 });
