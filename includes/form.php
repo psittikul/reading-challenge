@@ -7,7 +7,7 @@
         <input type="text" class="form-control" data-column="author" placeholder="Author">
     </div>
     <div class="mb-3 row">
-        <div class='col-sm-5'>
+        <div class='col-sm-6'>
             <label>Status</label>
             <select class="form-select" data-column="status">
                 <option selected value="Read">Read</option>
@@ -15,7 +15,7 @@
                 <option value="To Be Read">To Be Read</option>
             </select>
         </div>
-        <div class='col-sm-5'>
+        <div class='col-sm-6'>
             <label>Date Read</label>
             <input type="date" class="form-control" data-column='date_read' value='<?php echo date("Y-m-d");?>'>
         </div>

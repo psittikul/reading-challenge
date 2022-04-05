@@ -10,8 +10,19 @@
                 <img src='<?php echo $row['image_path'];?>'>
             </div>
             <div class='col-sm stats'>
-                <h1>📚 <?php echo $row['bookCount'];?></h1>
-                <h2>Last Read: </h2>
+                <div class='row'>
+                    <div class='col'>
+                        <h1>📚 <?php echo $row['bookCount'];?></h1>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <h4>Last Read: </h4>  
+                    </div>
+                    <div class='col'>
+                        <h4>Currently Reading: </h4>
+                    </div>
+                </div>
                 <?php include 'form.php';?>
             </div>
         </div>
