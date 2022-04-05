@@ -1,6 +1,6 @@
 <?php
     // $query = "INSERT INTO books(title, author, user_id) VALUES('" . $_POST['title'] . "', '" . $_POST['author'] . "', " . $_POST['user_id'] . ")";
-    echo json_encode(['data'=>$_POST]);
+    echo json_encode(['data'=>'help']);
     // $query = "INSERT INTO books(title, author, status, user_id) VALUES('" . $_POST['title'] .
         // "', '" . $_POST['author'] . "', '" . $_POST['status'] . "'," . $_POST['user_id'] . ")";
     // $query = "INSERT INTO books(title, user_id) VALUES('test', 24)";
