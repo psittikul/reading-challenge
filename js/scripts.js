@@ -15,7 +15,7 @@ $('.update-btn').on('click', function() {
     var status = $(this).parent().find("[data-column='status']").val();
     $.ajax({
         method: "POST",
-        url: "save.php",
+        url: "../includes/save.php",
         data: {
             title: title,
             author: author,
