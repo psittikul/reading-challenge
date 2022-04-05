@@ -16,10 +16,18 @@ body {
 .user-row {
   margin: 4rem auto;
   color: white;
+  background: rgba(253, 237, 244, 0.65);
+}
+.user-row border {
+  -top-left-radius: 0.75rem;
+  -top-right-radius: 0.75rem;
 }
 .user-row .user-name {
-  border-radius: 0.75rem;
   text-transform: uppercase;
+}
+.user-row .user-name border {
+  -top-left-radius: 0.75rem;
+  -top-right-radius: 0.75rem;
 }
 .user-row .user-pic {
   text-align: center;

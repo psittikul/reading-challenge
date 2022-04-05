@@ -21,9 +21,17 @@ body {
 .user-row {
     margin: 4rem auto;
     color: white;
+    background: $pale;
+    border {
+        -top-left-radius: .75rem;
+        -top-right-radius: .75rem;
+    }
 
     .user-name {
-        border-radius: .75rem;
+        border {
+            -top-left-radius: .75rem;
+            -top-right-radius: .75rem;
+        }
         text-transform: uppercase;
     }
 
