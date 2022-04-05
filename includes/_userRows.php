@@ -12,16 +12,7 @@
             <div class='col-sm stats'>
                 <h1>📚 <?php echo $row['bookCount'];?></h1>
                 <h2>Last Read: </h2>
-                <form data-user='<?php echo $row['userID'];?>' method='post'>
-                    <div class="mb-3">
-                        <label class="form-label">Add Book</label>
-                        <input type="text" class="form-control" data-column="title" placeholder="Title">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" data-column="author" placeholder="Author">
-                    </div>
-                    <button type="button" class="update-btn" id="addBook<?php echo $row['userID'];?>">Save</button>
-                </form>
+                <?php include 'form.php';?>
             </div>
         </div>
 <?php
