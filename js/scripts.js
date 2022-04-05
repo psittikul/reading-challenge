@@ -15,6 +15,7 @@ $('.update-btn').on('click', function() {
     var title = $(this).parent().find("[data-column='title']").val();
     var author = $(this).parent().find("[data-column='author']").val();
     var dateRead = $(this).parent().find("[data-column='date_read']").val();
+    console.log(dateRead);
     var status = $(this).parent().find("[data-column='status']").val();
     $.ajax({
         method: "POST",
