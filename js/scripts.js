@@ -10,6 +10,13 @@ $("[data-column='status']").on('change', function() {
     }
 });
 
+function formatDate(date) {
+    var month = date.getMonth();
+    var day = date.getDate();
+    var year = date.getFullYear();
+    return year + '-' + month + '-' + day;
+}
+
 $('.update-btn').on('click', function() {
     var user_id = $(this).data('user');
     var title = $(this).parent().find("[data-column='title']").val();
