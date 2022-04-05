@@ -10,6 +10,7 @@ $("[data-column='status']").on('change', function() {
 });
 
 $('.update-btn').on('click', function() {
+    var user_id = $(this).data('user');
     var title = $(this).parent().find("[data-column='title']").val();
     var author = $(this).parent().find("[data-column='author']").val();
     var dateRead = $(this).parent().find("[data-column='date_read']").val();
@@ -22,6 +23,7 @@ $('.update-btn').on('click', function() {
             author: author,
             date_read: dateRead,
             status: status,
+            user_id: 
         },
         success: function(response) {
             console.log(response);

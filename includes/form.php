@@ -20,5 +20,5 @@
             <input type="date" class="form-control" data-column='date_read' value='<?php echo date("Y-m-d");?>'>
         </div>
     </div>
-    <button type="button" class="update-btn btn btn-primary" id="addBook<?php echo $row['userID'];?>">Save</button>
+    <button type="button" class="update-btn btn btn-primary" data-user="<?php echo $row['userID'];?>" id="addBook<?php echo $row['userID'];?>">Save</button>
 </form>
