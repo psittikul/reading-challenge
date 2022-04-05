@@ -1,4 +1,5 @@
 <?php
+    include "connection.php";
     // $query = "INSERT INTO books(title, user_id) VALUES('Alif the Unseen', " . $_POST['user_id'] . ");";
     $query = "INSERT INTO books(id, title, user_id) VALUES(124, 'Alif the Unseen', 24);";
     if($conn->query($query)) {
