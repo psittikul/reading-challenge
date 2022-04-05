@@ -3,9 +3,9 @@
     while($row = $result->fetch_assoc()) {
 ?>
         <div class='row user-row'>
-            <h2 class='user-name' style='background: <?php echo $row['color'];?>'>
+            <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
                 <?php echo $row['name'];?>
-            </h2>
+            </h1>
             <div class='col-sm-3 user-pic'>
                 <img src='<?php echo $row['image_path'];?>'>
             </div>

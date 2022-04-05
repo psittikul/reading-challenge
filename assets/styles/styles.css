@@ -15,6 +15,7 @@ body {
 
 .user-row {
   margin: 4rem auto;
+  color: white;
 }
 .user-row .user-name {
   border-radius: 0.75rem;
