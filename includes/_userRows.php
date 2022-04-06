@@ -21,7 +21,7 @@
                 <div class='row stat-row'>
                     <div class='col-sm-3 quarter'>
                         <?php
-                            $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
+                            $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');
                         ?>
                         <h3>Q1 📚: 
                             <?php 
@@ -29,7 +29,7 @@
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php $q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID']);?>
+                        <?php $q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
                         <h3>Q2 📚: 
                             <?php 
                                 // echo $row['bookCount'];
@@ -37,7 +37,7 @@
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php $q3 = $conn->query('select count(books.id) as booksRead from books partition(q3) where books.user_id = ' . $row['userID']);?>
+                        <?php $q3 = $conn->query('select count(books.id) as booksRead from books partition(q3) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
                         <h3>Q3 📚: 
                             <?php 
                                 // echo $row['bookCount'];
@@ -45,7 +45,7 @@
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php $q4 = $conn->query('select count(books.id) as booksRead from books partition(q4) where books.user_id = ' . $row['userID']);?>
+                        <?php $q4 = $conn->query('select count(books.id) as booksRead from books partition(q4) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
                         <h3>Q4 📚: 
                             <?php 
                                 // echo $row['bookCount'];
