@@ -58,7 +58,8 @@
                         <h4>Last Read: 
                             <?php 
                                 $query = 'select title from users left outer join books on users.id = books.user_id where status = "Read" and user_id =' . $row['userID'] . 'order by date_read desc limit 1;';
-                                echo $conn->query($query)->fetch_column(0);
+                                $last = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Read" and user_id =' . $row['userID'] . ' order by date_read desc limit 1');
+                                echo $last->fetch_column(0);
                             ?>
                         </h4>  
                     </div>
