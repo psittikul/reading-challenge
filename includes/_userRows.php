@@ -10,9 +10,8 @@
 ?>
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
-                <?php echo $row['name'];
-                    📚: 
-                    echo $row['bookCount'];
+                <?php echo $row['name']; 
+                    echo "<p>📚: " . $row['bookCount'] . "</p>";
                 ?>
             </h1>
             <div class='col-sm-3 user-pic'>
