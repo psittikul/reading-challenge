@@ -5,6 +5,12 @@
     // $q2 = $conn->query('select * from users inner join books partition(q2) on (books.user_id = users.id)');
     // $q3 = $conn->query('select * from users inner join books partition(q3) on (books.user_id = users.id)');
     // $q4 = $conn->query('select * from users inner join books partition(q4) on (books.user_id = users.id)');
+    while ($row = $q1->fetch_assoc()) {
+        echo 'User: ' . $row['name'] . ' Q1 book count: ' . $row['bookCount'] . '\n';
+    }
+
+    return;
+
 
     $standings[] = $q1;
     $standings[] = $q2->fetch_all();
