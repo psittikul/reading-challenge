@@ -37,7 +37,7 @@ $('.update-btn').on('click', function() {
         },
         success: function(response) {
             console.log(response);
-            location.refresh;
+            location.reload();
         },
         fail: function(response) {
             console.log(response);
