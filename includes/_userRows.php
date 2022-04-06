@@ -65,7 +65,9 @@
                     <div class='col'>
                         <h4>Currently Reading: 
                             <?php
+                                echo $row['userID'] . "\n";
                                 $curr = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
+                                var_dump($curr);
                                 $current = $curr->fetch_assoc();
                                 if(count($current) > 1) {
                                     echo implode(', ', array_column($current, 'title'));
