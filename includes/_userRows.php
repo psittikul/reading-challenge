@@ -67,17 +67,23 @@
                             <?php
                                 echo $row['userID'] . "\n";
                                 $curr = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
-                                var_dump($curr);
-                                $current = $curr->fetch_assoc();
-                                if(count($current) > 1) {
-                                    echo implode(', ', array_column($current, 'title'));
-                                }
-                                else if(count($current) == 1) {
-                                    echo $current['title'];
+                                if(mysqli_num_rows($curr) > 0) {
+                                    $current = $curr->fetch_assoc();
+                                    var_dump($current);
+                                    // echo $current['title'];
                                 }
                                 else {
                                     echo '';
                                 }
+                                // if(count($current) > 1) {
+                                //     echo implode(', ', array_column($current, 'title'));
+                                // }
+                                // else if(count($current) == 1) {
+                                //     echo $current['title'];
+                                // }
+                                // else {
+                                //     echo '';
+                                // }
                                 // echo count($current->fetch_assoc()) > 1 ? implode(',', array_column($current->fetch_assoc(), 'title')) : $current->fetch_assoc()['title'];
                             ?>
                         </h4>
