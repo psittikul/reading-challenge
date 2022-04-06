@@ -23,8 +23,8 @@ body .btn, body form .update-btn, form body .update-btn, body .user-row button.s
   margin: 2rem auto;
 }
 .user-row .user-name {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   margin-bottom: 0;
   text-transform: uppercase;
   color: white;
