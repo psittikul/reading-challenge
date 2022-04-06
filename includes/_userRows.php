@@ -19,7 +19,7 @@
                 <div class='row'>
                     <div class='col'>
                         <?php
-                            $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['id']);
+                            $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
                         ?>
                         <h1>📚 
                             <?php 
