@@ -2,11 +2,11 @@
     // $result = $conn->query('SELECT users.id as userID, name, image_path, color, count(books.id) AS bookCount FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC');
     $standings = [];
     $q1 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q1) on (books.user_id = users.id) group by users.id');
-    $q2 = $conn->query('select * from users inner join books partition(q2) on (books.user_id = users.id)');
-    $q3 = $conn->query('select * from users inner join books partition(q3) on (books.user_id = users.id)');
-    $q4 = $conn->query('select * from users inner join books partition(q4) on (books.user_id = users.id)');
+    // $q2 = $conn->query('select * from users inner join books partition(q2) on (books.user_id = users.id)');
+    // $q3 = $conn->query('select * from users inner join books partition(q3) on (books.user_id = users.id)');
+    // $q4 = $conn->query('select * from users inner join books partition(q4) on (books.user_id = users.id)');
 
-    $standings[] = $q1->fetch_all();
+    $standings[] = $q1;
     $standings[] = $q2->fetch_all();
     $standings[] = $q3->fetch_all();
     $standings[] = $q4->fetch_all();
