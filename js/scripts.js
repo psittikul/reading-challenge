@@ -72,8 +72,8 @@ $('.update-btn').on('click', function() {
     var title = $(this).parent().find("[data-column='title']").val();
     var author = $(this).parent().find("[data-column='author']").val();
     var dateRead = $(this).parent().find("[data-column='date_read']").val();
-    console.log(dateRead);
     var status = $(this).parent().find("[data-column='status']").val();
+    var prompt_id = $("[data-column='prompt_id'][data-user='" + user_id + "']").val();
     $.ajax({
         method: "POST",
         url: "../includes/save.php",
@@ -84,6 +84,7 @@ $('.update-btn').on('click', function() {
             date_read: dateRead != '' ? dateRead : null,
             status: status,
             user_id: user_id,
+            prompt_id: prompt_id,
         },
         success: function(response) {
             console.log(response);

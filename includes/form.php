@@ -21,7 +21,7 @@
         </div>
         <div class='col-sm-4'>
             <label>Prompt</label>
-            <select class="form-select" data-column="status" data-user='<?php echo $row['userID'];?>'>
+            <select class="form-select" data-column="prompt_id" data-user='<?php echo $row['userID'];?>'>
                 <option value="">Free Space</option>
                 <?php 
                     $prompts = $conn->query('select * from prompts');

@@ -5,8 +5,9 @@
     $status = $_POST['status'];
     $date_read = $_POST['date_read'];
     $user_id = $_POST['user_id'];
+    $prompt_id = $_POST['prompt_id'];
 
-    $query = "INSERT INTO books(id, title, author, status, date_read, user_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id);";
+    $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
     
     if($conn->query($query)) {
         echo "SUCCESS?????????";
