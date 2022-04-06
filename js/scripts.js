@@ -24,7 +24,7 @@ const myChart = new Chart(ctx, {
         labels: ['Q1'],
         datasets: [{
             // label: '# of Votes',
-            data: [4],
+            data: [2],
             backgroundColor: [
                 'rgba(204, 204, 255, .8)',
                 // 'rgba(54, 162, 235, 0.2)',
@@ -46,6 +46,11 @@ const myChart = new Chart(ctx, {
     },
     options: {
         indexAxis: 'y',
+        datasets: {
+            label: {
+                display: false,
+            }
+        },
         scales: {
             y: {
                 display: false,
