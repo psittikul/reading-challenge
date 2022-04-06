@@ -17,7 +17,7 @@
             </div>
             <div class='col-sm stats'>
                 <div class='row'>
-                    <div class='col-sm-3'>
+                    <div class='col-sm-3 quarter'>
                         <!-- <canvas id="myChart" width="100" height="25"></canvas> -->
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
@@ -28,12 +28,28 @@
                                 echo $q1->fetch_column(0);
                             ?></h2>
                     </div>
-                    <div class='col-sm-3'>
+                    <div class='col-sm-3 quarter'>
                         <?php $q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID']);?>
                         <h2>Q2 📚: 
                             <?php 
                                 // echo $row['bookCount'];
                                 echo $q2->fetch_column(0);
+                            ?></h2>
+                    </div>
+                    <div class='col-sm-3 quarter'>
+                        <?php $q3 = $conn->query('select count(books.id) as booksRead from books partition(q3) where books.user_id = ' . $row['userID']);?>
+                        <h2>Q3 📚: 
+                            <?php 
+                                // echo $row['bookCount'];
+                                echo $q2->fetch_column(0);
+                            ?></h2>
+                    </div>
+                    <div class='col-sm-3 quarter'>
+                        <?php $q4 = $conn->query('select count(books.id) as booksRead from books partition(q4) where books.user_id = ' . $row['userID']);?>
+                        <h2>Q4 📚: 
+                            <?php 
+                                // echo $row['bookCount'];
+                                echo $q4->fetch_column(0);
                             ?></h2>
                     </div>
                 </div>
