@@ -10,8 +10,8 @@
 ?>
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
-                <?php echo $row['name']; 
-                    echo "<p>📚: " . $row['bookCount'] . "</p>";
+                <?php echo $row['name'] . ": "; 
+                    echo "<p>📚 " . $row['bookCount'] . "</p>";
                 ?>
             </h1>
             <div class='col-sm-3 user-pic'>
@@ -23,34 +23,34 @@
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
                         ?>
-                        <p>Q1 📚: 
+                        <h3>Q1 📚: 
                             <?php 
                                 echo $q1->fetch_column(0);
-                            ?></p>
+                            ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php $q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID']);?>
-                        <h2>Q2 📚: 
+                        <h3>Q2 📚: 
                             <?php 
                                 // echo $row['bookCount'];
                                 echo $q2->fetch_column(0);
-                            ?></h2>
+                            ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php $q3 = $conn->query('select count(books.id) as booksRead from books partition(q3) where books.user_id = ' . $row['userID']);?>
-                        <h2>Q3 📚: 
+                        <h3>Q3 📚: 
                             <?php 
                                 // echo $row['bookCount'];
                                 echo $q3->fetch_column(0);
-                            ?></h2>
+                            ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php $q4 = $conn->query('select count(books.id) as booksRead from books partition(q4) where books.user_id = ' . $row['userID']);?>
-                        <h2>Q4 📚: 
+                        <h3>Q4 📚: 
                             <?php 
                                 // echo $row['bookCount'];
                                 echo $q4->fetch_column(0);
-                            ?></h2>
+                            ?></h3>
                     </div>
                 </div>
                 <div class='row'>

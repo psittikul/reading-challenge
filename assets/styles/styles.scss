@@ -25,6 +25,10 @@ body {
         border-radius: 0.75rem;
         text-transform: uppercase;
         color: white;
+
+        p {
+            display: inline;
+        }
     }
 
     .user-pic {

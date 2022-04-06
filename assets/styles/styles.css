@@ -21,6 +21,9 @@ body {
   text-transform: uppercase;
   color: white;
 }
+.user-row .user-name p {
+  display: inline;
+}
 .user-row .user-pic {
   text-align: center;
 }
