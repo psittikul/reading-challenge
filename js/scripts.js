@@ -84,7 +84,7 @@ $('.update-btn').on('click', function() {
             date_read: dateRead != '' ? dateRead : null,
             status: status,
             user_id: user_id,
-            prompt_id: prompt_id,
+            prompt_id: prompt_id != '' ? prompt_id : null,
         },
         success: function(response) {
             console.log(response);
