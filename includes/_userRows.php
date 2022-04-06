@@ -22,9 +22,11 @@
                             <h2 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                     📚: 
+                                    <h2>
                                     <?php 
                                         echo $row['bookCount'];
                                     ?>
+                                    </h2>
                                 </button>
                             </h2>
                             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -33,10 +35,10 @@
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
                         ?>
-                        <h2>Q1 📚: 
+                        <p>Q1 📚: 
                             <?php 
                                 echo $q1->fetch_column(0);
-                            ?></h2>
+                            ?></p>
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php $q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID']);?>
