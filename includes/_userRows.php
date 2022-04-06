@@ -17,14 +17,24 @@
             </div>
             <div class='col-sm stats'>
                 <div class='row'>
-                    <div class='col-sm-3 quarter'>
-                        <!-- <canvas id="myChart" width="100" height="25"></canvas> -->
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    📚: 
+                                    <?php 
+                                        echo $result->fetch_column(4);
+                                    ?>
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                <div class='col-sm-3 quarter'>
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
                         ?>
                         <h2>Q1 📚: 
                             <?php 
-                                // echo $row['bookCount'];
                                 echo $q1->fetch_column(0);
                             ?></h2>
                     </div>
@@ -51,6 +61,10 @@
                                 // echo $row['bookCount'];
                                 echo $q4->fetch_column(0);
                             ?></h2>
+                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class='row'>
