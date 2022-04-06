@@ -67,8 +67,9 @@
                             <?php
                                 $curr = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
                                 if(mysqli_num_rows($curr) > 1) {
-                                    var_dump($curr->fetch_all(MYSQLI_ASSOC));
-                                    $current = array_column($curr->fetch_all(), 'title');
+                                    // var_dump($curr->fetch_all(MYSQLI_ASSOC));
+                                    $current = array_column($curr->fetch_all(MYSQLI_ASSOC), 'title');
+                                    echo implode(', ', $current);
                                     
                                     // echo $current['title'];
                                 }
