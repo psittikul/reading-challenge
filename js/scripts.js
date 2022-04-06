@@ -26,7 +26,7 @@ const myChart = new Chart(ctx, {
             label: '# of Votes',
             data: [4],
             backgroundColor: [
-                'rgba(204, 204, 255, .65)',
+                'rgba(204, 204, 255, .8)',
                 // 'rgba(54, 162, 235, 0.2)',
                 // 'rgba(255, 206, 86, 0.2)',
                 // 'rgba(75, 192, 192, 0.2)',
@@ -46,11 +46,14 @@ const myChart = new Chart(ctx, {
     },
     options: {
         indexAxis: 'y',
-        // scales: {
-        //     y: {
-        //         beginAtZero: true
-        //     }
-        // }
+        scales: {
+            y: {
+                display: false,
+            },
+            x: {
+                display: false,
+            }
+        }
     }
 });
 
