@@ -21,18 +21,18 @@
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
                         ?>
-                        <h2>Q1 📚 
+                        <h2>Q1 📚: 
                             <?php 
                                 // echo $row['bookCount'];
-                                $q1->fetch_column(0);
+                                echo $q1->fetch_column(0);
                             ?></h2>
                     </div>
                     <div class='col-sm-3'>
                         <?php $q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID']);?>
-                        <h2>Q2 📚 
+                        <h2>Q2 📚: 
                             <?php 
                                 // echo $row['bookCount'];
-                                $q2->fetch_column(0);
+                                echo $q2->fetch_column(0);
                             ?></h2>
                     </div>
                 </div>
