@@ -23,7 +23,7 @@ const myChart = new Chart(ctx, {
     data: {
         labels: ['Q1'],
         datasets: [{
-            label: '# of Votes',
+            // label: '# of Votes',
             data: [4],
             backgroundColor: [
                 'rgba(204, 204, 255, .8)',

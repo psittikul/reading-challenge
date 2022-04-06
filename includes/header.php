@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
         <link rel='stylesheet' href='assets/styles/styles.css'>
+        <link rel="shortcut icon" href="favicon.ico"/>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     </head>
     <body>

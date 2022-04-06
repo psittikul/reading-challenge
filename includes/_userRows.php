@@ -18,7 +18,7 @@
             <div class='col-sm stats'>
                 <div class='row'>
                     <div class='col-sm-3'>
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                        <canvas id="myChart" width="100" height="50"></canvas>
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
                         ?>
