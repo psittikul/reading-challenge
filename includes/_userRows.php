@@ -10,28 +10,17 @@
 ?>
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
-                <?php echo $row['name'];?>
+                <?php echo $row['name'];
+                    📚: 
+                    echo $row['bookCount'];
+                ?>
             </h1>
             <div class='col-sm-3 user-pic'>
                 <img src='<?php echo $row['image_path'];?>'>
             </div>
             <div class='col-sm stats'>
                 <div class='row'>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    📚: 
-                                    <h2>
-                                    <?php 
-                                        echo $row['bookCount'];
-                                    ?>
-                                    </h2>
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                <div class='col-sm-3 quarter'>
+                    <div class='col-sm-3 quarter'>
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
                         ?>
@@ -63,10 +52,6 @@
                                 // echo $row['bookCount'];
                                 echo $q4->fetch_column(0);
                             ?></h2>
-                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class='row'>

@@ -1,5 +1,6 @@
 <?php
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+date_default_timezone_set('America/New_York');
 
 $server = $url["host"];
 $username = $url["user"];
