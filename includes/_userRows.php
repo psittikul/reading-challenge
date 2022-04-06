@@ -57,14 +57,18 @@
                     <div class='col'>
                         <h4>Last Read: 
                             <?php 
-                                $query = 'select title from users left outer join books on users.id = books.user_id where status = "Read" and user_id =' . $row['userID'] . 'order by date_read desc limit 1;';
                                 $last = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Read" and user_id =' . $row['userID'] . ' order by date_read desc limit 1');
                                 echo $last->fetch_column(0);
                             ?>
                         </h4>  
                     </div>
                     <div class='col'>
-                        <h4>Currently Reading: </h4>
+                        <h4>Currently Reading: 
+                            <?php
+                                $current = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
+                                var_dump($current->fetch_assoc());
+                            ?>
+                        </h4>
                     </div>
                 </div>
                 <div class="row">
