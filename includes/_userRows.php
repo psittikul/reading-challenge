@@ -65,7 +65,7 @@
                     <div class='col'>
                         <h4>Currently Reading: 
                             <?php
-                                $result = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
+                                $curr = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
                                 // var_dump($result);
                                 // $current = $result->fetch_assoc();
                                 // var_dump($current);
