@@ -26,13 +26,14 @@ body {
 }
 
 .user-row {
-    margin: 4rem auto;
+    margin: 2rem auto;
 
     .user-name {
         border: {
-            --top-left-radius: .25rem;
-            --top-right-radius: .25rem;
+            top-left-radius: .25rem;
+            top-right-radius: .25rem;
         }
+        margin-bottom: 0;
         text-transform: uppercase;
         color: white;
 
@@ -48,10 +49,16 @@ body {
         }
     }
 
+    .stat-row {
+        background: $pale;
+        &:first-of-type {
+            border-bottom: solid thin darkslategray;
+        }
+    }
+
     button.show-add-book-btn {
         @extend .btn;
-        width: 10%;
-        padding: 0;
+        width: fit-content;
         margin: 1rem;
     }
 }
@@ -60,6 +67,7 @@ form {
     margin: 2rem 0;
     text-transform: uppercase;
     display: none;
+    // transition: 0.5s;
 
     .update-btn {
         @extend .btn;

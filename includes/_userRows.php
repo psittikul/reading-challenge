@@ -18,7 +18,7 @@
                 <img src='<?php echo $row['image_path'];?>'>
             </div>
             <div class='col-sm stats'>
-                <div class='row'>
+                <div class='row stat-row'>
                     <div class='col-sm-3 quarter'>
                         <?php
                             $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID']);
@@ -53,9 +53,14 @@
                             ?></h3>
                     </div>
                 </div>
-                <div class='row'>
+                <div class='row stat-row'>
                     <div class='col'>
-                        <h4>Last Read: </h4>  
+                        <h4>Last Read: 
+                            <?php 
+                                $query = 'select title from users left outer join books on users.id = books.user_id where status = "Read" and user_id =' . $row['userID'] . 'order by date_read desc limit 1;';
+                                echo $conn->query($query)->fetch_column(0);
+                            ?>
+                        </h4>  
                     </div>
                     <div class='col'>
                         <h4>Currently Reading: </h4>

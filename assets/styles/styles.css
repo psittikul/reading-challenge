@@ -20,11 +20,12 @@ body .btn, body form .update-btn, form body .update-btn, body .user-row button.s
 }
 
 .user-row {
-  margin: 4rem auto;
+  margin: 2rem auto;
 }
 .user-row .user-name {
-  border---top-left-radius: 0.25rem;
-  border---top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  margin-bottom: 0;
   text-transform: uppercase;
   color: white;
 }
@@ -37,9 +38,14 @@ body .btn, body form .update-btn, form body .update-btn, body .user-row button.s
 .user-row .user-pic img {
   width: 100%;
 }
+.user-row .stat-row {
+  background: rgba(253, 237, 244, 0.65);
+}
+.user-row .stat-row:first-of-type {
+  border-bottom: solid thin darkslategray;
+}
 .user-row button.show-add-book-btn {
-  width: 10%;
-  padding: 0;
+  width: fit-content;
   margin: 1rem;
 }
 
