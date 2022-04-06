@@ -74,6 +74,7 @@ $('.update-btn').on('click', function() {
     var dateRead = $(this).parent().find("[data-column='date_read']").val();
     var status = $(this).parent().find("[data-column='status']").val();
     var prompt_id = $("[data-column='prompt_id'][data-user='" + user_id + "']").val();
+    console.log(prompt_id);
     $.ajax({
         method: "POST",
         url: "../includes/save.php",

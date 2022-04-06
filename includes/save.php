@@ -5,7 +5,7 @@
     $status = $_POST['status'];
     $date_read = $_POST['date_read'];
     $user_id = $_POST['user_id'];
-    $prompt_id = $_POST['prompt_id'];
+    $prompt_id = $_POST['prompt_id'] > 0 ? $_POST['prompt_id'] : NULL;
 
     $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
     
