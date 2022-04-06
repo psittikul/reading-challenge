@@ -70,8 +70,11 @@
                                 if(count($current) > 1) {
                                     echo implode(', ', array_column($current, 'title'));
                                 }
-                                else {
+                                else if(count($current) == 1) {
                                     echo $current['title'];
+                                }
+                                else {
+                                    echo '';
                                 }
                                 // echo count($current->fetch_assoc()) > 1 ? implode(',', array_column($current->fetch_assoc(), 'title')) : $current->fetch_assoc()['title'];
                             ?>
