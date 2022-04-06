@@ -23,7 +23,7 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                     📚: 
                                     <?php 
-                                        echo $result->fetch_column(4);
+                                        echo $row['bookCount'];
                                     ?>
                                 </button>
                             </h2>
@@ -51,7 +51,7 @@
                         <h2>Q3 📚: 
                             <?php 
                                 // echo $row['bookCount'];
-                                echo $q2->fetch_column(0);
+                                echo $q3->fetch_column(0);
                             ?></h2>
                     </div>
                     <div class='col-sm-3 quarter'>
