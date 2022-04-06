@@ -3,6 +3,12 @@ body {
   background-size: cover;
   font-family: "Maven Pro", sans-serif;
 }
+body .btn, body form .update-btn, form body .update-btn, body .user-row button.show-add-book-btn, .user-row body button.show-add-book-btn {
+  background: #ccccff;
+  border: none;
+  text-transform: uppercase;
+  color: darkslategray;
+}
 
 #pageTitle {
   font-family: "Maven Pro", sans-serif;
@@ -17,7 +23,8 @@ body {
   margin: 4rem auto;
 }
 .user-row .user-name {
-  border-radius: 0.75rem;
+  border---top-left-radius: 0.25rem;
+  border---top-right-radius: 0.25rem;
   text-transform: uppercase;
   color: white;
 }
@@ -30,6 +37,11 @@ body {
 .user-row .user-pic img {
   width: 100%;
 }
+.user-row button.show-add-book-btn {
+  width: 10%;
+  padding: 0;
+  margin: 1rem;
+}
 
 form {
   margin: 2rem 0;
@@ -38,10 +50,6 @@ form {
 }
 form .update-btn {
   float: right;
-  background: #ccccff;
-  border: none;
-  text-transform: uppercase;
-  color: darkslategray;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -10,6 +10,11 @@ $("[data-column='status']").on('change', function() {
     }
 });
 
+$(".show-add-book-btn").on("click", function() {
+    var userID = $(this).data("user");
+    $("form[data-user='" + userID + "']").css("display") === "none" ? $("form[data-user='" + userID + "']").css("display", "initial") : $("form[data-user='" + userID + "']").css("display", "none");
+});
+
 function formatDate(date) {
     var month = date.getMonth();
     var day = date.getDate();
