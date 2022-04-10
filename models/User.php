@@ -4,6 +4,7 @@ include 'Model.php';
 class User extends Model {
     
     // Properties
+    public $conn;
     public $id;
     public $name;
     public $image_path;
@@ -17,7 +18,7 @@ class User extends Model {
     public function __construct($id) {
         echo "New user??????";
         $this->id = $id;
-        $this->getQueryAggregates();
+        // $this->getQueryAggregates();
     }
 
     // Methods
