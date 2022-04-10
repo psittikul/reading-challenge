@@ -10,6 +10,7 @@ class Book {
     ];
 
     //Properties
+    public $id;
     public $title;
     public $author;
     public $status;
@@ -17,5 +18,5 @@ class Book {
     
     // Relations
     public $user_id;
-    public $prompt;
+    public $prompt_id;
 }

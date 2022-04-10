@@ -20,20 +20,30 @@
             <input type="date" class="form-control" data-column='date_read' data-user='<?php echo $row['userID'];?>' value='<?php echo date("Y-m-d");?>'>
         </div>
         <div class='col-sm-4'>
-            <label>Prompt</label>
-            <select class="form-select" data-column="prompt_id" data-user='<?php echo $row['userID'];?>'>
+            <!-- <label>Prompt</label>
+            <select class="form-select" data-column="prompt_id" data-user='<?php //echo $row['userID'];?>'>
                 <option value=null>Free Space</option>
                 <?php 
-                    $prompts = $conn->query('select * from prompts');
-                    while($prompt = $prompts->fetch_assoc()) {
+                    // $prompts = $conn->query('select * from prompts');
+                    // while($prompt = $prompts->fetch_assoc()) {
                 ?>
-                    <option value="<?php echo $prompt['id'];?>"><?php echo $prompt['prompt'];?></option>
+                    <option value="<?php // echo $prompt['id'];?>"><?php // echo $prompt['prompt'];?></option>
                 <?php
-                    }
+                    // }
                 ?>
-                <!-- <option value="Currently Reading">Currently Reading</option>
-                <option value="To Be Read">To Be Read</option> -->
-            </select>
+            </select> -->
+            <label class="form-label">Prompt</label>
+            <input class="form-control" data-user='<?php echo $row['userID'];?>' list="datalistOptions<?php echo $row['userID'];?>" id="promptDatalist<?php echo $row['$userID'];?>" placeholder="Type to search prompts">
+            <datalist id="datalistOptions<?php echo $row['userID'];?>">
+            <?php
+            $prompts = $conn->query('select * from prompts');
+            while($prompt = $prompts->fetch_assoc()) {
+            ?>
+                <option data-id='<?php echo $prompt['id'];?>' value='<?php echo $prompt['prompt'];?>'></option>
+            <?php
+                }
+            ?>
+            </datalist>
         </div>
     </div>
     <button type="button" class="update-btn btn btn-primary" data-user="<?php echo $row['userID'];?>" id="addBook<?php echo $row['userID'];?>">Save</button>

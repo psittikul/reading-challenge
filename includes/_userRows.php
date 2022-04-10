@@ -1,5 +1,7 @@
 <?php 
-    $result = $conn->query('SELECT users.id as userID, name, image_path, color, count(books.id) AS bookCount FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC, name ASC');
+    // include "calculateResults.php";
+    $result = $conn->query('SELECT users.id as userID, name, image_path, color FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC, name ASC');
+    // $bookPromp
     // $standings = [];
     // $q1 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q1) on (books.user_id = users.id) group by users.id');
     // $q2 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q2) on (books.user_id = users.id) group by users.id');
@@ -13,6 +15,7 @@
                 <?php echo $row['name'] . ": "; 
                     echo "<p>📚 " . $row['bookCount'] . "</p>";
                 ?>
+                <a href="/details.php" target="_blank"><i class="fa-solid fa-circle-info"></i></a>
             </h1>
             <div class='col-sm-3 user-pic'>
                 <img src='<?php echo $row['image_path'];?>'>
