@@ -25,7 +25,10 @@ class PromptController {
         echo " still ";
         $users = [];
 
-        while ($row = $this->DB->conn->query("SELECT * FROM users ORDER BY users.order DESC")->fetch_assoc()) {
+        $query = $this->DB->conn->query("SELECT * FROM users ORDER BY users.order DESC");
+        var_dump($query);
+
+        while ($row = $query->fetch_assoc()) {
             echo "idk,,,";
             $users[] = $User->find($row['id']);
         }
