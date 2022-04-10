@@ -17,7 +17,7 @@ class User extends Model {
     public function __construct($id) {
         echo "New user??????";
         $this->id = $id;
-        $this->getQueryAggregates();
+        // $this->getQueryAggregates();
     }
 
     // Methods
