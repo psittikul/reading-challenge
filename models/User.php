@@ -38,6 +38,7 @@ class User extends Model {
             $this->image_path = $user['image_path'];
         }
         $this->getQueryAggregates();
+        return $this;
     }
     
     public function getQueryAggregates() {

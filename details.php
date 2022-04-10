@@ -1,35 +1,47 @@
 <?php
-    include 'includes/connection.php';
     include 'includes/header.php';
     include 'models/User.php';
+    include 'models/Prompt.php';
+    include 'models/PromptController.php';
+    $Prompt = new Prompt();
+    $PromptController = new PromptController($Prompt);
+    // $User = new User();
     // Page to list all books, like the original spreadsheet
+    $PromptController->list();
 ?>
 <table class="table table-bordered" id="detailsTable">
   <thead>
     <tr>
-      <th scope="col">Prompt</th>
-      <th scope="col">Pam</th>
-      <th scope="col">Pat</th>
-      <th scope="col">Peric</th>
-      <th scope="col">Patrick</th>
+        <?php
+            var_dump($users);
+            // while ($user = $users) {
+                ?>
+                    <th><?php // echo $user['name'];?></th>
+                <?
+            // }
+        ?>
     </tr>
   </thead>
   <tbody>
     <?php
-    $prompts = $conn->query('select * from prompts');
-    while($prompt = $prompts->fetch_assoc()) {
+    while($prompt = $prompts) {
     ?>
     <tr class='prompt-row' data-id="<?php echo $prompt['id'];?>">
         <td>
             <?php echo $prompt['prompt'];?>
         </td>
-        <td>
+        <?php
+            // while ($user = $users) {
+            //     $User->find($user['id']);
+
+            // }
+        ?>
+        <!-- <td>
             <?php
-                $User = new User();
-                $User->find(14);
-                var_dump($User->getBookForPrompt($prompt['id']));
+                // $User->find(14);
+                // echo $User->getBookForPrompt($prompt['id'])['title'];
             ?>
-        </td>
+        </td> -->
     </tr>
     <?php
     }
