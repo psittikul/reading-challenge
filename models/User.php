@@ -30,14 +30,16 @@ class User extends Model {
     // }
 
     public function find($id) {
+        echo "Find user with ID: $id";
         $conn = $this->DB->conn;
         $query = $conn->query("SELECT * FROM users where user_id = $id");
-        while ($user = $query->fetch_assoc()) {
-            $this->id = $user['id'];
-            $this->name = $user['name'];
-            $this->color = $user['color'];
-        }
-        $this->getQueryAggregates();
+        var_dump($query);
+        // while ($user = $query->fetch_assoc()) {
+        //     $this->id = $user['id'];
+        //     $this->name = $user['name'];
+        //     $this->color = $user['color'];
+        // }
+        // $this->getQueryAggregates();
     }
     
     public function getQueryAggregates() {
