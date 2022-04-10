@@ -23,6 +23,7 @@
   </thead>
   <tbody>
     <?php
+    var_dump($Prompt);
     var_dump($Prompt->all());
     while($prompt = $Prompt->all()) {
     ?>
