@@ -31,9 +31,8 @@ class User extends Model {
 
     public function find($id) {
         echo "Find user with ID: $id";
-        $conn = $this->DB->conn;
-        var_dump($conn);
-        $query = $conn->query("SELECT * FROM users where user_id = $id");
+        // $conn = $this->DB->conn;
+        $query = $this->DB->conn->query('select * from users');
         var_dump($query);
         // while ($user = $query->fetch_assoc()) {
         //     $this->id = $user['id'];
