@@ -1,5 +1,5 @@
 <?php
-include 'DB.php';
+// include 'DB.php';
 include 'Model.php';
 
 class User extends Model {
