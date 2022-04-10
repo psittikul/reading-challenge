@@ -1,6 +1,8 @@
 <?php
 include '../models/Prompt.php';
 include '../models/User.php';
+include '../models/Model.php';
+
 class PromptController {
     private $model;
 
