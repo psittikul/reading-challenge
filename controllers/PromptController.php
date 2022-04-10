@@ -22,7 +22,7 @@ class PromptController {
         echo " still ";
         $users = [];
 
-        while ($row = $conn->query("SELECT * FROM users ORDER BY users.order DESC")->fetch_assoc()) {
+        while ($row = $this->model->DB->conn->query("SELECT * FROM users ORDER BY users.order DESC")->fetch_assoc()) {
             $users[] = $User->find($row['id']);
         }
         echo " on?\n";
