@@ -14,8 +14,9 @@ class User extends Model {
     // Relations
     public $books;
 
-    public function __construct() {
+    public function __construct($id) {
         echo "New user??????";
+        $this->id = $id;
         $this->getQueryAggregates();
     }
 
