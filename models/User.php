@@ -17,7 +17,7 @@ class User extends Model {
     public function __construct($id) {
         echo "New user??????";
         $this->id = $id;
-        // $this->getQueryAggregates();
+        $this->getQueryAggregates();
     }
 
     // Methods
@@ -40,10 +40,10 @@ class User extends Model {
         $conn = $this->DB->conn;
         $query = "SELECT books.* FROM books where user_id = $this->id";
         $result = $conn->query($query);
-
-        while($book = $result->fetch_assoc()) {
-            $this->books[] = $book;
-        }
+        var_dump($result->fetch_assoc());
+        // while($book = $result->fetch_assoc()) {
+        //     $this->books[] = $book;
+        // }
     }
 
     // public function addBook(Book $book) {
