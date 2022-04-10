@@ -2,7 +2,7 @@
     include 'includes/header.php';
     include 'models/User.php';
     include 'models/Prompt.php';
-    include 'models/PromptController.php';
+    include 'controllers/PromptController.php';
     $Prompt = new Prompt();
     $PromptController = new PromptController($Prompt);
     // $User = new User();
