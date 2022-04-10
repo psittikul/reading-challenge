@@ -25,7 +25,8 @@
         <td>
             <?php
                 $User = new User();
-                var_dump($User->get(14));
+                var_dump($User);
+                // var_dump($User->get(14));
             ?>
         </td>
     </tr>
