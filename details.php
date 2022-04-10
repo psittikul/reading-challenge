@@ -24,11 +24,11 @@
   </thead>
   <tbody>
     <?php
-    while($prompt = $prompts) {
+    // while($prompt = $prompts) {
     ?>
-    <tr class='prompt-row' data-id="<?php echo $prompt['id'];?>">
+    <tr class='prompt-row' data-id="<?php // echo $prompt['id'];?>">
         <td>
-            <?php echo $prompt['prompt'];?>
+            <?php // echo $prompt['prompt'];?>
         </td>
         <?php
             // while ($user = $users) {
@@ -44,7 +44,7 @@
         </td> -->
     </tr>
     <?php
-    }
+    // }
     ?>
   </tbody>
 </table>

@@ -1,5 +1,5 @@
 <?php
-
+include '../models/Prompt.php';
 class PromptController {
     private $model;
 
@@ -8,6 +8,7 @@ class PromptController {
     }
 
     public function list() {
+        echo "Get data needed";
         $Prompt = $this->model;
         $User = new User();
         $conn = $this->model->DB->conn;

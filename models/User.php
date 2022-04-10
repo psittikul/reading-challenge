@@ -10,6 +10,7 @@ class User extends Model {
     public $name;
     public $image_path;
     public $color;
+    public $order;
 
     public int $score;
 
@@ -36,8 +37,9 @@ class User extends Model {
             $this->name = $user['name'];
             $this->color = $user['color'];
             $this->image_path = $user['image_path'];
+            $this->order = $user['order'];
         }
-        $this->getQueryAggregates();
+        // $this->getQueryAggregates();
         return $this;
     }
     
