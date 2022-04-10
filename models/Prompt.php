@@ -7,7 +7,11 @@ class Prompt extends Model {
     public $prompt;
 
     public function all() {
+        $arr = [];
         $all = $this->DB->conn->query('SELECT * FROM prompts');
-        return $all->fetch_assoc();
+        while ($row = $all->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return $arr;
     }
 }

@@ -2,18 +2,17 @@
     include 'includes/header.php';
     include 'models/User.php';
     include 'models/Prompt.php';
-    include 'controllers/PromptController.php';
+    // include 'controllers/PromptController.php';
     $Prompt = new Prompt();
-    $PromptController = new PromptController($Prompt);
-    // $User = new User();
+    // $PromptController = new PromptController($Prompt);
+    $User = new User();
     // Page to list all books, like the original spreadsheet
-    $PromptController->list();
+    // $PromptController->list();
 ?>
 <table class="table table-bordered" id="detailsTable">
   <thead>
     <tr>
         <?php
-            var_dump($users);
             // while ($user = $users) {
                 ?>
                     <th><?php // echo $user['name'];?></th>
@@ -24,11 +23,12 @@
   </thead>
   <tbody>
     <?php
-    // while($prompt = $prompts) {
+    var_dump($Prompt->all());
+    while($prompt = $Prompt->all()) {
     ?>
-    <tr class='prompt-row' data-id="<?php // echo $prompt['id'];?>">
+    <tr class='prompt-row' data-id="<?php echo $prompt['id'];?>">
         <td>
-            <?php // echo $prompt['prompt'];?>
+            <?php echo $prompt['prompt'];?>
         </td>
         <?php
             // while ($user = $users) {
@@ -44,7 +44,7 @@
         </td> -->
     </tr>
     <?php
-    // }
+    }
     ?>
   </tbody>
 </table>
