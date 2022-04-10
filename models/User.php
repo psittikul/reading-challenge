@@ -16,12 +16,12 @@ class User extends Model {
     // Relations
     public $books;
 
-    public function __construct($id) {
-        echo "New user??????";
-        $this->id = $id;
-        // var_dump($this);
-        // $this->getQueryAggregates();
-    }
+    // public function __construct($id) {
+    //     echo "New user??????";
+    //     $this->id = $id;
+    //     // var_dump($this);
+    //     // $this->getQueryAggregates();
+    // }
 
     // Methods
     // public function all() {
