@@ -29,7 +29,7 @@ class User extends Model {
     //     $result = $conn->query('SELECT * FROM users');
     // }
 
-    public function get($id) {
+    public function find($id) {
         $conn = $this->DB->conn;
         $query = $conn->query("SELECT * FROM users where user_id = $id");
         while ($user = $query->fetch_assoc()) {
@@ -37,6 +37,7 @@ class User extends Model {
             $this->name = $user['name'];
             $this->color = $user['color'];
         }
+        $this->getQueryAggregates();
     }
     
     public function getQueryAggregates() {
