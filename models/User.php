@@ -1,6 +1,6 @@
 <?php
-include 'Model.php';
 include 'DB.php';
+include 'Model.php';
 
 class User extends Model {
     
@@ -19,7 +19,7 @@ class User extends Model {
     public function __construct($id) {
         echo "New user??????";
         $this->id = $id;
-        var_dump($this->DB);
+        // var_dump($this);
         // $this->getQueryAggregates();
     }
 
