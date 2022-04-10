@@ -1,5 +1,6 @@
 <?php
 include 'Model.php';
+include 'DB.php';
 
 class User extends Model {
     
