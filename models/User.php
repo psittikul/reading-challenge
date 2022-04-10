@@ -1,6 +1,7 @@
 <?php
+include 'Model.php';
 
-class User {
+class User extends Model {
     
     // Properties
     public $id;
