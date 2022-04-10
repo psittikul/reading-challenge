@@ -16,7 +16,7 @@ class User extends Model {
 
     public function __construct() {
         echo "New user??????";
-        // $this->getQueryAggregates();
+        $this->getQueryAggregates();
     }
 
     // Methods
@@ -25,25 +25,25 @@ class User extends Model {
     //     $result = $conn->query('SELECT * FROM users');
     // }
 
-    // public function get($id) {
-    //     $conn = $this->DB->conn;
-    //     $query = $conn->query("SELECT * FROM users where user_id = $id");
-    //     while ($user = $query->fetch_assoc()) {
-    //         $this->id = $user['id'];
-    //         $this->name = $user['name'];
-    //         $this->color = $user['color'];
-    //     }
-    // }
+    public function get($id) {
+        $conn = $this->DB->conn;
+        $query = $conn->query("SELECT * FROM users where user_id = $id");
+        while ($user = $query->fetch_assoc()) {
+            $this->id = $user['id'];
+            $this->name = $user['name'];
+            $this->color = $user['color'];
+        }
+    }
     
-    // public function getQueryAggregates() {
-    //     $conn = $this->DB->conn;
-    //     $query = "SELECT books.* FROM books where user_id = $this->id";
-    //     $result = $conn->query($query);
+    public function getQueryAggregates() {
+        $conn = $this->DB->conn;
+        $query = "SELECT books.* FROM books where user_id = $this->id";
+        $result = $conn->query($query);
 
-    //     while($book = $result->fetch_assoc()) {
-    //         $this->books[] = $book;
-    //     }
-    // }
+        while($book = $result->fetch_assoc()) {
+            $this->books[] = $book;
+        }
+    }
 
     // public function addBook(Book $book) {
         

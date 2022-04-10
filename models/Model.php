@@ -1,4 +1,5 @@
 <?php
+include 'DB.php';
 
 class Model {
     public $DB;
