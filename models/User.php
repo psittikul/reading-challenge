@@ -13,9 +13,8 @@ class User extends Model {
     // Relations
     public $books;
 
-    public function __construct($id) {
-        $this->id = $id;
-        echo "Can we get user ID $this->id???";
+    public function __construct() {
+        echo "New user??????";
         // $this->getQueryAggregates();
     }
 
@@ -27,7 +26,12 @@ class User extends Model {
 
     public function get($id) {
         $conn = $this->DB->conn;
-        $query = "SELECT * FROM users where user_id = $id";
+        $query = $conn->query("SELECT * FROM users where user_id = $id");
+        while ($user = $query->fetch_assoc()) {
+            $this->id = $user['id'];
+            $this->name = $user['name'];
+            $this->color = $user['color'];
+        }
     }
     
     public function getQueryAggregates() {
