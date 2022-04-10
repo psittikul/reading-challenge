@@ -1,7 +1,8 @@
 <?php
-    include 'includes/connection.php';
+    // include 'includes/connection.php';
     include 'includes/header.php';
     include 'models/User.php';
+    include 'models/Prompt.php';
     // Page to list all books, like the original spreadsheet
 ?>
 <table class="table table-bordered" id="detailsTable">
@@ -16,8 +17,8 @@
   </thead>
   <tbody>
     <?php
-    $prompts = $conn->query('select * from prompts');
-    while($prompt = $prompts->fetch_assoc()) {
+    // $prompts = $conn->query('select * from prompts');
+    while($prompt = Prompt::all()) {
     ?>
     <tr class='prompt-row' data-id="<?php echo $prompt['id'];?>">
         <td>
