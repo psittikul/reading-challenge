@@ -27,8 +27,7 @@
             <?php
                 $User = new User();
                 $User->find(14);
-                var_dump($User->books);
-                return;
+                var_dump($User->getBookForPrompt($prompt['id']));
             ?>
         </td>
     </tr>

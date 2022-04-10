@@ -55,4 +55,11 @@ class User extends Model {
     // public function getScore() {
 
     // }
+
+    public function getBookForPrompt($prompt) {
+        $query = "SELECT * from books where user_id = $this->id AND prompt_id = $prompt";
+        $result = $this->DB->conn->query($query);
+        // var_dump($result->fetch_assoc());
+        return $result->fetch_assoc();
+    }
 }
