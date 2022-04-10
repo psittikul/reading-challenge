@@ -15,10 +15,21 @@ class User extends Model {
 
     public function __construct($id) {
         $this->id = $id;
-        $this->getQueryAggregates();
+        echo "Can we get user ID $this->id???";
+        // $this->getQueryAggregates();
     }
 
     // Methods
+    public function all() {
+        $conn = $this->DB->conn;
+        $result = $conn->query('SELECT * FROM users');
+    }
+
+    public function get($id) {
+        $conn = $this->DB->conn;
+        $query = "SELECT * FROM users where user_id = $id";
+    }
+    
     public function getQueryAggregates() {
         $conn = $this->DB->conn;
         $query = "SELECT books.* FROM books where user_id = $this->id";
