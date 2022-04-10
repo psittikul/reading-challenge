@@ -43,10 +43,9 @@ class User extends Model {
     public function getQueryAggregates() {
         $query = "SELECT books.* FROM books where user_id = $this->id";
         $result = $this->DB->conn->query($query);
-        var_dump($result->fetch_assoc());
-        // while($book = $result->fetch_assoc()) {
-        //     $this->books[] = $book;
-        // }
+        while($book = $result->fetch_assoc()) {
+            $this->books[] = $book;
+        }
     }
 
     // public function addBook(Book $book) {

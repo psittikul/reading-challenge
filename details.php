@@ -26,8 +26,8 @@
         <td>
             <?php
                 $User = new User();
-                // var_dump($User);
-                var_dump($User->find(14));
+                $User->find(14);
+                var_dump($User->books);
                 return;
             ?>
         </td>
