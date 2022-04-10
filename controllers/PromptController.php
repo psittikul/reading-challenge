@@ -2,12 +2,15 @@
 include '../models/Prompt.php';
 include '../models/User.php';
 include '../models/Model.php';
+include '../models/DB.php';
 
 class PromptController {
     private $model;
+    private $DB;
 
     public function __construct($model) {
         $this->model = $model;
+        $this->DB = new DB();
     }
 
     public function list() {
@@ -22,7 +25,8 @@ class PromptController {
         echo " still ";
         $users = [];
 
-        while ($row = $this->model->DB->conn->query("SELECT * FROM users ORDER BY users.order DESC")->fetch_assoc()) {
+        while ($row = $this->DB->conn->query("SELECT * FROM users ORDER BY users.order DESC")->fetch_assoc()) {
+            echo "idk,,,";
             $users[] = $User->find($row['id']);
         }
         echo " on?\n";
