@@ -10,7 +10,8 @@
         select users.name, users.image_path, users.color, users.id as userID, count(books.id) as freeReads
         from users left outer join books on users.id = books.user_id
         where books.prompt_id is null AND books.status = 'Read' group by users.id
-        ) as y on x.userID = y.userID;";
+        ) as y on x.userID = y.userID
+        order by (y.freeReads + x.promptBooks) DESC, y.name ASC;";
     $result = $conn->query($query);    
     var_dump($result);
     while($row = $result->fetch_assoc()) {
@@ -45,7 +46,7 @@
                         ?>
                         <h3>Q1 📚: 
                             <?php 
-                                echo $q1->fetch_column(0);
+                                echo $q1->fetch_column(1) . ", " . $q1->fetch_column(0);
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>

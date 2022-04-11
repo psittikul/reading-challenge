@@ -95,3 +95,7 @@ $('.update-btn').on('click', function() {
         }
     });
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
