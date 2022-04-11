@@ -2,7 +2,7 @@
     $query = "select y.freeReads, x.promptBooks, y.name, y.image_path, y.color, y.userID
         from
         (
-            select users.id as userID, 2 * count(books.id) AS promptBooks
+            select users.id as userID, count(books.id) AS promptBooks
             from users left outer join books on users.id = books.user_id
             where books.prompt_id > 0 AND books.status = 'Read' group by users.id
         ) as x
@@ -11,9 +11,8 @@
         from users left outer join books on users.id = books.user_id
         where books.prompt_id is null AND books.status = 'Read' group by users.id
         ) as y on x.userID = y.userID
-        order by (y.freeReads + x.promptBooks) DESC, y.name ASC;";
-    $result = $conn->query($query);    
-    var_dump($result);
+        order by bookCount DESC, y.name ASC;";
+    $result = $conn->query($query);
     while($row = $result->fetch_assoc()) {
 ?>
         <div class='row user-row'>
@@ -21,7 +20,7 @@
                 <?php
                     $row['freeReads'] = $row['freeReads'] ?? 0;
                     $row['promptBooks'] = $row['promptBooks'] ?? 0;
-                    $bookCount = $row['freeReads'] + $row['promptBooks'];
+                    $bookCount = $row['freeReads'] + (2 * $row['promptBooks']);
                     echo $row['name'] . ": "; 
                     echo "<p data-toggle='tooltip' data-placement='top' title='Challenge books: " . $row['promptBooks'] . " Free reads: " .
                         $row['freeReads'] . "'>📚 " . $bookCount . "</p>";
