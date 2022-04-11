@@ -37,6 +37,7 @@
             <datalist id="datalistOptions<?php echo $row['userID'];?>">
             <?php
                 foreach($prompts as $prompt) {
+                    echo $prompt['id'] . ": " . $prompt['prompt'] . "\n";
             ?>
                 <option data-id='<?php echo $prompt['id'];?>' value='<?php echo $prompt['prompt'];?>'></option>
             <?php
