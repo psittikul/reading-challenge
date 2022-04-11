@@ -69,16 +69,20 @@
                                 where books.prompt_id is null AND books.status = 'Read' and user_id = " . $row['userID'] . 
                                 ") as y on x.userID = y.userID) as z) as az;";
                             $q1 = $conn->query($query);
+                            while ($q1Row = $q1->fetch_assoc()) {
                         ?>
-                        <h3>Q1 📚: 
+                        <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $q1Row['promptBooks'] . " Free reads: " . $q1Row['freeReads'];?>'>Q1 📚: 
                             <?php 
-                                while ($q1Row = $q1->fetch_assoc()) {
-                                    echo $q1Row['freeReads'] . " + " . $q1Row['promptBooks'] . " = " . $q1Row['bookCount'];
+                                    echo $q1Row['bookCount'];
                                 }
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php //$q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
+                        <?php 
+                            $User = new User();
+                            $data = $User->getQuarter($row['userID'], 'q2');
+                            var_dump($data);
+                            ?>
                         <h3>Q2 📚: 
                             <?php 
                                 // echo $row['bookCount'];

@@ -3,7 +3,40 @@
 // include 'Model.php';
 
 // class User extends Model {
+class User {
     
+    public function getQuarter($userID, $quarter) {
+        $query = "select
+            freeReads,
+            promptBooks,
+            freeReads + 2*promptBooks as bookCount
+            from
+            (select
+            if(z.freeReads is null, 0, z.freeReads) as freeReads,
+            if(z.promptBooks is null, 0, z.promptBooks) as promptBooks
+            from
+            (select y.freeReads as freeReads, x.promptBooks as promptBooks
+            from
+            (
+                select user_id as $userID, count(books.id) AS promptBooks
+                from books partition($quarter)
+                where books.prompt_id > 0 AND books.status = 'Read' and user_id = $userID
+            ) as x
+            right outer join (
+            select user_id as userID, count(books.id) as freeReads
+            from books partition($quarter)
+            where books.prompt_id is null AND books.status = 'Read' and user_id = $userID) as y on x.userID = y.userID) as z) as az;";
+        $result = $GLOBALS['conn']->query($query);
+        $data = [];
+        while($row = $result->fetch_assoc()) {
+            $data = [
+                'freeReads' => $row['freeReads'],
+                'promptBooks' => $row['promptBooks'],
+                'bookCount' => $row['bookCount'],
+            ];
+        }
+        return $data;
+    }
 //     // Properties
 //     // public $conn;
 //     public $id;
@@ -16,6 +49,10 @@
 
 //     // Relations
 //     public $books;
+
+    public function __construct() {
+        // idk something goes here maybe??
+    }
 
 //     // public function __construct($id) {
 //     //     echo "New user??????";
@@ -65,4 +102,4 @@
 //         // var_dump($result->fetch_assoc());
 //         return $result->fetch_assoc();
 //     }
-// }
+}
