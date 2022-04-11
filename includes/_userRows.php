@@ -1,6 +1,9 @@
 <?php 
     // include "calculateResults.php";
-    $result = $conn->query('SELECT users.id as userID, name, image_path, color FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC, name ASC');
+    echo "Show users now please";
+    var_dump($conn);
+    $result = $conn->query("SELECT * FROM users");
+    // $result = $conn->query('SELECT users.id as userID, name, image_path, color FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC, name ASC');
     // $bookPromp
     // $standings = [];
     // $q1 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q1) on (books.user_id = users.id) group by users.id');
