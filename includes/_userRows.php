@@ -1,22 +1,26 @@
 <?php 
-    // include "calculateResults.php";
-    echo "Show users now please";
-    var_dump($conn);
-    $result = $conn->query("SELECT * FROM users");
-    // $result = $conn->query('SELECT users.id as userID, name, image_path, color FROM users LEFT OUTER JOIN books ON users.id = books.user_id where books.status = "Read" GROUP BY users.id ORDER BY bookCount DESC, name ASC');
-    // $bookPromp
-    // $standings = [];
-    // $q1 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q1) on (books.user_id = users.id) group by users.id');
-    // $q2 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q2) on (books.user_id = users.id) group by users.id');
-    // $q3 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q3) on (books.user_id = users.id) group by users.id');
-    // $q4 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q4) on (books.user_id = users.id) group by users.id');
-    var_dump($result);
+    $query = "select y.freeReads, x.promptBooks, y.name
+        from
+        (
+            select users.id as userID, 2 * count(books.id) AS promptBooks
+            from users left outer join books on users.id = books.user_id
+            where books.prompt_id > 0 AND books.status = 'Read' group by users.id
+        ) as x
+        right outer join (
+        select users.name, users.image_path, users.color, users.id as userID, count(books.id) as freeReads
+        from users left outer join books on users.id = books.user_id
+        where books.prompt_id is null AND books.status = 'Read' group by users.id
+        ) as y on x.userID = y.userID;";
+    $result = $conn->query($query);    
     while($row = $result->fetch_assoc()) {
 ?>
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
-                <?php echo $row['name'] . ": "; 
-                    echo "<p>📚 " . $row['bookCount'] . "</p>";
+                <?php
+                    $bookCount = $row['freeReads'] + $row['promptBooks'];
+                    echo $row['name'] . ": "; 
+                    echo "<p data-toggle='tooltip' data-placement='top' title='Challenge books: " . $row['promptBooks'] . " Free reads: " .
+                        $row['freeReads'] . "'>📚 " . $bookCount . "</p>";
                 ?>
                 <a href="/details.php" target="_blank"><i class="fa-solid fa-circle-info"></i></a>
             </h1>
@@ -27,7 +31,14 @@
                 <div class='row stat-row'>
                     <div class='col-sm-3 quarter'>
                         <?php
-                            $q1 = $conn->query('select count(books.id) as booksRead from books partition(q1) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');
+                            $query = "select x.freeReads, y.promptBooks from 
+                                (select user_id, count(books.id) as freeReads from books partition(q1) where status = 'Read' and user_id = " . $row['userID'] .
+                                " and prompt_id is null) as x
+                                right outer join 
+                                (select user_id, 2*count(books.id) as promptBooks from books partition(q1) where status = 'Read' and user_id = "  . $row['userID']
+                                . " and prompt_id > 0) as y
+                                on x.user_id = y.user_id;";
+                            $q1 = $conn->query($query);
                         ?>
                         <h3>Q1 📚: 
                             <?php 
@@ -35,27 +46,27 @@
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php $q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
+                        <?php //$q2 = $conn->query('select count(books.id) as booksRead from books partition(q2) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
                         <h3>Q2 📚: 
                             <?php 
                                 // echo $row['bookCount'];
-                                echo $q2->fetch_column(0);
+                              //  echo $q2->fetch_column(0);
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php $q3 = $conn->query('select count(books.id) as booksRead from books partition(q3) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
+                        <?php // $q3 = $conn->query('select count(books.id) as booksRead from books partition(q3) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
                         <h3>Q3 📚: 
                             <?php 
                                 // echo $row['bookCount'];
-                                echo $q3->fetch_column(0);
+                                // echo $q3->fetch_column(0);
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php $q4 = $conn->query('select count(books.id) as booksRead from books partition(q4) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
+                        <?php // $q4 = $conn->query('select count(books.id) as booksRead from books partition(q4) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
                         <h3>Q4 📚: 
                             <?php 
                                 // echo $row['bookCount'];
-                                echo $q4->fetch_column(0);
+                               // echo $q4->fetch_column(0);
                             ?></h3>
                     </div>
                 </div>
