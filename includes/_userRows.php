@@ -27,8 +27,8 @@
         ) as y on x.userID = y.userID) as z) as az
     order by bookCount desc, name asc;";
     $result = $conn->query($query);
-    var_dump($result);
     while($row = $result->fetch_assoc()) {
+        var_dump($row);
 ?>
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
