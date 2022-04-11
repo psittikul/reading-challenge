@@ -103,29 +103,29 @@
                     <div class='col'>
                         <h4>Last Read: 
                             <?php 
-                                $last = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Read" and user_id =' . $row['userID'] . ' order by date_read desc limit 1');
-                                echo $last->fetch_column(0);
+                                // $last = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Read" and user_id =' . $row['userID'] . ' order by date_read desc limit 1');
+                                // echo $last->fetch_column(0);
                             ?>
                         </h4>  
                     </div>
                     <div class='col'>
                         <h4>Currently Reading: 
                             <?php
-                                $curr = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
-                                if(mysqli_num_rows($curr) > 1) {
-                                    // var_dump($curr->fetch_all(MYSQLI_ASSOC));
-                                    $current = array_column($curr->fetch_all(MYSQLI_ASSOC), 'title');
-                                    echo implode(', ', $current);
+                                // $curr = $conn->query('select title from users left outer join books on users.id = books.user_id where status = "Currently Reading" and user_id = ' . $row['userID']);
+                                // if(mysqli_num_rows($curr) > 1) {
+                                //     // var_dump($curr->fetch_all(MYSQLI_ASSOC));
+                                //     $current = array_column($curr->fetch_all(MYSQLI_ASSOC), 'title');
+                                //     echo implode(', ', $current);
                                     
-                                    // echo $current['title'];
-                                }
-                                else if(mysqli_num_rows($curr) == 1) {
-                                    $current = $curr->fetch_column(0);
-                                    echo $current;
-                                }
-                                else {
-                                    echo '';
-                                }
+                                //     // echo $current['title'];
+                                // }
+                                // else if(mysqli_num_rows($curr) == 1) {
+                                //     $current = $curr->fetch_column(0);
+                                //     echo $current;
+                                // }
+                                // else {
+                                //     echo '';
+                                // }
                                 // if(count($current) > 1) {
                                 //     echo implode(', ', array_column($current, 'title'));
                                 // }
