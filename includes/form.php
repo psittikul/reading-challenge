@@ -36,8 +36,7 @@
             <input class="form-control" data-user='<?php echo $row['userID'];?>' list="datalistOptions<?php echo $row['userID'];?>" id="promptDatalist<?php echo $row['$userID'];?>" placeholder="Type to search prompts">
             <datalist id="datalistOptions<?php echo $row['userID'];?>">
             <?php
-            $prompts = $conn->query('select * from prompts');
-            while($prompt = $prompts->fetch_assoc()) {
+                foreach($prompts as $prompt) {
             ?>
                 <option data-id='<?php echo $prompt['id'];?>' value='<?php echo $prompt['prompt'];?>'></option>
             <?php

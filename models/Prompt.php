@@ -1,17 +1,24 @@
 <?php
-// include 'Model.php';
-// class Prompt extends Model {
 
-//     //Properties
-//     public $id;
-//     public $prompt;
+class Prompt {
 
-//     public function all() {
-//         $arr = [];
-//         $all = $this->DB->conn->query('SELECT * FROM prompts');
-//         while ($row = $all->fetch_assoc()) {
-//             $arr[] = $row;
-//         }
-//         return $arr;
-//     }
-// }
+    // Properties
+    public int $id;
+    public $prompt;
+
+    public function __construct() {
+        // Is this necessary?
+    }
+
+    public function getAll() {
+        $result = $GLOBALS['conn']->query('SELECT * FROM prompts');
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = [
+                'id' => $row['id'],
+                'prompt' => $row['prompt'],
+            ];
+        }
+        return $data;
+    }
+}

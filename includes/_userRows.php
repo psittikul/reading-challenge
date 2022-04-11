@@ -140,7 +140,7 @@
                 </div>
                 <div class="row">
                     <button type="button" class="show-add-book-btn btn btn-primary" data-user="<?php echo $row['userID'];?>"><i class="fa-solid fa-plus"></i> Add Book</button>
-                    <?php // include "form.php";?>
+                    <?php include "form.php";?>
                 </div>
             </div>
         </div>
