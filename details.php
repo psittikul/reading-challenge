@@ -1,6 +1,6 @@
 <?php
     include 'includes/header.php';
-    include 'includes/connection.php';
+    // include 'includes/connection.php';
     // Page to list all books, like the original spreadsheet
 ?>
 <table class="table table-bordered" id="detailsTable">
