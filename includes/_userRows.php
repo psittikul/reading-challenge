@@ -1,5 +1,5 @@
 <?php 
-    $query = "select y.freeReads, x.promptBooks, y.name
+    $query = "select y.freeReads, x.promptBooks, y.name, y.image_path, y.color, y.userID
         from
         (
             select users.id as userID, 2 * count(books.id) AS promptBooks
@@ -12,17 +12,20 @@
         where books.prompt_id is null AND books.status = 'Read' group by users.id
         ) as y on x.userID = y.userID;";
     $result = $conn->query($query);    
+    var_dump($result);
     while($row = $result->fetch_assoc()) {
 ?>
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
                 <?php
+                    $row['freeReads'] = $row['freeReads'] ?? 0;
+                    $row['promptBooks'] = $row['promptBooks'] ?? 0;
                     $bookCount = $row['freeReads'] + $row['promptBooks'];
                     echo $row['name'] . ": "; 
                     echo "<p data-toggle='tooltip' data-placement='top' title='Challenge books: " . $row['promptBooks'] . " Free reads: " .
                         $row['freeReads'] . "'>📚 " . $bookCount . "</p>";
                 ?>
-                <a href="/details.php" target="_blank"><i class="fa-solid fa-circle-info"></i></a>
+                <!-- <a href="/details.php" target="_blank"><i class="fa-solid fa-circle-info"></i></a> -->
             </h1>
             <div class='col-sm-3 user-pic'>
                 <img src='<?php echo $row['image_path'];?>'>
