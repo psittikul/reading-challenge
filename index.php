@@ -7,4 +7,5 @@
 
     $Prompt = new Prompt();
     $prompts = $Prompt->getAll();
+    var_dump($prompts);
 ?>
