@@ -6,7 +6,6 @@
 class User {
     
     public function getQuarter($userID, $quarter) {
-        echo "time to get quarter stats for user: $userID in quarter $quarter\n";
         $query = "select
             freeReads,
             promptBooks,
