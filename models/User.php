@@ -28,7 +28,6 @@ class User {
             from books partition($quarter)
             where books.prompt_id is null AND books.status = 'Read' and user_id = $userID) as y on x.userID = y.userID) as z) as az;";
         $result = $GLOBALS['conn']->query($query);
-        var_dump($result);
         $data = [];
         while($row = $result->fetch_assoc()) {
             $data = [

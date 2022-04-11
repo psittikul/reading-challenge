@@ -90,7 +90,7 @@
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php
-                            var_dump(date("Y-m-d"));
+                            var_dump(date("Y-m-d") > '2022-06-30' && date("Y-m-d") < '2022-10-01');
                         ?>
                         <h3>Q3 📚: 
                             <?php 
