@@ -34,8 +34,8 @@
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
                 <?php
                     echo $row['name'] . ": "; 
-                    // echo "<p data-toggle='tooltip' data-placement='top' title='Challenge books: " . $row['promptBooks'] . " Free reads: " .
-                    //     $row['freeReads'] . "'>📚 " . $row['bookCount'] . "</p>";
+                    echo "<p data-toggle='tooltip' data-placement='top' title='Challenge books: " . $row['promptBooks'] . " Free reads: " .
+                        $row['freeReads'] . "'>📚 " . $row['bookCount'] . "</p>";
                 ?>
                 <!-- <a href="/details.php" target="_blank"><i class="fa-solid fa-circle-info"></i></a> -->
             </h1>
@@ -71,7 +71,7 @@
                         ?>
                         <h3>Q1 📚: 
                             <?php 
-                                echo $q1->fetch_column(1) . " + " . $q1->fetch_column(0) . "= " . $q1->fetch_column(2);
+                                // echo $q1->fetch_column(1) . " + " . $q1->fetch_column(0) . "= " . $q1->fetch_column(2);
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
