@@ -2,7 +2,9 @@
     $query = "select name,
     freeReads,
     promptBooks,
-    freeReads + 2*promptBooks as bookCount
+    freeReads + 2*promptBooks as bookCount,
+    image_path,
+    color
     from
         (select
         if(z.freeReads is null, 0, z.freeReads) as freeReads,
@@ -30,12 +32,9 @@
         <div class='row user-row'>
             <h1 class='user-name' style='background: <?php echo $row['color'];?>'>
                 <?php
-                    $row['freeReads'] = $row['freeReads'] ?? 0;
-                    $row['promptBooks'] = $row['promptBooks'] ?? 0;
-                    $bookCount = $row['freeReads'] + (2 * $row['promptBooks']);
                     echo $row['name'] . ": "; 
                     echo "<p data-toggle='tooltip' data-placement='top' title='Challenge books: " . $row['promptBooks'] . " Free reads: " .
-                        $row['freeReads'] . "'>📚 " . $bookCount . "</p>";
+                        $row['freeReads'] . "'>📚 " . $row['bookCount'] . "</p>";
                 ?>
                 <!-- <a href="/details.php" target="_blank"><i class="fa-solid fa-circle-info"></i></a> -->
             </h1>
