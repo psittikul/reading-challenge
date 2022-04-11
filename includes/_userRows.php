@@ -72,7 +72,7 @@
                         ?>
                         <h3>Q1 📚: 
                             <?php 
-                                // echo $q1->fetch_column(1) . " + " . $q1->fetch_column(0) . "= " . $q1->fetch_column(2);
+                                echo $q1->fetch_column(1) . " + " . $q1->fetch_column(0) . "= " . $q1->fetch_column(2);
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
