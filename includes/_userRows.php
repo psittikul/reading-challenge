@@ -45,18 +45,32 @@
                 <div class='row stat-row'>
                     <div class='col-sm-3 quarter'>
                         <?php
-                            $query = "select x.freeReads, y.promptBooks from 
-                                (select user_id, count(books.id) as freeReads from books partition(q1) where status = 'Read' and user_id = " . $row['userID'] .
-                                " and prompt_id is null) as x
-                                right outer join 
-                                (select user_id, 2*count(books.id) as promptBooks from books partition(q1) where status = 'Read' and user_id = "  . $row['userID']
-                                . " and prompt_id > 0) as y
-                                on x.user_id = y.user_id;";
+                            $query = "select
+                                freeReads,
+                                promptBooks,
+                                freeReads + 2*promptBooks as bookCount
+                                from
+                                (select
+                                if(z.freeReads is null, 0, z.freeReads) as freeReads,
+                                if(z.promptBooks is null, 0, z.promptBooks) as promptBooks
+                                from
+                                (select y.freeReads as freeReads, x.promptBooks as promptBooks
+                                from
+                                (
+                                    select user_id as userID, count(books.id) AS promptBooks
+                                    from books 
+                                    where books.prompt_id > 0 AND books.status = 'Read' and user_id = " . $row['userID'] .
+                                ") as x
+                                right outer join (
+                                select user_id as userID, count(books.id) as freeReads
+                                from books partition(q1)
+                                where books.prompt_id is null AND books.status = 'Read' and user_id = " . $row['userID'] . 
+                                ") as y on x.userID = y.userID) as z) as az;";
                             $q1 = $conn->query($query);
                         ?>
                         <h3>Q1 📚: 
                             <?php 
-                                echo $q1->fetch_column(1) . ", " . $q1->fetch_column(0);
+                                echo $q1->fetch_column(1) . " + " . $q1->fetch_column(0) . "= " . $q1->fetch_column(2);
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
