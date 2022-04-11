@@ -90,12 +90,16 @@
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php
-                            var_dump(date("Y-m-d") > '2022-06-30' && date("Y-m-d") < '2022-10-01');
+                            if (date("Y-m-d") > '2022-06-30' && date("Y-m-d") < '2022-10-01') {
+                                $data = $User->getQuarter($row['userID'], 'q3');
+                            }
+                            else {
+                                $data = ['freeReads'=>0, 'promptBooks'=>0, 'bookCount'=>0];
+                            }
                         ?>
-                        <h3>Q3 📚: 
+                        <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'] ?>'>Q2 📚: 
                             <?php 
-                                // echo $row['bookCount'];
-                                // echo $q3->fetch_column(0);
+                                echo $data['bookCount'];
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
