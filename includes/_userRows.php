@@ -80,6 +80,7 @@
                     <div class='col-sm-3 quarter'>
                         <?php 
                             $User = new User();
+                            echo "Trying to call getQuarter function\n";
                             $data = $User->getQuarter($row['userID'], 'q2');
                             var_dump($data);
                             ?>
