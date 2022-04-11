@@ -7,7 +7,7 @@
     // $q2 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q2) on (books.user_id = users.id) group by users.id');
     // $q3 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q3) on (books.user_id = users.id) group by users.id');
     // $q4 = $conn->query('select users.*, count(books.id) as bookCount from users left outer join books partition(q4) on (books.user_id = users.id) group by users.id');
-   
+    var_dump($result);
     while($row = $result->fetch_assoc()) {
 ?>
         <div class='row user-row'>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="row">
                     <button type="button" class="show-add-book-btn btn btn-primary" data-user="<?php echo $row['userID'];?>"><i class="fa-solid fa-plus"></i> Add Book</button>
-                    <?php include "form.php";?>
+                    <?php // include "form.php";?>
                 </div>
             </div>
         </div>
