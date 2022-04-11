@@ -82,16 +82,16 @@
                             $User = new User();
                             echo "Trying to call getQuarter function\n";
                             $data = $User->getQuarter($row['userID'], 'q2');
-                            var_dump($data);
                             ?>
-                        <h3>Q2 📚: 
+                        <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'] ?>'>Q2 📚: 
                             <?php 
-                                // echo $row['bookCount'];
-                              //  echo $q2->fetch_column(0);
+                                echo $data['bookCount'];
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
-                        <?php // $q3 = $conn->query('select count(books.id) as booksRead from books partition(q3) where books.user_id = ' . $row['userID'] . ' AND status = "Read"');?>
+                        <?php
+                            var_dump(date("Y-m-d"));
+                        ?>
                         <h3>Q3 📚: 
                             <?php 
                                 // echo $row['bookCount'];
