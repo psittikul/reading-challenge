@@ -1,5 +1,6 @@
 <?php 
     $query = "select name,
+    userID,
     freeReads,
     promptBooks,
     freeReads + 2*promptBooks as bookCount,
@@ -9,11 +10,12 @@
         (select
         if(z.freeReads is null, 0, z.freeReads) as freeReads,
         if(z.promptBooks is null, 0, z.promptBooks) as promptBooks,
+        z.userID as userID,
         z.name as name,
         z.image_path as image_path,
         z.color as color
         from
-        (select y.freeReads as freeReads, x.promptBooks as promptBooks, y.name as name, y.image_path as image_path, y.color as color
+        (select y.freeReads as freeReads, x.promptBooks as promptBooks, y.userID as userID, y.name as name, y.image_path as image_path, y.color as color
         from
         (
             select users.id as userID, count(books.id) AS promptBooks
