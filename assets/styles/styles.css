@@ -10,6 +10,17 @@ body .btn, body form .update-btn, form body .update-btn, body .user-row button.s
   color: darkslategray;
 }
 
+#topNav {
+  width: fit-content;
+  margin: auto;
+}
+#topNav a {
+  text-decoration: none;
+}
+#topNav li {
+  background: rgba(204, 204, 255, 0.65);
+}
+
 #pageTitle {
   font-family: "Maven Pro", sans-serif;
   text-align: center;
@@ -60,6 +71,9 @@ form .update-btn {
 
 table {
   background: ghostwhite;
+}
+table td.read {
+  background: palegreen;
 }
 
 /*# sourceMappingURL=styles.css.map */

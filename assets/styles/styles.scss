@@ -16,6 +16,17 @@ body {
     }
 }
 
+#topNav {
+    width: fit-content;
+    margin: auto;
+    a {
+        text-decoration: none;
+    }
+    li {
+        background: $Periwinkli;
+    }
+}
+
 #pageTitle {
     font-family: $Maven;
     text-align: center;
