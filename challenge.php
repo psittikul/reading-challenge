@@ -57,7 +57,7 @@
             <script>
             <?php
                 echo "var user_id ='$user_id';";
-                echo "var book =JSON.stringify('$book');";
+                echo "var book =JSON.stringify('$book';)";
                 echo "var prompt ='$prompt_array';";
             ?>
                 var prompt = JSON.parse(prompt);
