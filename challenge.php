@@ -59,8 +59,8 @@
                 echo "var prompt_text ='$prompt_text';";
             ?>
                 var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']";
-                console.log(selector);
-                $(selector).on('click', function() {
+                // console.log(selector);
+                $(".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']").on('click', function() {
                     console.log('Set up modal for user: ' + user_id + ' prompt: ' + prompt_id + ' book: ' + title);
                     $("#editBookModal").find(".modal-title").text(prompt_text);
                     $("#editBookModal").find("[data-column='title']").val(title);
