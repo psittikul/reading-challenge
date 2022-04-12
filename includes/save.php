@@ -10,6 +10,7 @@
     $book_id = $_POST['book_id'];
     $old_book_id = $_POST['old_book_id'] > 0 ? $_POST['old_book_id'] : NULL;
     var_dump($_POST);
+    return;
     if($old_book_id > 0) {
         $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
         $result = $conn->query($query);
