@@ -69,10 +69,19 @@ form .update-btn {
   float: right;
 }
 
-table {
+table#challengeTable {
+  margin-top: 2rem;
   background: ghostwhite;
 }
-table td.read {
+table#challengeTable td button {
+  background: #ccccff;
+  float: right;
+  font-size: small;
+}
+table#challengeTable input {
+  display: initial;
+}
+table#challengeTable td.read {
   background: palegreen;
 }
 

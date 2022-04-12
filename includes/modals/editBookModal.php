@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <?php include '../form.php';?>
+          <?php include 'includes/form.php';?>
           <!-- <form>
               <input type='text' data-field='title' class='form-control'>
           </form> -->

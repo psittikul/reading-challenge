@@ -37,7 +37,7 @@
             <td style="background: <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'];?>">
             <?php 
                 echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
-                <button type='button' data-user='<?php echo $user['id'];?>' data-toggle="modal" data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
+                <button type='button' data-user='<?php echo $user['id'];?>' data-toggle="modal" class='btn' data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
             <?
                 }

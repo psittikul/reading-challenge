@@ -1,6 +1,7 @@
 $Maven: 'Maven Pro', sans-serif;
 $Oswald: 'Oswald', sans-serif;
 $Periwinkli: rgba(204, 204, 255, .65);
+$Periwinkli-opaque: rgba(204, 204, 255, 1);
 $pale: rgba(253, 237, 244, .65);
 
 body {
@@ -89,6 +90,14 @@ form {
 table#challengeTable {
     margin-top: 2rem;
     background: ghostwhite;
+
+    td {
+        button {
+            background: $Periwinkli-opaque;
+            float: right;
+            font-size: small;
+        }
+    }
 
     input {
         display: initial;
