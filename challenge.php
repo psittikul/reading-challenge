@@ -47,6 +47,24 @@
         </tr>
             <?
         }
+        foreach($freeReads as $read) {
+            ?>
+        <tr>
+            <?php 
+            foreach($users as $user) {
+                if($read['user_id'] == $user['id']) {
+                    ?>
+                    <td><?php echo $read['title'];?></td>
+                    <?php
+                }
+                else {
+                    continue;
+                }
+            }
+            ?>
+        </tr>
+            <?php
+        }
       ?>
   </tbody>
 </table>
