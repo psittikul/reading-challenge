@@ -130,7 +130,7 @@ $(function () {
         else {
             $(this).find('modal-title').text('Edit Entry');
         }
-        var title = $(button).data('title');
+        var title = $(button).parent().text();
         $(this).find("[data-column='status']").val(status);
         $(this).find('form').attr('data-user', userID);
         $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
