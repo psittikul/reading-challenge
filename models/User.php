@@ -5,7 +5,7 @@
 // class User extends Model {
 class User {
 
-    const STATUS_FILLS = [
+    public $STATUS_FILLS = [
         'Read' => 'palegreen',
         'Currently Reading' => 'lightsalmon',
     ];
