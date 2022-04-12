@@ -169,7 +169,6 @@ $(function () {
             $(this).find('modal-title').text('Edit Entry');
         }
         var title = $(button).parent().text().trim();
-        console.log(title);
         $(this).find("[data-column='status']").val(status);
         $(this).find("[data-column='date_read']").val(date_read);
         $(this).find("[data-column='author']").val(author);

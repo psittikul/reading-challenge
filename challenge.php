@@ -96,7 +96,9 @@
             foreach($users as $user) {
                 if($read['user_id'] == $user['id']) {
                     ?>
-            <td class='<?php echo $Prompt->format('status', $read['status']);?>' data-author='<?php echo $read['author'];?>'><?php echo $read['title'];?>
+            <td class='<?php echo $Prompt->format('status', $read['status']);?>' data-author='<?php echo $read['author'];?>'
+                data-date='<?php echo $read['date_read'];?>' data-title='<?php echo $read['title'];?>' data-status='<?php echo $read['status'];?>'>
+                <?php echo $read['title'];?>
                 <button type='button' data-book='<?php echo $read['id'];?>' data-status='<?php echo $read['status'];?>' data-user='<?php echo $user['id'];?>' data-toggle="modal" class='btn' data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>       
             </td>
                     <?php
