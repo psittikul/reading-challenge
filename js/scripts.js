@@ -67,13 +67,29 @@ function formatDate(date) {
 //     }
 // });
 
+$('#saveBookChangesBtn').on('click', function() {
+    var user_id = $(this).attr('data-user');
+    var title = $(this).parent().find("[data-column='title']").val();
+    var author = $(this).parent().find("[data-column='author']").val();
+    var date_read = $(this).parent().find("[data-column='date_read']").val();
+    var status = $(this).parent().find("[data-column='status']").val();
+    var prompt = $("#promptDatalist").val();
+    var book_id = $(this).attr('data-book');
+    if (book_id > 0) {
+        console.log('UPDATE books SET prompt_id = [GET ID FOR] ' + prompt + ' WHERE id = ' + book_id);
+    }
+    else {
+        console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
+    }
+});
+
 $('.update-btn').on('click', function() {
     var user_id = $(this).data('user');
     var title = $(this).parent().find("[data-column='title']").val();
     var author = $(this).parent().find("[data-column='author']").val();
     var dateRead = $(this).parent().find("[data-column='date_read']").val();
     var status = $(this).parent().find("[data-column='status']").val();
-    var prompt_id = $("[data-column='prompt_id'][data-user='" + user_id + "']").val();
+    var prompt_id = $("#promptDatalist").val();
     $.ajax({
         method: "POST",
         url: "../includes/save.php",
@@ -102,11 +118,13 @@ $(function () {
     $("#editBookModal").on('show.bs.modal', function(e) {
         var button = $(e.relatedTarget)[0];
         var userID = $(button).data('user');
+        var book_id = $(button).data('book');
         if($(button).data('prompt')) {
             var promptID = $(button).data('prompt');
             $(this).find("button#saveBookChangesBtn").attr('data-prompt', promptID);
             var prompt = $(button).parent().parent().find('.prompt-cell').text();
             $(this).find('.modal-title').text(prompt);
+            $(this).find('#promptDatalist').val(prompt);
         }
         else {
             $(this).find('modal-title').text('Edit Entry');
@@ -114,6 +132,7 @@ $(function () {
         var title = $(button).data('title');
         $(this).find('form').attr('data-user', userID);
         $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
+        $(this).find("button#saveBookChangesBtn").attr('data-book', book_id);
         $(this).find("input[data-column='title']").val(title);
     });
   })
