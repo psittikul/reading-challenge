@@ -18,11 +18,11 @@
     if ($book_id > 0) {
         if ($date_read != '') {
             $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
-            status = '$status', date_read = '$date_read' WHERE id = $book_id;";
+                status = '$status', date_read = '$date_read' WHERE id = $book_id;";
         }
         else {
             $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
-            status = '$status', date_read = NULL WHERE id = $book_id;";
+                status = '$status', date_read = NULL WHERE id = $book_id;";
         }
             echo "\n $query \n";
     }
@@ -31,9 +31,9 @@
     }
 
     
-    if($GLOBALS['conn']->query($query)) {
-        echo "SUCCESS?????????";
-    }
-    else {
-        echo "Error: " . $GLOBALS['conn']->error;
-    }
+    // if($GLOBALS['conn']->query($query)) {
+    //     echo "SUCCESS?????????";
+    // }
+    // else {
+    //     echo "Error: " . $GLOBALS['conn']->error;
+    // }
