@@ -20,36 +20,42 @@ class User {
     }
     
     public function getQuarter($userID, $quarter) {
-        $query = "select
-            freeReads,
-            promptBooks,
-            freeReads + 2*promptBooks as bookCount
-            from
-            (select
-            if(z.freeReads is null, 0, z.freeReads) as freeReads,
-            if(z.promptBooks is null, 0, z.promptBooks) as promptBooks
-            from
-            (select y.freeReads as freeReads, x.promptBooks as promptBooks
-            from
-            (
-                select user_id as userID, count(books.id) AS promptBooks
-                from books partition($quarter)
-                where books.prompt_id > 0 AND books.status = 'Read' and user_id = $userID
-            ) as x
-            right outer join (
-            select user_id as userID, count(books.id) as freeReads
-            from books partition($quarter)
-            where books.prompt_id is null AND books.status = 'Read' and user_id = $userID) as y on x.userID = y.userID) as z) as az;";
-        echo $query . "\n";
-        $result = $GLOBALS['conn']->query($query);
         $data = [];
-        while($row = $result->fetch_assoc()) {
-            $data = [
-                'freeReads' => $row['freeReads'],
-                'promptBooks' => $row['promptBooks'],
-                'bookCount' => $row['bookCount'],
-            ];
-        }
+        // $query = "select
+        //     freeReads,
+        //     promptBooks,
+        //     freeReads + 2*promptBooks as bookCount
+        //     from
+        //     (select
+        //     if(z.freeReads is null, 0, z.freeReads) as freeReads,
+        //     if(z.promptBooks is null, 0, z.promptBooks) as promptBooks
+        //     from
+        //     (select y.freeReads as freeReads, x.promptBooks as promptBooks
+        //     from
+        //     (
+        //         select user_id as userID, count(books.id) AS promptBooks
+        //         from books partition($quarter)
+        //         where books.prompt_id > 0 AND books.status = 'Read' and user_id = $userID
+        //     ) as x
+        //     right outer join (
+        //     select user_id as userID, count(books.id) as freeReads
+        //     from books partition($quarter)
+        //     where books.prompt_id is null AND books.status = 'Read' and user_id = $userID) as y on x.userID = y.userID) as z) as az;";
+        $query_prompt = "SELECT count(books.id) as promptBooks from books partition($quarter) where user_id = $userID and status = 'Read' and prompt_id > 0";
+        $query_free = "SELECT count(books.id) as freeReads from books partition($quarter) where user_id = $userID and status = 'Read' and prompt_id is null";
+        $result = $GLOBALS['conn']->query($query_prompt);
+        $data['promptBooks'] = $result->fetch_column(0) ?? 0;
+        
+        $result = $GLOBALS['conn']->query($query_free);
+        $data['freeReads'] = $result->fetch_column(0) ?? 0;
+        $data['bookCount'] = (2*$data['promptBooks']) + $data['freeReads'];
+        // while($row = $result->fetch_assoc()) {
+        //     $data = [
+        //         'freeReads' => $row['freeReads'],
+        //         'promptBooks' => $row['promptBooks'],
+        //         'bookCount' => $row['bookCount'],
+        //     ];
+        // }
         var_dump($data);
         return $data;
     }
