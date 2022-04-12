@@ -76,6 +76,8 @@
                 <div class='row stat-row'>
                     <div class='col-sm-3 quarter'>
                         <?php
+                            var_dump($row);
+                            echo $row['userID'];
                             // $query = "select
                             //     freeReads,
                             //     promptBooks,
