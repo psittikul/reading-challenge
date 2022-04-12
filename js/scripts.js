@@ -271,7 +271,7 @@ $(function () {
         var author = $(button).parent().data('author');
         var date_read = $(button).parent().data('date');
         var status = $(button).parent().data('status');
-        $(this).find("#titleDatalist").attr("data-user", $userID);
+        $(this).find("#titleDatalist").attr("data-user", userID);
         $(this).find("#titleDatalist").attr("list", "titleOptions" + userID);
         if($(button).data('prompt')) {
             var promptID = $(button).data('prompt');
