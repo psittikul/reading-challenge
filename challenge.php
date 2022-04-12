@@ -50,6 +50,7 @@
         foreach($freeReads as $read) {
             ?>
         <tr>
+            <td>FREE READ</td>
             <?php 
             foreach($users as $user) {
                 if($read['user_id'] == $user['id']) {
