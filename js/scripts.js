@@ -160,14 +160,15 @@ $(function () {
         if($(button).data('prompt')) {
             var promptID = $(button).data('prompt');
             $(this).find("button#saveBookChangesBtn").attr('data-prompt', promptID);
-            var prompt = $(button).parent().parent().find('.prompt-cell').text();
+            var prompt = $(button).parent().parent().find('.prompt-cell').text().trim();
             $(this).find('.modal-title').text(prompt);
             $(this).find('#promptDatalist').val(prompt);
         }
         else {
             $(this).find('modal-title').text('Edit Entry');
         }
-        var title = $(button).parent().text();
+        var title = $(button).parent().text().trim();
+        console.log(title);
         $(this).find("[data-column='status']").val(status);
         $(this).find("[data-column='date_read']").val(date_read);
         $(this).find('form').attr('data-user', userID);
