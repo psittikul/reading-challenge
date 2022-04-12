@@ -7,6 +7,8 @@
     $prompt_id = $_POST['prompt_id'] > 0 ? $_POST['prompt_id'] : NULL;
     $book_id = $_POST['book_id'];
     $old_book_id = $_POST['old_book_id'];
+    var_dump($_POST);
+    return;
 
     if($old_book_id > 0) {
         $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
