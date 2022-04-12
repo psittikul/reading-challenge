@@ -101,7 +101,7 @@
                             //     ") as y on x.userID = y.userID) as z) as az;";
                             // $q1 = $conn->query($query);
                             // while ($q1Row = $q1->fetch_assoc()) {
-                            $data = $User->getQuarter($row['userID'], 'q1');  
+                            // $data = $User->getQuarter($row['userID'], 'q1');  
                         ?>
                         <h3 data-toggle='tooltip' title='<?php // echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'];?>'>Q1 📚: 
                             <?php 
@@ -111,7 +111,7 @@
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php 
-                            $data = $User->getQuarter($row['userID'], 'q2');
+                            // $data = $User->getQuarter($row['userID'], 'q2');
                             ?>
                         <h3 data-toggle='tooltip' title='<?php // echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'] ?>'>Q2 📚: 
                             <?php 
