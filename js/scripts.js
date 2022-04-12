@@ -89,67 +89,88 @@ $('#saveBookChangesBtn').on('click', function() {
     var author = $(this).parent().find("[data-column='author']").val();
     var dateRead = $(this).parent().find("[data-column='date_read']").val();
     var status = $(this).parent().find("[data-column='status']").val();
-    var prompt = $("#promptDatalist").val();
     var book_id = $(this).attr('data-book');
+    var prompt_id = null;
+
+    // Get ID that corresponds to selected prompt
+    var prompt = $("#promptDatalist").val();
+    if (prompt.length > 0) {
+        var prompt_selected = document.getElementById('datalistOptions').querySelector('[value="' + prompt + '"]');
+        prompt_id = $(prompt_selected).data('id');
+    }
+
     if (book_id > 0) {
-        console.log('UPDATE books SET prompt_id = [GET ID FOR] ' + prompt + ' WHERE id = ' + book_id);
+        console.log("UPDATE books SET prompt_id = " + prompt_id + 
+            ", title = '" + title + "', date_read = " + dateRead + ", status = '" + status + "' WHERE id = " + book_id);
     }
     else {
         console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
     }
-    $.ajax({
-        method: "POST",
-        url: "../includes/save.php",
-        // dataType: 'JSON',
-        data: {
-            title: title,
-            author: author,
-            date_read: dateRead != '' ? dateRead : null,
-            status: status,
-            user_id: user_id,
-            prompt_id: prompt_id != '' ? prompt_id : null,
-        },
-        success: function(response) {
-            console.log(response);
-            location.reload();
-        },
-        fail: function(response) {
-            console.log(response);
-        }
-    });
+    // $.ajax({
+    //     method: "POST",
+    //     url: "../includes/save.php",
+    //     // dataType: 'JSON',
+    //     data: {
+    //         title: title,
+    //         author: author,
+    //         date_read: dateRead != '' ? dateRead : null,
+    //         status: status,
+    //         user_id: user_id,
+    //         prompt_id: prompt_id,
+    //     },
+    //     success: function(response) {
+    //         console.log(response);
+    //         location.reload();
+    //     },
+    //     fail: function(response) {
+    //         console.log(response);
+    //     }
+    // });
 });
 
-$('.update-btn').on('click', function() {
-    var user_id = $(this).data('user');
-    var title = $(this).parent().find("[data-column='title']").val();
-    var author = $(this).parent().find("[data-column='author']").val();
-    var dateRead = $(this).parent().find("[data-column='date_read']").val();
-    var status = $(this).parent().find("[data-column='status']").val();
-    var prompt_id = $("#promptDatalist").val();
-    $.ajax({
-        method: "POST",
-        url: "../includes/save.php",
-        // dataType: 'JSON',
-        data: {
-            title: title,
-            author: author,
-            date_read: dateRead != '' ? dateRead : null,
-            status: status,
-            user_id: user_id,
-            prompt_id: prompt_id != '' ? prompt_id : null,
-        },
-        success: function(response) {
-            console.log(response);
-            location.reload();
-        },
-        fail: function(response) {
-            console.log(response);
-        }
-    });
-});
+// $('.update-btn').on('click', function() {
+//     var user_id = $(this).data('user');
+//     var title = $(this).parent().find("[data-column='title']").val();
+//     var author = $(this).parent().find("[data-column='author']").val();
+//     var dateRead = $(this).parent().find("[data-column='date_read']").val();
+//     var status = $(this).parent().find("[data-column='status']").val();
+//     var prompt_id = $("#promptDatalist").val();
+//     $.ajax({
+//         method: "POST",
+//         url: "../includes/save.php",
+//         // dataType: 'JSON',
+//         data: {
+//             title: title,
+//             author: author,
+//             date_read: dateRead != '' ? dateRead : null,
+//             status: status,
+//             user_id: user_id,
+//             prompt_id: prompt_id != '' ? prompt_id : null,
+//         },
+//         success: function(response) {
+//             console.log(response);
+//             location.reload();
+//         },
+//         fail: function(response) {
+//             console.log(response);
+//         }
+//     });
+// });
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
+
+    $("[data-column='status']").on('change', function() {
+        var dateRead = $(this).parent().next().find("[data-column='date_read']");
+        if($(this).val() !== 'Read') {
+            $(dateRead).val('');
+            $(dateRead).prop('disabled', true);
+        }
+        else {
+            $(dateRead).val(new Date());
+            $(dateRead).prop('disabled', false);
+        }
+    });
 
     $("#editBookModal").on('show.bs.modal', function(e) {
         var button = $(e.relatedTarget)[0];
