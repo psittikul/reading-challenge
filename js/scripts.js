@@ -100,13 +100,14 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
     $("#editBookModal").on('show.bs.modal', function(e) {
-        var userID = e.relatedTarget.data('user');
-        var promptID = e.relatedTarget.data('prompt');
-        var title = e.relatedTarget.data('title');
+        console.log($(e.relatedTarget));
+        // var userID = $(e.relatedTarget).data('user');
+        // var promptID = e.relatedTarget.data('prompt');
+        // var title = e.relatedTarget.data('title');
         // var author = e.relatedTarget.data('author');
         $(this).find('form').attr('data-user', userID);
-        $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
-        $(this).find("button#saveBookChangesBtn").attr('data-prompt', promptID);
-        $(this).find("input[data-column='title']").val(title);
+        // $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
+        // $(this).find("button#saveBookChangesBtn").attr('data-prompt', promptID);
+        // $(this).find("input[data-column='title']").val(title);
     });
   })
