@@ -22,7 +22,7 @@
         }
         else {
             $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
-                status = '$status', date_read = '0000-00-00' WHERE id = $book_id;";
+                status = '$status' WHERE id = $book_id;";
         }
     }
     else {
