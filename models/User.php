@@ -20,7 +20,6 @@ class User {
     }
     
     public function getQuarter($userID, $quarter) {
-        echo "get quarterly stats\n";
         $query = "select
             freeReads,
             promptBooks,
@@ -41,6 +40,7 @@ class User {
             select user_id as userID, count(books.id) as freeReads
             from books partition($quarter)
             where books.prompt_id is null AND books.status = 'Read' and user_id = $userID) as y on x.userID = y.userID) as z) as az;";
+        echo $query . "\n";
         $result = $GLOBALS['conn']->query($query);
         $data = [];
         while($row = $result->fetch_assoc()) {
