@@ -217,6 +217,10 @@ $(function () {
         var user_id = $(this).attr('data-user');
         // var title = $(this).parent().find("[data-column='title']").val();
         var title = $("#titleDatalist").val();
+        if (title.length < 1) {
+            alert("Book title is required");
+            return;
+        }
         var author = $(this).parent().find("[data-column='author']").val();
         var dateRead = $(this).parent().find("[data-column='date_read']").val();
         var status = $(this).parent().find("[data-column='status']").val();
