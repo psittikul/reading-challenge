@@ -60,12 +60,10 @@
                 echo "var book ='$book';";
                 echo "var prompt ='$prompt_array';";
             ?>
-                var prompt = JSON.parse(prompt);
+                var book = JSON.parse(JSON.stringify(book));
+                var prompt = JSON.parse(JSON.stringify(prompt));
                 var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt.id + "']";
-                console.log(selector);
                 $(selector).on('click', function() {
-                    var book = JSON.parse(JSON.stringify(book));
-                    var prompt = JSON.parse(JSON.stringify(prompt));
                     console.log(user_id);
                     console.log(book);
                     console.log(prompt);
