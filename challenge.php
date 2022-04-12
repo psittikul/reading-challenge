@@ -92,10 +92,12 @@
             ?>
         <tr class='free-row'>
             <td>FREE SPACE</td>
-            <td>
-                <?php
-                var_dump($freeReads[$users[0]['id']][$i]);
-                ?>
+            <td data-author='<?php echo $freeReads[$users[0]['id']][$i]['author']?>' data-status='<?php echo $freeReads[$users[0]['id']][$i]['status'];?>'
+                data-date='<?php echo $freeReads[$users[0]['id']][$i]['date_read'];?>' class='<?php echo $Prompt->format('status', $freeReads[$users[0]['id']][$i]['status']);?>'>
+            <?php 
+                echo trim($freeReads[$users[0]['id']][$i]['title']);?>
+                <button type='button' data-toggle='modal' data-target="#editBookModal"
+                    data-book='<?php echo $freeReads[$users[0]['id']][$i]['id'];?>' data-user='<?php echo $users[0]['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
             <td>
                 <?php
