@@ -36,7 +36,7 @@
                 foreach($users as $user) {
                     $user_id = $user['id'];
                     
-                    $prompt = json_encode([
+                    $prompt_array = json_encode([
                         'id' => $prompt['id'],
                         'prompt' => $prompt['prompt'],
                     ]);
@@ -58,9 +58,12 @@
             <?php
                 echo "var user_id ='$user_id';";
                 echo "var book ='$book';";
-                echo "var prompt ='$prompt';";
+                echo "var prompt ='$prompt_array';";
             ?>
-                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt + "']";
+                console.log('user_id set to: ' + user_id);
+                console.log('book is: ' + book);
+                console.log('prompt is: ' + prompt);
+                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt['id'] + "']";
                 $(selector).on('click', function() {
                     console.log(user_id);
                     console.log(book);
