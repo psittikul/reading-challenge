@@ -7,27 +7,37 @@
     $prompt_id = $_POST['prompt_id'] > 0 ? $_POST['prompt_id'] : NULL;
     $book_id = $_POST['book_id'];
     $old_book_id = $_POST['old_book_id'] > 0 ? $_POST['old_book_id'] : NULL;
-    var_dump($_POST);
+    var_dump([
+        $title,
+        $author,
+        $status,
+        $date_read,
+        $user_id,
+        $prompt_id,
+        $book_id,
+        $old_book_id,
+    ]);
 
-    if($old_book_id > 0) {
-        $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
-        $result = $GLOBALS['conn']->query($query);
-        if(!$result) {
-            echo "Error: " . $GLOBALS['conn']->error;
-        }
-    }
-    if ($book_id > 0) {
+    // if($old_book_id > 0) {
+    //     $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
+    //     $result = $GLOBALS['conn']->query($query);
+    //     if(!$result) {
+    //         echo "Error: " . $GLOBALS['conn']->error;
+    //     }
+    // }
+    // if ($book_id > 0) {
         $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
             status = '$status', date_read = '$date_read' WHERE id = $book_id;";
-    }
-    else {
-        $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
-    }
+            echo "\n $query \n";
+    // }
+    // else {
+    //     $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
+    // }
 
     
-    if($GLOBALS['conn']->query($query)) {
-        echo "SUCCESS?????????";
-    }
-    else {
-        echo "Error: " . $GLOBALS['conn']->error;
-    }
+    // if($GLOBALS['conn']->query($query)) {
+    //     echo "SUCCESS?????????";
+    // }
+    // else {
+    //     echo "Error: " . $GLOBALS['conn']->error;
+    // }
