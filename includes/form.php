@@ -1,15 +1,13 @@
 <form data-user='<?php // echo $row['userID'];?>' method='post'>
     <div class="mb-3">
-        <?php 
-            $allBooks = $User->getUserBooks($users);
-            var_dump($allBooks);?>
+        <?php $allBooks = $User->getUserBooks($users);?>
         <label class='form-label'>Title</label>
         <input class="form-control" data-user='<?php // echo $row['userID'];?>' list="" id="titleDatalist" placeholder="Search your titles or add a new one">
         <datalist id="titleOptions4">
             <?php
             foreach($allBooks[4] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
             <?php
             }
             ?>
@@ -18,7 +16,7 @@
             <?php
             foreach($allBooks[14] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
             <?php
             }
             ?>
@@ -27,7 +25,7 @@
             <?php
             foreach($allBooks[24] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
             <?php
             }
             ?>
@@ -36,7 +34,7 @@
             <?php
             foreach($allBooks[34] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
             <?php
             }
             ?>
