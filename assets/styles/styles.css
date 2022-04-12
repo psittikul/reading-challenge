@@ -63,7 +63,6 @@ body .btn, body form .update-btn, form body .update-btn, body .user-row button.s
 form {
   margin: 2rem 0;
   text-transform: uppercase;
-  display: none;
 }
 form .update-btn {
   float: right;
