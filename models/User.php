@@ -22,6 +22,7 @@ class User {
     public function getQuarter($userID, $quarter) {
         echo "get quarter stats for user: $userID quarter: $quarter\n";
         $data = [];
+        return $data;
         // $query = "select
         //     freeReads,
         //     promptBooks,
