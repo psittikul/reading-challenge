@@ -2,7 +2,7 @@
     <div class="mb-3">
         <?php $allBooks = $User->getUserBooks($users);?>
         <label class='form-label'>Title</label>
-        <input class="form-control" data-user='<?php // echo $row['userID'];?>' list="" data-column='title' id="titleDatalist" placeholder="Search your titles or add a new one">
+        <input required class="form-control" data-user='<?php // echo $row['userID'];?>' list="" data-column='title' id="titleDatalist" placeholder="Search your titles or add a new one">
         <datalist id="titleOptions4">
             <?php
             foreach($allBooks[4] as $book) {
