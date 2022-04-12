@@ -12,6 +12,12 @@
     $freeReads = $User->getFreeReads();
     $prompts = $Prompt->getAll();
 ?>
+<script>
+    var promptArray = '<?php echo json_encode($prompts);?>';
+    var bookArray = '<?php echo json_encode($userBooksForPrompts);?>';
+    console.log(promptArray);
+    console.log(bookArray);
+</script>
 <table class="table table-bordered" id="challengeTable">
   <thead>
     <tr>
@@ -34,36 +40,32 @@
             </td>
             <?php
                 foreach($users as $user) {
-                    $user_id = $user['id'];
+                    // $user_id = $user['id'];
                     
-                    $prompt_id = $prompt['id'];
-                    $prompt_text = addslashes($prompt['prompt']);
+                    // $prompt_id = $prompt['id'];
+                    // $prompt_text = addslashes($prompt['prompt']);
 
-                    if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
-                        $book_id = $userBooksForPrompts[$user['id']][$prompt['id']]['id'];
-                        $title = addslashes($userBooksForPrompts[$user['id']][$prompt['id']]['title']);
-                        $author = addslashes($userBooksForPrompts[$user['id']][$prompt['id']]['author']);
-                        $status = $userBooksForPrompts[$user['id']][$prompt['id']]['status'];
-                        $date_read = $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'];
-                    }
-                    else {
-                        $book = null;
-                    }
+                    // if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
+                    //     $book_id = $userBooksForPrompts[$user['id']][$prompt['id']]['id'];
+                    //     $title = addslashes($userBooksForPrompts[$user['id']][$prompt['id']]['title']);
+                    //     $author = addslashes($userBooksForPrompts[$user['id']][$prompt['id']]['author']);
+                    //     $status = $userBooksForPrompts[$user['id']][$prompt['id']]['status'];
+                    //     $date_read = $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'];
+                    // }
+                    // else {
+                    //     $book = null;
+                    // }
             ?>
             <script>
             <?php
-                echo "var user_id ='$user_id';";
-                echo "var book_id ='$book_id';";
-                echo "var title = '$title';";
-                echo "var prompt_id ='$prompt_id';";
-                echo "var prompt_text ='$prompt_text';";
+                // echo "var user_id ='$user_id';";
+                // echo "var book_id ='$book_id';";
+                // echo "var title = '$title';";
+                // echo "var prompt_id ='$prompt_id';";
+                // echo "var prompt_text ='$prompt_text';";
             ?>
-                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']";
+                // var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']";
                 // console.log(selector);
-                $("#challengeTable").on("click", $(".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']"),
-                    function() {
-                        console.log('Set up modal for user: ' + user_id + ' prompt: ' + prompt_id + ' book: ' + title);
-                    });
                 // $(".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']").on('click', function() {
                 //     console.log('Set up modal for user: ' + user_id + ' prompt: ' + prompt_id + ' book: ' + title);
                 //     $("#editBookModal").find(".modal-title").text(prompt_text);
