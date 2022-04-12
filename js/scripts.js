@@ -220,7 +220,7 @@ $(function () {
         var author = $(this).parent().find("[data-column='author']").val();
         var dateRead = $(this).parent().find("[data-column='date_read']").val();
         var status = $(this).parent().find("[data-column='status']").val();
-        var book_selected = document.getElementById('titleOptions' + $user_id).querySelector('[value="' + title + '"]');
+        var book_selected = document.getElementById('titleOptions' + user_id).querySelector('[value="' + title + '"]');
         var book_id = $(book_selected).data('id');
         var old_book_id = null;
         var prompt_id = null;
@@ -284,7 +284,6 @@ $(function () {
         var author = $(button).parent().data('author');
         var date_read = $(button).parent().data('date');
         var status = $(button).parent().data('status');
-        $(this).find("[data-column='status']").change();
         $(this).find("#titleDatalist").attr("data-user", userID);
         $(this).find("#titleDatalist").attr("list", "titleOptions" + userID);
         if($(button).data('prompt')) {
@@ -299,6 +298,7 @@ $(function () {
         }
         var title = $(button).parent().text().trim();
         $(this).find("[data-column='status']").val(status);
+        $(this).find("[data-column='status']").change();
         $(this).find("[data-column='date_read']").val(date_read);
         $(this).find("[data-column='author']").val(author);
         $(this).find('form').attr('data-user', userID);
