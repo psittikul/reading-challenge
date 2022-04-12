@@ -37,12 +37,12 @@
                     $user_id = $user['id'];
                     
                     $prompt_id = $prompt['id'];
-                    $prompt_text = $prompt['prompt'];
+                    $prompt_text = addslashes($prompt['prompt']);
 
                     if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
                         $book_id = $userBooksForPrompts[$user['id']][$prompt['id']]['id'];
-                        $title = $userBooksForPrompts[$user['id']][$prompt['id']]['title'];
-                        $author = $userBooksForPrompts[$user['id']][$prompt['id']]['author'];
+                        $title = addslashes($userBooksForPrompts[$user['id']][$prompt['id']]['title']);
+                        $author = addslashes($userBooksForPrompts[$user['id']][$prompt['id']]['author']);
                         $status = $userBooksForPrompts[$user['id']][$prompt['id']]['status'];
                         $date_read = $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'];
                     }
