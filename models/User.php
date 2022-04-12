@@ -44,6 +44,9 @@ class User {
         //     where books.prompt_id is null AND books.status = 'Read' and user_id = $userID) as y on x.userID = y.userID) as z) as az;";
         $query_prompt = "SELECT count(books.id) as promptBooks from books partition($quarter) where user_id = $userID and status = 'Read' and prompt_id > 0";
         $query_free = "SELECT count(books.id) as freeReads from books partition($quarter) where user_id = $userID and status = 'Read' and prompt_id is null";
+        $data['query_prompt'] = $query_prompt;
+        $data['free'] = $query_free;
+        return $data;
         $result = $GLOBALS['conn']->query($query_prompt);
         echo "Prompt books: " . $result->fetch_column(0) . "\n";
         $data['promptBooks'] = $result->fetch_column(0) ?? 0;

@@ -76,8 +76,8 @@
                 <div class='row stat-row'>
                     <div class='col-sm-3 quarter'>
                         <?php
-                            var_dump($row);
-                            echo $row['userID'];
+                            // var_dump($row);
+                            // echo $row['userID'];
                             // $query = "select
                             //     freeReads,
                             //     promptBooks,
@@ -103,9 +103,9 @@
                             // while ($q1Row = $q1->fetch_assoc()) {
                             $data = $User->getQuarter($row['userID'], 'q1');  
                         ?>
-                        <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'];?>'>Q1 📚: 
+                        <h3 data-toggle='tooltip' title='<?php // echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'];?>'>Q1 📚: 
                             <?php 
-                                    echo $data['bookCount'];
+                                  //  echo $data['bookCount'];
                                 // }
                             ?></h3>
                     </div>
@@ -113,9 +113,9 @@
                         <?php 
                             $data = $User->getQuarter($row['userID'], 'q2');
                             ?>
-                        <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'] ?>'>Q2 📚: 
+                        <h3 data-toggle='tooltip' title='<?php // echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'] ?>'>Q2 📚: 
                             <?php 
-                                echo $data['bookCount'];
+                            //    echo $data['bookCount'];
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
