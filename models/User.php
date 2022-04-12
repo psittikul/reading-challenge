@@ -5,6 +5,11 @@
 // class User extends Model {
 class User {
 
+    const STATUS_FILLS = [
+        'Read' => 'palegreen',
+        'Currently Reading' => 'lightsalmon',
+    ];
+
     public function getAll() {
         $data = [];
         $result = $GLOBALS['conn']->query("SELECT * FROM users ORDER BY users.order ASC");
@@ -55,10 +60,13 @@ class User {
         $result = $GLOBALS['conn']->query($query);
         $data = [];
         while ($row = $result->fetch_assoc()) {
+            $fill = $this->STATUS_FILLS[$row['status']];
+            
             $data[$row['userID']][$row['promptID']] = [
                 'book_id' => $row['bookID'],
                 'status' => $row['status'],
-                'title' => $row['title']
+                'title' => $row['title'],
+                'fill' => $fill,
             ];
         }
         return $data;

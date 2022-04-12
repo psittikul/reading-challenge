@@ -34,8 +34,8 @@
             <?php
                 foreach($users as $user) {
             ?>
-                <td>
-                <?php var_dump($userBooksForPrompts[$user['id']][$prompt['id']]);?>
+                <td style="background: <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'];?>">
+                <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
                 </td>
             <?
                 }
