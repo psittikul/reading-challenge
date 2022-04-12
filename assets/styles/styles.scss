@@ -91,6 +91,10 @@ table#challengeTable {
     margin-top: 2rem;
     background: ghostwhite;
 
+    .add-book-btn {
+        float: right;
+    }
+
     td {
         button {
             background: $Periwinkli-opaque;

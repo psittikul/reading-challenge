@@ -247,8 +247,8 @@ $(function () {
         }
     
         if (book_id > 0) {
-            // console.log("UPDATE books SET prompt_id = " + prompt_id + 
-            //     ", title = '" + title + "', date_read = '" + dateRead + "', status = '" + status + "' WHERE id = " + book_id);
+            console.log("UPDATE books SET prompt_id = " + prompt_id + 
+                ", title = '" + title + "', date_read = '" + dateRead + "', status = '" + status + "' WHERE id = " + book_id);
         }
         else {
             console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
