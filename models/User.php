@@ -18,6 +18,17 @@ class User {
         }
         return $data;
     }
+
+    public function getLeaderboard() {
+        $data = [];
+        $users = $this->getAll();
+        foreach($users as $user) {
+            $user_id = $user['id'];
+            $query = "SELECT count(books.id) as promptBooks from books where user_id = $user_id and status = 'Read' and prompt_id > 0";
+            $promptBooks = $GLOBALS['conn']->query($query)->fetch_column(0);
+            echo "Challenge books: $promptBooks\n";
+        }
+    }
     
     public function getQuarter($userID, $quarter) {
         echo "get quarter stats for user: $userID quarter: $quarter\n";

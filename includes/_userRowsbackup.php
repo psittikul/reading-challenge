@@ -1,5 +1,4 @@
 <?php 
-    var_dump($User->getLeaderboard());
     $query = "select name,
     userID,
     freeReads,
