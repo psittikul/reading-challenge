@@ -273,7 +273,7 @@ $(function () {
             },
             success: function(response) {
                 console.log(response);
-                // location.reload();
+                location.reload();
             },
             fail: function(response) {
                 console.log(response);

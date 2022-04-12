@@ -72,6 +72,9 @@ table#challengeTable {
   margin-top: 2rem;
   background: ghostwhite;
 }
+table#challengeTable .add-book-btn {
+  float: right;
+}
 table#challengeTable td button {
   background: #ccccff;
   float: right;
