@@ -80,7 +80,7 @@
             <?php 
                 echo trim($userBooksForPrompts[$user['id']][$prompt['id']]['title']);?>
                 <button type='button' data-toggle='modal' data-target="#editBookModal"
-                    data-book='<?php $userBooksForPrompts[$user['id']][$prompt['id']]['id'];?>' data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
+                    data-book='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['id'];?>' data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
             <?
                 }

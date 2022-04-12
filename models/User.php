@@ -56,7 +56,6 @@ class User {
         //         'bookCount' => $row['bookCount'],
         //     ];
         // }
-        var_dump($data);
         return $data;
     }
 
