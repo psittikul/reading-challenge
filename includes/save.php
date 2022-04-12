@@ -18,7 +18,8 @@
         }
     }
     if ($book_id > 0) {
-        $prompt_id = $prompt_id > 0 ? $prompt_id : NULL;
+        echo $prompt_id == '';
+        $prompt_id = $prompt_id != '' ? $prompt_id : NULL;
         if ($date_read != '') {
             $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
                 status = '$status', date_read = '$date_read' WHERE id = $book_id;";
