@@ -7,5 +7,4 @@
 
     $Prompt = new Prompt();
     $prompts = $Prompt->getAll();
-    $User = new User();
 ?>
