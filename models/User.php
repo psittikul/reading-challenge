@@ -81,28 +81,6 @@ class User {
         return $data;
     }
 
-    public function getUserBooksForPromptsJSON() {
-        $query = "select users.id as userID, books.id as bookID, title, author, status, date_read, prompts.id as promptID
-        FROM
-        users inner join books on users.id = books.user_id right outer join prompts on books.prompt_id = prompts.id
-        where users.id is not null;";
-        $result = $GLOBALS['conn']->query($query);
-        $data = [];
-        while ($row = $result->fetch_assoc()) {
-            // $fill = $this->STATUS_FILLS[$row['status']];
-            
-            $data[$row['userID']][$row['promptID']] = [
-                'id' => $row['bookID'],
-                'status' => $row['status'],
-                'date_read' => $row['date_read'],
-                'author' => $row['author'],
-                'title' => addslashes($row['title']), 
-                // 'fill' => $fill,
-            ];
-        }
-        return json_encode($data);
-    }
-
     public function getFreeReads() {
         $query = "SELECT users.id as userID, books.id as bookID, title, author, status, date_read
         FROM users INNER JOIN books on users.id = books.user_id WHERE prompt_id is null";
