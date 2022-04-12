@@ -112,11 +112,11 @@
                     </div>
                     <div class='col-sm-3 quarter'>
                         <?php 
-                            // $data = $User->getQuarter($row['userID'], 'q2');
+                            $data = $User->getQuarter($row['userID'], 'q2');
                             ?>
-                        <h3 data-toggle='tooltip' title='<?php // echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'] ?>'>Q2 📚: 
+                        <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'] ?>'>Q2 📚: 
                             <?php 
-                            //    echo $data['bookCount'];
+                               echo $data['bookCount'];
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
