@@ -20,6 +20,7 @@ class User {
     }
     
     public function getQuarter($userID, $quarter) {
+        echo "get quarterly stats\n";
         $query = "select
             freeReads,
             promptBooks,
@@ -49,6 +50,7 @@ class User {
                 'bookCount' => $row['bookCount'],
             ];
         }
+        var_dump($data);
         return $data;
     }
 

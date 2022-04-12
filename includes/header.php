@@ -17,5 +17,5 @@
             <h1 id='pageTitle'>2022 WALMART PP GANG READING CHALLENGE</h1>
             <ul class="list-group list-group-horizontal" id='topNav'>
                 <a href='<?php echo $_SERVER['REQUEST_URI'] == '/challenge.php' ? 'index.php' : '#';?>'><li class="list-group-item">LEADERBOARD</li></a>
-                <a href='<?php echo $_SERVER['REQUEST_URI'] == '/challenge.php' ? '#' : 'index.php';?>'><li class="list-group-item">SPREADSHEET</li></a>
+                <a href='<?php echo $_SERVER['REQUEST_URI'] == '/challenge.php' ? '#' : 'challenge.php';?>'><li class="list-group-item">SPREADSHEET</li></a>
             </ul>
