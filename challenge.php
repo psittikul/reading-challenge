@@ -10,6 +10,7 @@
     $users = $User->getAll();
     $userBooksForPrompts = $User->getUserBooksForPrompts();
     $freeReads = $User->getFreeReads();
+    var_dump($freeReads);
     $prompts = $Prompt->getAll();
 ?>
 <table class="table table-bordered" id="challengeTable">
