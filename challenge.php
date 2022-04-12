@@ -55,7 +55,7 @@
                 if($read['user_id'] == $user['id']) {
                     ?>
             <td class='<?php echo $Prompt->format('status', $read['status']);?>'><?php echo $read['title'];?>
-                <button type='button' data-user='<?php echo $user['id'];?>' data-toggle="modal" class='btn' data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>       
+                <button type='button' data-book='<?php echo $read['id'];?>' data-user='<?php echo $user['id'];?>' data-toggle="modal" class='btn' data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>       
             </td>
                     <?php
                 }
