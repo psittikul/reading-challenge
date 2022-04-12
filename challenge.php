@@ -35,9 +35,9 @@
                 foreach($users as $user) {
             ?>
             <td style="background: <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'];?>">
-            <input type="text" data-field="title" data-prompt="<?php echo $prompt['id'];?>" value="<?php 
-                echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>">
-            <button type='button' data-user='<?php echo $user['id'];?>' data-toggle="modal" data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
+            <?php 
+                echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
+                <button type='button' data-user='<?php echo $user['id'];?>' data-toggle="modal" data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
             <?
                 }

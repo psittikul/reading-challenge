@@ -86,8 +86,13 @@ form {
     }
 }
 
-table {
+table#challengeTable {
+    margin-top: 2rem;
     background: ghostwhite;
+
+    input {
+        display: initial;
+    }
 
     td.read {
         background: palegreen;

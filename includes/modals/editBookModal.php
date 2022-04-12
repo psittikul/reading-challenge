@@ -8,9 +8,10 @@
         </button>
       </div>
       <div class="modal-body">
-          <form>
-              <!-- <input type='text' -->
-          </form>
+          <?php include '../form.php';?>
+          <!-- <form>
+              <input type='text' data-field='title' class='form-control'>
+          </form> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id='saveBookChangesBtn'>Save changes</button>
