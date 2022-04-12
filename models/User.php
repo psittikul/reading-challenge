@@ -61,8 +61,6 @@ class User {
         $data = [];
         while ($row = $result->fetch_assoc()) {
             $fill = $this->STATUS_FILLS[$row['status']];
-            var_dump($this->STATUS_FILLS);
-            echo 'Fill? ' . $this->STATUS_FILLS[$row['status']];
             
             $data[$row['userID']][$row['promptID']] = [
                 'book_id' => $row['bookID'],
