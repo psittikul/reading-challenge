@@ -172,6 +172,52 @@ $(function () {
         }
     });
 
+    $('#saveBookChangesBtn').on('click', function() {
+        console.log("Save changes to book");
+        var user_id = $(this).attr('data-user');
+        var title = $(this).parent().find("[data-column='title']").val();
+        var author = $(this).parent().find("[data-column='author']").val();
+        var dateRead = $(this).parent().find("[data-column='date_read']").val();
+        var status = $(this).parent().find("[data-column='status']").val();
+        var book_id = $(this).attr('data-book');
+        var prompt_id = null;
+    
+        // Get ID that corresponds to selected prompt
+        var prompt = $("#promptDatalist").val();
+        if (prompt.length > 0) {
+            var prompt_selected = document.getElementById('datalistOptions').querySelector('[value="' + prompt + '"]');
+            prompt_id = $(prompt_selected).data('id');
+        }
+    
+        if (book_id > 0) {
+            console.log("UPDATE books SET prompt_id = " + prompt_id + 
+                ", title = '" + title + "', date_read = " + dateRead + ", status = '" + status + "' WHERE id = " + book_id);
+        }
+        else {
+            console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
+        }
+        // $.ajax({
+        //     method: "POST",
+        //     url: "../includes/save.php",
+        //     // dataType: 'JSON',
+        //     data: {
+        //         title: title,
+        //         author: author,
+        //         date_read: dateRead != '' ? dateRead : null,
+        //         status: status,
+        //         user_id: user_id,
+        //         prompt_id: prompt_id,
+        //     },
+        //     success: function(response) {
+        //         console.log(response);
+        //         location.reload();
+        //     },
+        //     fail: function(response) {
+        //         console.log(response);
+        //     }
+        // });
+    });
+
     $("#editBookModal").on('show.bs.modal', function(e) {
         var button = $(e.relatedTarget)[0];
         var userID = $(button).data('user');
