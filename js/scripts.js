@@ -167,7 +167,12 @@ $(function () {
             $(dateRead).prop('disabled', true);
         }
         else {
-            $(dateRead).val(new Date());
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = (today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1);
+            var day = today.getDate();
+            var date = year + '-' + month + '-' + day;
+            $(dateRead).val(date);
             $(dateRead).prop('disabled', false);
         }
     });
