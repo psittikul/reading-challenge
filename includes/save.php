@@ -8,27 +8,27 @@
     $book_id = $_POST['book_id'];
     $old_book_id = $_POST['old_book_id'];
     var_dump($_POST);
-    return;
+    // return;
 
-    if($old_book_id > 0) {
-        $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
-        $result = $GLOBALS['conn']->query($query);
-        if(!$result) {
-            echo "Error: " . $GLOBALS['conn']->error;
-        }
-    }
-    if ($book_id > 0) {
-        $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
-            status = '$status', date_read = '$date_read' WHERE id = $book_id;";
-    }
-    else {
-        $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
-    }
+    // if($old_book_id > 0) {
+    //     $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
+    //     $result = $GLOBALS['conn']->query($query);
+    //     if(!$result) {
+    //         echo "Error: " . $GLOBALS['conn']->error;
+    //     }
+    // }
+    // if ($book_id > 0) {
+    //     $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
+    //         status = '$status', date_read = '$date_read' WHERE id = $book_id;";
+    // }
+    // else {
+    //     $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
+    // }
 
     
-    if($GLOBALS['conn']->query($query)) {
-        echo "SUCCESS?????????";
-    }
-    else {
-        echo "Error: " . $GLOBALS['conn']->error;
-    }
+    // if($GLOBALS['conn']->query($query)) {
+    //     echo "SUCCESS?????????";
+    // }
+    // else {
+    //     echo "Error: " . $GLOBALS['conn']->error;
+    // }
