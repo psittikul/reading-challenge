@@ -42,13 +42,13 @@
                     ]);
 
                     if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
-                        $book = json_encode([
+                        $book = [
                             'id' => $userBooksForPrompts[$user['id']][$prompt['id']]['id'],
                             'title' => $userBooksForPrompts[$user['id']][$prompt['id']]['title'],
                             'author' => $userBooksForPrompts[$user['id']][$prompt['id']]['author'],
                             'status' => $userBooksForPrompts[$user['id']][$prompt['id']]['status'],
                             'date_read' => $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'],
-                        ]);
+                        ];
                     }
                     else {
                         $book = null;
@@ -57,18 +57,18 @@
             <script>
             <?php
                 echo "var user_id ='$user_id';";
-                echo "var book =JSON.stringify('$book');";
+                echo "var book ='$book';";
                 echo "var prompt ='$prompt_array';";
             ?>
                 var prompt = JSON.parse(prompt);
                 var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt.id + "']";
                 console.log(selector);
                 $(selector).on('click', function() {
-                    // var book = JSON.parse(JSON.stringify(book));
+                    var book = JSON.parse(JSON.stringify(book));
                     console.log(user_id);
                     console.log(book);
                     console.log(prompt);
-                    var book = JSON.parse(book);
+                    // var book = JSON.parse(book);
                     $("#editBookModal").find(".modal-title").text(prompt.prompt);
                     $("#editBookModal").find("[data-column='title']").val(book.title);
                     $("#editBookModal").modal('show');
