@@ -30,7 +30,7 @@
         <?php
             echo $user['name'];
         ?>
-            <button type='button' class='add-book-btn btn' data-user='<?php echo $user['id'];?>' data-toggle='modal' data-target='#editBookModal'><i class="fa-solid fa-plus" data-target='tooltip' title='Add new book'></i></button>
+            <button type='button' class='add-book-btn btn' data-user='<?php echo $user['id'];?>' data-toggle='modal' data-target='#editBookModal'><i class="fa-solid fa-plus" data-toggle='tooltip' title='Add new book'></i></button>
         </th>
             <?php
         }
@@ -104,20 +104,26 @@
                 <button type='button' data-toggle='modal' data-target="#editBookModal"
                     data-book='<?php echo $freeReads[$users[0]['id']][$i]['id'];?>' data-user='<?php echo $users[0]['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
-            <td>
-                <?php
-                var_dump($freeReads[$users[1]['id']][$i]);
-                ?>
+            <td data-author='<?php echo $freeReads[$users[1]['id']][$i]['author']?>' data-status='<?php echo $freeReads[$users[1]['id']][$i]['status'];?>'
+                data-date='<?php echo $freeReads[$users[1]['id']][$i]['date_read'];?>' class='<?php echo $Prompt->format('status', $freeReads[$users[1]['id']][$i]['status']);?>'>
+            <?php 
+                echo trim($freeReads[$users[1]['id']][$i]['title']);?>
+                <button type='button' data-toggle='modal' data-target="#editBookModal"
+                    data-book='<?php echo $freeReads[$users[1]['id']][$i]['id'];?>' data-user='<?php echo $users[1]['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
-            <td>
-                <?php
-                var_dump($freeReads[$users[2]['id']][$i]);
-                ?>
+            <td data-author='<?php echo $freeReads[$users[2]['id']][$i]['author']?>' data-status='<?php echo $freeReads[$users[2]['id']][$i]['status'];?>'
+                data-date='<?php echo $freeReads[$users[2]['id']][$i]['date_read'];?>' class='<?php echo $Prompt->format('status', $freeReads[$users[2]['id']][$i]['status']);?>'>
+            <?php 
+                echo trim($freeReads[$users[2]['id']][$i]['title']);?>
+                <button type='button' data-toggle='modal' data-target="#editBookModal"
+                    data-book='<?php echo $freeReads[$users[2]['id']][$i]['id'];?>' data-user='<?php echo $users[2]['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
-            <td>
-                <?php
-                var_dump($freeReads[$users[3]['id']][$i]);
-                ?>
+            <td data-author='<?php echo $freeReads[$users[3]['id']][$i]['author']?>' data-status='<?php echo $freeReads[$users[3]['id']][$i]['status'];?>'
+                data-date='<?php echo $freeReads[$users[3]['id']][$i]['date_read'];?>' class='<?php echo $Prompt->format('status', $freeReads[$users[3]['id']][$i]['status']);?>'>
+            <?php 
+                echo trim($freeReads[$users[3]['id']][$i]['title']);?>
+                <button type='button' data-toggle='modal' data-target="#editBookModal"
+                    data-book='<?php echo $freeReads[$users[3]['id']][$i]['id'];?>' data-user='<?php echo $users[3]['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
         </tr>
             <?php
