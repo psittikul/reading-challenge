@@ -63,7 +63,7 @@ class User {
             $fill = $this->STATUS_FILLS[$row['status']];
             
             $data[$row['userID']][$row['promptID']] = [
-                'book_id' => $row['bookID'],
+                'id' => $row['bookID'],
                 'status' => $row['status'],
                 'date_read' => $row['date_read'],
                 'author' => $row['author'],
