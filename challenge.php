@@ -36,19 +36,15 @@
                 foreach($users as $user) {
                     $user_id = $user['id'];
                     
-                    $prompt_array = [
-                        'id' => $prompt['id'],
-                        'prompt' => $prompt['prompt'],
-                    ];
+                    $prompt_id = $prompt['id'];
+                    $prompt_text = $prompt['prompt'];
 
                     if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
-                        $book = [
-                            'id' => $userBooksForPrompts[$user['id']][$prompt['id']]['id'],
-                            'title' => $userBooksForPrompts[$user['id']][$prompt['id']]['title'],
-                            'author' => $userBooksForPrompts[$user['id']][$prompt['id']]['author'],
-                            'status' => $userBooksForPrompts[$user['id']][$prompt['id']]['status'],
-                            'date_read' => $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'],
-                        ];
+                        $book_id = $userBooksForPrompts[$user['id']][$prompt['id']]['id'];
+                        $title = $userBooksForPrompts[$user['id']][$prompt['id']]['title'];
+                        $author = $userBooksForPrompts[$user['id']][$prompt['id']]['author'];
+                        $status = $userBooksForPrompts[$user['id']][$prompt['id']]['status'];
+                        $date_read = $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'];
                     }
                     else {
                         $book = null;
@@ -57,21 +53,17 @@
             <script>
             <?php
                 echo "var user_id ='$user_id';";
-                echo "var book ='$book';";
-                echo "var prompt ='$prompt_array';";
+                echo "var book_id ='$book_id';";
+                echo "var title = '$title';";
+                echo "var prompt_id ='$prompt_id';";
+                echo "var prompt_text ='$prompt_text';";
             ?>
-                var book = JSON.parse(JSON.stringify(book));
-                console.log(book);
-                var prompt = JSON.parse(JSON.stringify(prompt));
-                console.log(prompt);
-                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt.id + "']";
+                console.log(book_id + ': ' + title);
+                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']";
                 $(selector).on('click', function() {
-                    console.log(user_id);
-                    console.log(book);
-                    console.log(prompt);
-                    // var book = JSON.parse(book);
-                    $("#editBookModal").find(".modal-title").text(prompt.prompt);
-                    $("#editBookModal").find("[data-column='title']").val(book.title);
+                    console.log('Set up modal for user: ' + user_id + ' prompt: ' + prompt_id + ' book: ' + title);
+                    $("#editBookModal").find(".modal-title").text(prompt_text);
+                    $("#editBookModal").find("[data-column='title']").val(title);
                     $("#editBookModal").modal('show');
                 });
             </script>
