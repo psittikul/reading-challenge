@@ -22,6 +22,18 @@ class Prompt {
         return $data;
     }
 
+    public function getAllForJSON() {
+        $result = $GLOBALS['conn']->query('SELECT * FROM prompts');
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = [
+                'id' => $row['id'],
+                'prompt' => addslashes($row['prompt']),
+            ];
+        }
+        return json_encode($data);
+    }
+
     public function format($field, $value) {
         switch($field) {
             case 'status':

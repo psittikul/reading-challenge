@@ -9,12 +9,14 @@
     $Prompt = new Prompt();
     $users = $User->getAll();
     $userBooksForPrompts = $User->getUserBooksForPrompts();
+    $jsonBooks = $User->getUserBooksForPromptsJSON();
     $freeReads = $User->getFreeReads();
     $prompts = $Prompt->getAll();
+    $jsonPrompts = $Prompt->getAllForJSON();
 ?>
 <script>
-    var promptArray = '<?php echo json_encode($prompts);?>';
-    var bookArray = '<?php echo json_encode($userBooksForPrompts);?>';
+    var promptArray = '<?php echo $jsonPrompts;?>';
+    var bookArray = '<?php echo $jsonBooks;?>';
     console.log(promptArray);
     console.log(bookArray);
 </script>
