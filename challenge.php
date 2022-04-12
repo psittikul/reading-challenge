@@ -26,7 +26,12 @@
         <th>Prompt</th>
         <?php foreach ($users as $user) {
             ?>
-        <th><?php echo $user['name'];?></th>
+        <th>
+        <?php
+            echo $user['name'];
+        ?>
+            <button type='button' class='add-book-btn btn' data-user='<?php echo $user['id'];?>' data-toggle='modal' data-target='#editBookModal'><i class="fa-solid fa-plus" data-target='tooltip' title='Add new book'></i></button>
+        </th>
             <?php
         }
         ?>
