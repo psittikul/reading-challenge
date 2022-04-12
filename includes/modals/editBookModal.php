@@ -8,6 +8,14 @@
         </button>
       </div>
       <div class="modal-body">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Existing Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#newBook">Add New Book</a>
+            </li>
+        </ul>
           <?php include 'includes/form.php';?>
           <!-- <form>
               <input type='text' data-field='title' class='form-control'>
