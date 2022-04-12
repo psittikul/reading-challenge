@@ -24,16 +24,16 @@
             $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
                 status = '$status', date_read = '0000-00-00' WHERE id = $book_id;";
         }
-            echo "\n $query \n";
     }
     else {
         $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
     }
-
     
-    if($GLOBALS['conn']->query($query)) {
-        echo "SUCCESS?????????";
-    }
-    else {
-        echo "Error: " . $GLOBALS['conn']->error;
-    }
+    echo "$query \n";
+    
+    // if($GLOBALS['conn']->query($query)) {
+    //     echo "SUCCESS?????????";
+    // }
+    // else {
+    //     echo "Error: " . $GLOBALS['conn']->error;
+    // }
