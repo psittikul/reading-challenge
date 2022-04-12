@@ -48,14 +48,18 @@ class User {
     }
 
     public function getUserBooksForPrompts() {
-        $query = "select users.id as userID, books.id as bookID, books.title, books.author, books.status, books.date_read, prompts.id, prompts.prompt
+        $query = "select users.id as userID, books.id as bookID, title, author, status, books.date_read, prompts.id as promptID
         FROM
         users inner join books on users.id = books.user_id right outer join prompts on books.prompt_id = prompts.id
         where users.id is not null;";
         $result = $GLOBALS['conn']->query($query);
         $data = [];
         while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
+            $data[$row['userID']]['promptID'] = [
+                'book_id' => $row['bookID'],
+                'status' => $row['status'],
+                'title' => $row['title']
+            ];
         }
         return $data;
     }

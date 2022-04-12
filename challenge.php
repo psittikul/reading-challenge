@@ -33,10 +33,10 @@
                 <?php echo $prompt['prompt'];?>
             </td>
             <?php
-                foreach($users as $key => $value) {
+                foreach($users as $user) {
             ?>
                 <td>
-                <?php echo $userBooksForPrompts[$key][$prompt['id']];?>
+                <?php echo $userBooksForPrompts[$user['id']][$prompt['id']];?>
                 </td>
             <?
                 }
