@@ -20,6 +20,7 @@ class User {
     }
     
     public function getQuarter($userID, $quarter) {
+        echo "get quarter stats for user: $userID quarter: $quarter\n";
         $data = [];
         // $query = "select
         //     freeReads,
@@ -44,6 +45,7 @@ class User {
         $query_prompt = "SELECT count(books.id) as promptBooks from books partition($quarter) where user_id = $userID and status = 'Read' and prompt_id > 0";
         $query_free = "SELECT count(books.id) as freeReads from books partition($quarter) where user_id = $userID and status = 'Read' and prompt_id is null";
         $result = $GLOBALS['conn']->query($query_prompt);
+        echo "Prompt books: " . $result->fetch_column(0) . "\n";
         $data['promptBooks'] = $result->fetch_column(0) ?? 0;
         
         $result = $GLOBALS['conn']->query($query_free);
