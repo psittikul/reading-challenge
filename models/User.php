@@ -85,6 +85,8 @@ class User {
                 'id' => $row['bookID'],
                 'status' => $row['status'],
                 'title' => $row['title'],
+                'author' => $row['author'],
+                'date_read' => $row['date_read'],
             ];
         }
         return $data;

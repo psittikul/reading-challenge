@@ -119,6 +119,7 @@ $(function () {
         var button = $(e.relatedTarget)[0];
         var userID = $(button).data('user');
         var book_id = $(button).data('book');
+        var status = $(button).data('status');
         if($(button).data('prompt')) {
             var promptID = $(button).data('prompt');
             $(this).find("button#saveBookChangesBtn").attr('data-prompt', promptID);
@@ -130,6 +131,7 @@ $(function () {
             $(this).find('modal-title').text('Edit Entry');
         }
         var title = $(button).data('title');
+        $(this).find("[data-column='status']").val(status);
         $(this).find('form').attr('data-user', userID);
         $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
         $(this).find("button#saveBookChangesBtn").attr('data-book', book_id);
