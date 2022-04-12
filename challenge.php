@@ -34,11 +34,47 @@
             </td>
             <?php
                 foreach($users as $user) {
+                    $user_id = $user['id'];
+                    
+                    $prompt = json_encode([
+                        'id' => $prompt['id'],
+                        'prompt' => $prompt['prompt'],
+                    ]);
+
+                    if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
+                        $book = json_encode([
+                            'id' => $userBooksForPrompts[$user['id']][$prompt['id']]['id'],
+                            'title' => $userBooksForPrompts[$user['id']][$prompt['id']]['title'],
+                            'author' => $userBooksForPrompts[$user['id']][$prompt['id']]['author'],
+                            'status' => $userBooksForPrompts[$user['id']][$prompt['id']]['status'],
+                            'date_read' => $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'],
+                        ]);
+                    }
+                    else {
+                        $book = null;
+                    }
             ?>
-            <td class='<?php echo $Prompt->format('status', $userBooksForPrompts[$user['id']][$prompt['id']]['status']);?>' style="background: <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'];?>">
+            <script>
+            <?php
+                echo "var user_id ='$user_id';";
+                echo "var book ='$book';";
+                echo "var prompt ='$prompt';";
+            ?>
+                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt + "']";
+                $(selector).on('click', function() {
+                    console.log(user_id);
+                    console.log(book);
+                    console.log(prompt);
+
+                    $("#editBookModal").find(".modal-title").text(prompt['prompt']);
+                    $("#editBookModal").modal('show');
+                });
+            </script>
+            <td data-author='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['author'];?>' data-status='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['status'];?>'
+                class='<?php echo $Prompt->format('status', $userBooksForPrompts[$user['id']][$prompt['id']]['status']);?>'>
             <?php 
                 echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
-                <button type='button' data-book='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['id'];?>' data-title='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>' data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' data-toggle="modal" class='btn' data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
+                <button type='button' data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
             <?
                 }
