@@ -25,7 +25,7 @@
             <?php
             foreach($allBooks[24] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo json_encode($book['title']);?>'></option>
             <?php
             }
             ?>
