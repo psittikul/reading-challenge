@@ -78,7 +78,7 @@
             <td data-author='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['author'];?>' data-status='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['status'];?>'
                 data-date='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'];?>' class='<?php echo $Prompt->format('status', $userBooksForPrompts[$user['id']][$prompt['id']]['status']);?>'>
             <?php 
-                echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
+                echo trim($userBooksForPrompts[$user['id']][$prompt['id']]['title']);?>
                 <button type='button' data-toggle='modal' data-target="#editBookModal"
                     data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
