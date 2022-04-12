@@ -102,7 +102,7 @@
                         <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'];?>'>Q1 📚: 
                             <?php 
                                     echo $data['bookCount'];
-                                }
+                                // }
                             ?></h3>
                     </div>
                     <div class='col-sm-3 quarter'>
