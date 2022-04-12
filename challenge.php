@@ -60,19 +60,17 @@
                 echo "var book ='$book';";
                 echo "var prompt ='$prompt_array';";
             ?>
-                console.log('user_id set to: ' + user_id);
-                console.log('book is: ' + book);
-                console.log(JSON.parse(prompt));
-                var test = JSON.parse(prompt);
-                console.log('prompt id: ' + test.id + ' prompt: ' + test.prompt);
-                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + test.prompt + "']";
+                var prompt = JSON.parse(prompt);
+                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt.id + "']";
                 console.log(selector);
                 $(selector).on('click', function() {
+                    var book = JSON.parse(book);
                     console.log(user_id);
                     console.log(book);
                     console.log(prompt);
 
-                    $("#editBookModal").find(".modal-title").text(prompt['prompt']);
+                    $("#editBookModal").find(".modal-title").text(prompt.prompt);
+                    $("#editBookModal").find("[data-column='title']").val(book.title);
                     $("#editBookModal").modal('show');
                 });
             </script>
