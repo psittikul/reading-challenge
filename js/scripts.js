@@ -177,14 +177,39 @@ $(function () {
         }
     });
 
+    $("#titleDatalist").on('change', function() {
+        var user_id = $(this).attr("data-user");
+        var title_selected = document.getElementById('titleOptions' + user_id).querySelector('[value="' + $(this).val() + '"]');
+        if ($(title_selected)[0] == null) {
+            // This is a new book
+            // Reset rest of modal fields
+            $("#editBookModal").find("[data-column='author']").val('');
+            $("#editBookModal").find("[data-column='status']").val('');
+            $("#editBookModal").find("[data-column='date_read']").val('');
+        }
+        else {
+            // Existing book
+            var book_id = $(title_selected).data('id');
+            var author = $(title_selected).data('author');
+            var status = $(title_selected).data('status');
+            var date_read = $(title_selected).data('date');
+            $("#editBookModal").find("[data-column='author']").val(author);
+            $("#editBookModal").find("[data-column='status']").val(status);
+            $("#editBookModal").find("[data-column='date_read']").val(date_read);
+        }
+    });
+
     $('#saveBookChangesBtn').on('click', function() {
         console.log("Save changes to book");
         var user_id = $(this).attr('data-user');
-        var title = $(this).parent().find("[data-column='title']").val();
+        // var title = $(this).parent().find("[data-column='title']").val();
+        var title = $("#titleDatalist").val();
         var author = $(this).parent().find("[data-column='author']").val();
         var dateRead = $(this).parent().find("[data-column='date_read']").val();
         var status = $(this).parent().find("[data-column='status']").val();
-        var book_id = $(this).attr('data-book');
+        var book_selected = document.getElementById('titleOptions' + $user_id).querySelector('[value="' + title + '"]');
+        var book_id = $(book_selected).data('id');
+        var old_book_id = null;
         var prompt_id = null;
     
         // Get ID that corresponds to selected prompt
@@ -195,8 +220,9 @@ $(function () {
             
             // IF user selected a prompt that already has a book assigned, show a confirmation message
             if($("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') > 0) {
+                old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
                 var title = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").parent().text().trim();
-                let text = 'The book: ' + title + ' is currently assigned to this prompt. Saving changes will move it to a free space.';
+                let text = 'The book: ' + title + ' is currently assigned to this prompt. Saving changes will move that to a free space.';
                 if (confirm(text) == true) {
                     console.log("Confirmed");
                 }
@@ -225,6 +251,7 @@ $(function () {
                 date_read: dateRead != '' ? dateRead : null,
                 status: status,
                 book_id: book_id,
+                old_book_id: old_book_id,
                 prompt_id: prompt_id,
             },
             success: function(response) {
@@ -244,6 +271,7 @@ $(function () {
         var author = $(button).parent().data('author');
         var date_read = $(button).parent().data('date');
         var status = $(button).parent().data('status');
+        $(this).find("#titleDatalist").attr("data-user", $userID);
         $(this).find("#titleDatalist").attr("list", "titleOptions" + userID);
         if($(button).data('prompt')) {
             var promptID = $(button).data('prompt');
