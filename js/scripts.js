@@ -196,26 +196,27 @@ $(function () {
         else {
             console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
         }
-        // $.ajax({
-        //     method: "POST",
-        //     url: "../includes/save.php",
-        //     // dataType: 'JSON',
-        //     data: {
-        //         title: title,
-        //         author: author,
-        //         date_read: dateRead != '' ? dateRead : null,
-        //         status: status,
-        //         user_id: user_id,
-        //         prompt_id: prompt_id,
-        //     },
-        //     success: function(response) {
-        //         console.log(response);
-        //         location.reload();
-        //     },
-        //     fail: function(response) {
-        //         console.log(response);
-        //     }
-        // });
+        $.ajax({
+            method: "POST",
+            url: "../includes/save.php",
+            // dataType: 'JSON',
+            data: {
+                user_id: user_id,
+                title: title,
+                author: author,
+                date_read: dateRead != '' ? dateRead : null,
+                status: status,
+                book_id: book_id,
+                prompt_id: prompt_id,
+            },
+            success: function(response) {
+                console.log(response);
+                location.reload();
+            },
+            fail: function(response) {
+                console.log(response);
+            }
+        });
     });
 
     $("#editBookModal").on('show.bs.modal', function(e) {
