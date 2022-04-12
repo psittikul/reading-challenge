@@ -77,11 +77,14 @@ table#challengeTable td button {
   float: right;
   font-size: small;
 }
+table#challengeTable td.read {
+  background: lightgreen;
+}
+table#challengeTable td.currently-reading {
+  background: peachpuff;
+}
 table#challengeTable input {
   display: initial;
-}
-table#challengeTable td.read {
-  background: palegreen;
 }
 
 /*# sourceMappingURL=styles.css.map */
