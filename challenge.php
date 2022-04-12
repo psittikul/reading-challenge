@@ -61,7 +61,9 @@
                 echo "var prompt ='$prompt_array';";
             ?>
                 var book = JSON.parse(JSON.stringify(book));
+                console.log(book);
                 var prompt = JSON.parse(JSON.stringify(prompt));
+                console.log(prompt);
                 var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt.id + "']";
                 $(selector).on('click', function() {
                     console.log(user_id);
