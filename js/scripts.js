@@ -160,6 +160,10 @@ $('#saveBookChangesBtn').on('click', function() {
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
+    $("#clearPromptBtn").on("click", function() {
+        $("#promptDatalist").val("");
+    });
+
     $("[data-column='status']").on('change', function() {
         var dateRead = $(this).parent().next().find("[data-column='date_read']");
         if($(this).val() !== 'Read') {
@@ -174,6 +178,15 @@ $(function () {
             var date = year + '-' + month + '-' + day;
             $(dateRead).val(date);
             $(dateRead).prop('disabled', false);
+        }
+    });
+
+    $("#promptDatalist").on('change', function() {
+        if ($(this).val() == '') {
+            $("#editBookModal").find(".modal-title").text('Edit Entry');
+        }
+        else {
+            $("#editBookModal").find(".modal-title").text($(this).val());
         }
     });
 
@@ -271,6 +284,7 @@ $(function () {
         var author = $(button).parent().data('author');
         var date_read = $(button).parent().data('date');
         var status = $(button).parent().data('status');
+        $(this).find("[data-column='status']").change();
         $(this).find("#titleDatalist").attr("data-user", userID);
         $(this).find("#titleDatalist").attr("list", "titleOptions" + userID);
         if($(button).data('prompt')) {
