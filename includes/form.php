@@ -7,13 +7,39 @@
         <input class="form-control" data-user='<?php // echo $row['userID'];?>' list="" id="titleDatalist" placeholder="Search your titles or add a new one">
         <datalist id="titleOptions4">
             <?php
-            // foreach($prompts as $prompt) {
-                // echo $prompt['id'] . ": " . $prompt['prompt'] . "\n";
+            foreach($allBooks[4] as $book) {
             ?>
-            <option data-id='<?php // echo $prompt['id'];?>' value='<?php echo $prompt['prompt'];?>'></option>
-        <?php
-            // }
-        ?>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <?php
+            }
+            ?>
+        </datalist>
+        <datalist id="titleOptions14">
+            <?php
+            foreach($allBooks[14] as $book) {
+            ?>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <?php
+            }
+            ?>
+        </datalist>
+        <datalist id="titleOptions24">
+            <?php
+            foreach($allBooks[24] as $book) {
+            ?>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <?php
+            }
+            ?>
+        </datalist>
+        <datalist id="titleOptions34">
+            <?php
+            foreach($allBooks[34] as $book) {
+            ?>
+            <option data-id='<?php echo $book['id'];?>' value='<?php echo $book['title'];?>'></option>
+            <?php
+            }
+            ?>
         </datalist>
         <!-- <label>Title</label>
         <input type="text" class="form-control" data-column="title" data-user='<?php // echo $row['userID'];?>' placeholder="Title"> -->
