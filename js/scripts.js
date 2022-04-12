@@ -269,7 +269,7 @@ $(function () {
             },
             success: function(response) {
                 console.log(response);
-                // location.reload();
+                location.reload();
             },
             fail: function(response) {
                 console.log(response);
@@ -319,6 +319,11 @@ $(function () {
             $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
             $(this).find("button#saveBookChangesBtn").attr('data-book', book_id);
             $(this).find("input[data-column='title']").val(title);
+            if(! $(button).attr('data-book')) {
+                // If there's no book yet, set status to 'To Be Read'
+                $(this).find("[data-column='status']").val('To Be Read');
+                $(this).find("[data-column='status']").change();
+            }
         }
     });
   })
