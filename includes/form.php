@@ -110,5 +110,5 @@
         </div>
     </div>
     <button type="button" class="update-btn btn btn-primary" data-user="" id="saveBookChangesBtn">Save Changes</button>
-    <button type="button" class="update-btn btn btn-primary" style='display: none;' data-user="" id="addNewBookBtn">Add as new book</button>
+    <!-- <button type="button" class="update-btn btn btn-primary" style='display: none;' data-user="" id="addNewBookBtn">Add as new book</button> -->
 </form>

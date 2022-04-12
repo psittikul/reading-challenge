@@ -235,8 +235,9 @@ $(function () {
             var prompt_selected = document.getElementById('datalistOptions').querySelector('[value="' + prompt + '"]');
             prompt_id = $(prompt_selected).data('id');
             
-            // IF user selected a prompt that already has a book assigned, show a confirmation message
-            if($("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') > 0) {
+            // If user selected a prompt that already has a (different) book assigned, show a confirmation message
+            if($("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') > 0 
+                && $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') != book_id) {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
                 var title = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").parent().text().trim();
                 let text = 'The book: ' + title + ' is currently assigned to this prompt. Saving changes will move that to a free space.';
