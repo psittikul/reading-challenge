@@ -9,6 +9,11 @@
     $prompt_id = $_POST['prompt_id'] != '' ? $_POST['prompt_id'] : NULL;
     $book_id = $_POST['book_id'];
     $old_book_id = $_POST['old_book_id'] > 0 ? $_POST['old_book_id'] : NULL;
+    if ($prompt_id == '') {
+        echo "set prompt id to null\n";
+        $prompt_id = null;
+        var_dump($prompt_id);
+    }
 
     if($old_book_id > 0) {
         $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
@@ -18,9 +23,6 @@
         }
     }
     if ($book_id > 0) {
-        echo $prompt_id . "\n";
-        $prompt_id = ($prompt_id == '' ? NULL : $prompt_id);
-        echo $prompt_id . "\n";
         if ($date_read != '') {
             $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
                 status = '$status', date_read = '$date_read' WHERE id = $book_id;";
