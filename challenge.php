@@ -64,7 +64,7 @@
                 var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt.id + "']";
                 console.log(selector);
                 $(selector).on('click', function() {
-                    var book = JSON.parse(book);
+                    var book = JSON.parse(JSON.stringify(book));
                     console.log(user_id);
                     console.log(book);
                     console.log(prompt);
