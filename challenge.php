@@ -59,7 +59,9 @@
                     <?php
                 }
                 else {
-                    continue;
+                    ?>
+                    <td></td>
+                    <?php
                 }
             }
             ?>
