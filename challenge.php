@@ -88,8 +88,22 @@
         </tr>
             <?
         }
-        echo $freeReads['numRows'];
-        // foreach($freeReads as $read) {
+        for ($i = 0; $i < $freeReads['numRows']; $i++) {
+            ?>
+        <tr class='free-row'>
+            <td>FREE SPACE</td>
+            <?php
+            foreach($freeReads as $f) {
+            ?>
+            <td>
+                <?php var_dump($f);?>
+            </td>    
+            <?php
+            }
+            ?>
+        </tr>
+            <?php
+        }
             ?>
         <tr style='display:none'>
             <!-- <td>FREE READ</td> -->
