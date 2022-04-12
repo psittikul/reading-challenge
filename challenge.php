@@ -36,10 +36,10 @@
                 foreach($users as $user) {
                     $user_id = $user['id'];
                     
-                    $prompt_array = [
+                    $prompt_array = json_encode([
                         'id' => $prompt['id'],
                         'prompt' => $prompt['prompt'],
-                    ];
+                    ]);
 
                     if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
                         $book = json_encode([
@@ -62,9 +62,10 @@
             ?>
                 console.log('user_id set to: ' + user_id);
                 console.log('book is: ' + book);
-                console.log(prompt);
-                console.log('prompt id: ' + prompt['id'] + ' prompt: ' + prompt['prompt']);
-                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt['id'] + "']";
+                console.log(JSON.parse(prompt));
+                var test = JSON.parse(prompt);
+                console.log('prompt id: ' + test.id + ' prompt: ' + test.prompt);
+                var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + test.prompt + "']";
                 console.log(selector);
                 $(selector).on('click', function() {
                     console.log(user_id);
