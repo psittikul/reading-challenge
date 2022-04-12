@@ -88,7 +88,7 @@
         </tr>
             <?
         }
-        var_dump($freeReads);
+        echo $freeReads['numRows'];
         // foreach($freeReads as $read) {
             ?>
         <tr style='display:none'>
