@@ -55,7 +55,7 @@ class User {
         $result = $GLOBALS['conn']->query($query);
         $data = [];
         while ($row = $result->fetch_assoc()) {
-            $data[$row['userID']]['promptID'] = [
+            $data[$row['userID']][$row['promptID']] = [
                 'book_id' => $row['bookID'],
                 'status' => $row['status'],
                 'title' => $row['title']
