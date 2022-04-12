@@ -7,7 +7,7 @@
             <?php
             foreach($allBooks[4] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value="<?php echo $book['title'];?>"></option>
             <?php
             }
             ?>
@@ -16,7 +16,7 @@
             <?php
             foreach($allBooks[14] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value="<?php echo $book['title'];?>"></option>
             <?php
             }
             ?>
@@ -25,7 +25,7 @@
             <?php
             foreach($allBooks[24] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo json_encode($book['title']);?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value="<?php echo $book['title'];?>"></option>
             <?php
             }
             ?>
@@ -34,7 +34,7 @@
             <?php
             foreach($allBooks[34] as $book) {
             ?>
-            <option data-id='<?php echo $book['id'];?>' value='<?php echo addslashes($book['title']);?>'></option>
+            <option data-id='<?php echo $book['id'];?>' value="<?php echo $book['title'];?>"></option>
             <?php
             }
             ?>
