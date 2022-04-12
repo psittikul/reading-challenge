@@ -4,6 +4,15 @@
 
 // class User extends Model {
 class User {
+
+    public function getAll() {
+        $data = [];
+        $result = $GLOBALS['conn']->query("SELECT * FROM users ORDER BY users.order ASC");
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    }
     
     public function getQuarter($userID, $quarter) {
         $query = "select
@@ -34,6 +43,19 @@ class User {
                 'promptBooks' => $row['promptBooks'],
                 'bookCount' => $row['bookCount'],
             ];
+        }
+        return $data;
+    }
+
+    public function getUserBooksForPrompts() {
+        $query = "select users.id as userID, books.id as bookID, books.title, books.author, books.status, books.date_read, prompts.id, prompts.prompt
+        FROM
+        users inner join books on users.id = books.user_id right outer join prompts on books.prompt_id = prompts.id
+        where users.id is not null;";
+        $result = $GLOBALS['conn']->query($query);
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
         }
         return $data;
     }

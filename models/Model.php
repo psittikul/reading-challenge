@@ -1,10 +1,13 @@
 <?php
-include 'DB.php';
 
-// class Model {
+class Model {
 //     public $DB;
 
-//     public function __construct() {
-//         $this->DB = new DB();
-//     }
-// }
+    public function getAll($model) {
+        $data = [];
+        $result = $GLOBALS['conn']->query("SELECT * FROM $model");
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+}
