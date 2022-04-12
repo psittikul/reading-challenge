@@ -9,7 +9,6 @@
     $Prompt = new Prompt();
     $users = $User->getAll();
     $userBooksForPrompts = $User->getUserBooksForPrompts();
-    var_dump($userBooksForPrompts);
     $prompts = $Prompt->getAll();
 ?>
 <table class="table table-bordered" id="challengeTable">
@@ -36,7 +35,7 @@
                 foreach($users as $user) {
             ?>
                 <td>
-                <?php echo $userBooksForPrompts[$user['id']][$prompt['id']];?>
+                <?php var_dump($userBooksForPrompts[$user['id']][$prompt['id']]);?>
                 </td>
             <?
                 }
