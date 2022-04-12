@@ -35,7 +35,7 @@
                 foreach($users as $user) {
             ?>
                 <td>
-                <?php var_dump($userBooksForPrompts[$user['id']]);?>
+                <?php var_dump($userBooksForPrompts[$user['id']][$prompt['prompt']]);?>
                 </td>
             <?
                 }
