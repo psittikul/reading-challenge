@@ -35,7 +35,10 @@
                 foreach($users as $user) {
             ?>
                 <td style="background: <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'];?>">
-                <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
+                <?php 
+                    var_dump($userBooksForPrompts[$user['id']][$prompt['id']]);
+                    // echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'] . ": ";
+                    echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
                 </td>
             <?
                 }
