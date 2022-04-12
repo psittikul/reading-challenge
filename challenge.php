@@ -92,15 +92,26 @@
             ?>
         <tr class='free-row'>
             <td>FREE SPACE</td>
-            <?php
-            foreach($freeReads as $f) {
-            ?>
             <td>
-                <?php var_dump($f);?>
-            </td>    
-            <?php
-            }
-            ?>
+                <?php
+                var_dump($freeReads[$users[0]['id']][$i]);
+                ?>
+            </td>
+            <td>
+                <?php
+                var_dump($freeReads[$users[1]['id']][$i]);
+                ?>
+            </td>
+            <td>
+                <?php
+                var_dump($freeReads[$users[2]['id']][$i]);
+                ?>
+            </td>
+            <td>
+                <?php
+                var_dump($freeReads[$users[3]['id']][$i]);
+                ?>
+            </td>
         </tr>
             <?php
         }
