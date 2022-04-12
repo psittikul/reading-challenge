@@ -36,10 +36,10 @@
                 foreach($users as $user) {
                     $user_id = $user['id'];
                     
-                    $prompt_array = json_encode([
+                    $prompt_array = [
                         'id' => $prompt['id'],
                         'prompt' => $prompt['prompt'],
-                    ]);
+                    ];
 
                     if ($userBooksForPrompts[$user['id']][$prompt['id']]['id'] > 0) {
                         $book = [
@@ -65,6 +65,7 @@
                 console.log(selector);
                 $(selector).on('click', function() {
                     var book = JSON.parse(JSON.stringify(book));
+                    var prompt = JSON.parse(JSON.stringify(prompt));
                     console.log(user_id);
                     console.log(book);
                     console.log(prompt);
