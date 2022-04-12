@@ -9,16 +9,16 @@
     $Prompt = new Prompt();
     $users = $User->getAll();
     $userBooksForPrompts = $User->getUserBooksForPrompts();
-    $jsonBooks = $User->getUserBooksForPromptsJSON();
+    // $jsonBooks = $User->getUserBooksForPromptsJSON();
     $freeReads = $User->getFreeReads();
     $prompts = $Prompt->getAll();
-    $jsonPrompts = $Prompt->getAllForJSON();
+    // $jsonPrompts = $Prompt->getAllForJSON();
 ?>
 <script>
-    var promptArray = '<?php echo $jsonPrompts;?>';
-    var bookArray = JSON.stringify('<?php echo ($jsonBooks);?>');
-    console.log(promptArray);
-    console.log(bookArray);
+    // var promptArray = '<?php echo $jsonPrompts;?>';
+    // var bookArray = JSON.stringify('<?php echo ($jsonBooks);?>');
+    // console.log(promptArray);
+    // console.log(bookArray);
 </script>
 <table class="table table-bordered" id="challengeTable">
   <thead>
@@ -76,10 +76,11 @@
                 // });
             </script>
             <td data-author='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['author'];?>' data-status='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['status'];?>'
-                class='<?php echo $Prompt->format('status', $userBooksForPrompts[$user['id']][$prompt['id']]['status']);?>'>
+                data-date='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['date_read'];?>' class='<?php echo $Prompt->format('status', $userBooksForPrompts[$user['id']][$prompt['id']]['status']);?>'>
             <?php 
                 echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
-                <button type='button' data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
+                <button type='button' data-toggle='modal' data-target="#editBookModal"
+                    data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' class='edit-book-btn btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>
             </td>
             <?
                 }

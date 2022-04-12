@@ -151,26 +151,26 @@ $('.update-btn').on('click', function() {
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
-    // $("#editBookModal").on('show.bs.modal', function(e) {
-    //     var button = $(e.relatedTarget)[0];
-    //     var userID = $(button).data('user');
-    //     var book_id = $(button).data('book');
-    //     var status = $(button).data('status');
-    //     if($(button).data('prompt')) {
-    //         var promptID = $(button).data('prompt');
-    //         $(this).find("button#saveBookChangesBtn").attr('data-prompt', promptID);
-    //         var prompt = $(button).parent().parent().find('.prompt-cell').text();
-    //         $(this).find('.modal-title').text(prompt);
-    //         $(this).find('#promptDatalist').val(prompt);
-    //     }
-    //     else {
-    //         $(this).find('modal-title').text('Edit Entry');
-    //     }
-    //     var title = $(button).parent().text();
-    //     $(this).find("[data-column='status']").val(status);
-    //     $(this).find('form').attr('data-user', userID);
-    //     $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
-    //     $(this).find("button#saveBookChangesBtn").attr('data-book', book_id);
-    //     $(this).find("input[data-column='title']").val(title);
-    // });
+    $("#editBookModal").on('show.bs.modal', function(e) {
+        var button = $(e.relatedTarget)[0];
+        var userID = $(button).data('user');
+        var book_id = $(button).data('book');
+        var status = $(button).data('status');
+        if($(button).data('prompt')) {
+            var promptID = $(button).data('prompt');
+            $(this).find("button#saveBookChangesBtn").attr('data-prompt', promptID);
+            var prompt = $(button).parent().parent().find('.prompt-cell').text();
+            $(this).find('.modal-title').text(prompt);
+            $(this).find('#promptDatalist').val(prompt);
+        }
+        else {
+            $(this).find('modal-title').text('Edit Entry');
+        }
+        var title = $(button).parent().text();
+        $(this).find("[data-column='status']").val(status);
+        $(this).find('form').attr('data-user', userID);
+        $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
+        $(this).find("button#saveBookChangesBtn").attr('data-book', book_id);
+        $(this).find("input[data-column='title']").val(title);
+    });
   })

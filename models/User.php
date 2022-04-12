@@ -60,7 +60,7 @@ class User {
         $result = $GLOBALS['conn']->query($query);
         $data = [];
         while ($row = $result->fetch_assoc()) {
-            $fill = $this->STATUS_FILLS[$row['status']];
+            // $fill = $this->STATUS_FILLS[$row['status']];
             
             $data[$row['userID']][$row['promptID']] = [
                 'id' => $row['bookID'],
@@ -68,7 +68,7 @@ class User {
                 'date_read' => $row['date_read'],
                 'author' => $row['author'],
                 'title' => $row['title'],
-                'fill' => $fill,
+                // 'fill' => $fill,
             ];
         }
         return $data;
