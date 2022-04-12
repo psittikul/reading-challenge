@@ -6,7 +6,7 @@
     $status = $_POST['status'];
     $date_read = $_POST['date_read'] != '' ? $_POST['date_read'] : '0000-00-00';
     $user_id = $_POST['user_id'];
-    $prompt_id = $_POST['prompt_id'] > 0 ? $_POST['prompt_id'] : NULL;
+    $prompt_id = $_POST['prompt_id'] != '' ? $_POST['prompt_id'] : NULL;
     $book_id = $_POST['book_id'];
     $old_book_id = $_POST['old_book_id'] > 0 ? $_POST['old_book_id'] : NULL;
 
