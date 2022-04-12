@@ -21,4 +21,11 @@ class Prompt {
         }
         return $data;
     }
+
+    public function format($field, $value) {
+        switch($field) {
+            case 'status':
+                return implode('-',explode(' ', strtolower($value)));
+        }
+    }
 }

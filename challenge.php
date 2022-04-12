@@ -9,6 +9,7 @@
     $Prompt = new Prompt();
     $users = $User->getAll();
     $userBooksForPrompts = $User->getUserBooksForPrompts();
+    $freeReads = $User->getFreeReads();
     $prompts = $Prompt->getAll();
 ?>
 <table class="table table-bordered" id="challengeTable">
@@ -34,7 +35,7 @@
             <?php
                 foreach($users as $user) {
             ?>
-            <td style="background: <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'];?>">
+            <td class='<?php echo $Prompt->format('status', $userBooksForPrompts[$user['id']][$prompt['id']]['status']);?>' style="background: <?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['fill'];?>">
             <?php 
                 echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>
                 <button type='button' data-title='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['title'];?>' data-prompt='<?php echo $prompt['id'];?>' data-user='<?php echo $user['id'];?>' data-toggle="modal" class='btn' data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>

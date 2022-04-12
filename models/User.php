@@ -71,6 +71,21 @@ class User {
         }
         return $data;
     }
+
+    public function getFreeReads() {
+        $query = "SELECT users.id as userID, books.id as bookID, title, author, status, date_read
+        FROM users INNER JOIN books on users.id = books.user_id WHERE prompt_id is null";
+        $result = $GLOBALS['conn']->query($query);
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[$row['userID']] = [
+                'book_id' => $row['bookID'],
+                'status' => $row['status'],
+                'title' => $row['title'],
+            ];
+        }
+        return $data;
+    }
 //     // Properties
 //     // public $conn;
 //     public $id;
