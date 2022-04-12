@@ -282,6 +282,10 @@ $(function () {
         });
     });
 
+    $("#editBookModal").on("hide.bs.modal", function() {
+        $(this).find("#promptDatalist").val('');
+    });
+
     $("#editBookModal").on('show.bs.modal', function(e) {
         var button = $(e.relatedTarget)[0];
         if ($(button).attr('class') == 'add-book-btn btn') {
