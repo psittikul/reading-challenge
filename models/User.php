@@ -88,12 +88,12 @@ class User {
                 'id' => $row['bookID'],
                 'status' => $row['status'],
                 'date_read' => $row['date_read'],
-                'author' => addslashes($row['author']),
-                'title' => addslashes($row['title']),
+                'author' => $row['author'],
+                'title' => $row['title'],
                 // 'fill' => $fill,
             ];
         }
-        return $data;
+        return json_encode($data);
     }
 
     public function getFreeReads() {
