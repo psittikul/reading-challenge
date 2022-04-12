@@ -104,7 +104,7 @@ $(function () {
         var userID = $(button).data('user');
         var promptID = $(button).data('prompt');
         var title = $(button).data('title');
-        var prompt = $(button).parent().text();
+        var prompt = $(button).parent().parent().find('.prompt-cell').text();
         console.log(prompt);
         // var userID = $(e.relatedTarget).data('user');
         // var promptID = e.relatedTarget.data('prompt');

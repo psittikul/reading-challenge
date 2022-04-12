@@ -30,7 +30,7 @@
         foreach($prompts as $prompt) {
             ?>
         <tr>
-            <td>
+            <td class='prompt-cell'>
                 <?php echo $prompt['prompt'];?>
             </td>
             <?php
