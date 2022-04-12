@@ -16,7 +16,7 @@
 ?>
 <script>
     var promptArray = '<?php echo $jsonPrompts;?>';
-    var bookArray = "<?php echo $jsonBooks;?>";
+    var bookArray = '<?php echo addslashes($jsonBooks);?>';
     console.log(promptArray);
     console.log(bookArray);
 </script>
