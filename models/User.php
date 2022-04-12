@@ -89,7 +89,7 @@ class User {
                 'status' => $row['status'],
                 'date_read' => $row['date_read'],
                 'author' => $row['author'],
-                'title' => $row['title'],
+                'title' => addslashes($row['title']), 
                 // 'fill' => $fill,
             ];
         }
