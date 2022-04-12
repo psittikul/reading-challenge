@@ -64,6 +64,7 @@
                 console.log('book is: ' + book);
                 console.log('prompt is: ' + prompt);
                 var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt['id'] + "']";
+                console.log(selector);
                 $(selector).on('click', function() {
                     console.log(user_id);
                     console.log(book);
