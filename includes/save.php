@@ -28,12 +28,12 @@
     else {
         $query = "INSERT INTO books(id, title, author, status, date_read, user_id, prompt_id) VALUES(NULL, '$title', '$author', '$status', '$date_read', $user_id, $prompt_id);";
     }
-    
+
     echo "$query \n";
     
-    // if($GLOBALS['conn']->query($query)) {
-    //     echo "SUCCESS?????????";
-    // }
-    // else {
-    //     echo "Error: " . $GLOBALS['conn']->error;
-    // }
+    if($GLOBALS['conn']->query($query)) {
+        echo "SUCCESS?????????";
+    }
+    else {
+        echo "Error: " . $GLOBALS['conn']->error;
+    }
