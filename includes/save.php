@@ -1,4 +1,6 @@
 <?php
+    include 'connection.php';
+
     $title = $_POST['title'];
     $author = $_POST['author'];
     $status = $_POST['status'];
@@ -10,7 +12,7 @@
 
     if($old_book_id > 0) {
         $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
-        $result = $GLOBALS['conn']->query($query);
+        $result = $conn->query($query);
         if(!$result) {
             echo "Error: " . $GLOBALS['conn']->error;
         }
@@ -31,9 +33,9 @@
 
     echo "$query \n";
     
-    if($GLOBALS['conn']->query($query)) {
+    if($conn->query($query)) {
         echo "SUCCESS?????????";
     }
     else {
-        echo "Error: " . $GLOBALS['conn']->error;
+        echo "Error: " . $conn->error;
     }
