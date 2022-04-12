@@ -269,7 +269,7 @@ $(function () {
             },
             success: function(response) {
                 console.log(response);
-                // location.reload();
+                location.reload();
             },
             fail: function(response) {
                 console.log(response);
@@ -294,7 +294,7 @@ $(function () {
             $(this).find('#promptDatalist').val(prompt);
         }
         else {
-            $(this).find('modal-title').text('Edit Entry');
+            $(this).find('.modal-title').text('Edit Entry');
         }
         var title = $(button).parent().text().trim();
         $(this).find("[data-column='status']").val(status);

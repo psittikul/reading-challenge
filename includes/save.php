@@ -4,7 +4,7 @@
     $title = $_POST['title'];
     $author = $_POST['author'];
     $status = $_POST['status'];
-    $date_read = $_POST['date_read'];
+    $date_read = $_POST['date_read'] != '' ? $_POST['date_read'] : '0000-00-00';
     $user_id = $_POST['user_id'];
     $prompt_id = $_POST['prompt_id'] > 0 ? $_POST['prompt_id'] : NULL;
     $book_id = $_POST['book_id'];
@@ -24,7 +24,7 @@
         }
         else {
             $query = "UPDATE books SET prompt_id = $prompt_id, title = '$title', author = '$author', 
-                status = '$status' WHERE id = $book_id;";
+                status = '$status', date_read = '0000-00-00' WHERE id = $book_id;";
         }
     }
     else {
