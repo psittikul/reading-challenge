@@ -110,6 +110,30 @@ class User {
         }
         return $data;
     }
+
+    public function getUserFreeReads($users) {
+        $data = [];
+        foreach($users as $user) {
+            $user_id = $user['id'];
+            $result = $GLOBALS['conn']->query("SELECT * from books where user_id = $user_id and prompt_id is null");
+            while ($row = $result->fetch_assoc()) {
+
+            }
+        }
+        return $data;
+    }
+
+    public function getUserBooks($users) {
+        $data = [];
+        foreach ($users as $user) {
+            $user_id = $user['id'];
+            $result = $GLOBALS['conn']->query("SELECT * FROM books WHERE user_id = $user_id");
+            while ($book = $result->fetch_assoc()) {
+                $data[$user_id][] = $book;
+            }
+        }
+        return $data;
+    }
 //     // Properties
 //     // public $conn;
 //     public $id;
