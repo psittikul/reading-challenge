@@ -88,9 +88,7 @@
         </tr>
             <?
         }
-        foreach($freeReads as $f) {
-            var_dump($f);
-        }
+        var_dump($freeReads);
         // foreach($freeReads as $read) {
             ?>
         <tr style='display:none'>

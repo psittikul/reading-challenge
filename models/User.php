@@ -97,6 +97,13 @@ class User {
         $query = "SELECT users.id as userID, books.id as bookID, title, author, status, date_read
             FROM users INNER JOIN books on users.id = books.user_id WHERE prompt_id is null";
         $result = $GLOBALS['conn']->query($query);
+        $numRows = "select max(z.bookCount)
+            from
+            (SELECT count(books.id) as bookCount
+            FROM users inner join books on users.id = books.user_id
+            where prompt_id is null
+            group by users.id) as z;";
+        $number = $GLOBALS['conn']->query($numRows)->fetch_column(0);
         $data = [];
         while ($row = $result->fetch_assoc()) {
             $data[$row['userID']][] = [
@@ -107,6 +114,7 @@ class User {
                 'date_read' => $row['date_read'],
             ];
         }
+        $data['numRows'] = $number;
         return $data;
     }
 
