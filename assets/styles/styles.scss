@@ -97,13 +97,15 @@ table#challengeTable {
             float: right;
             font-size: small;
         }
+        &.read {
+            background: lightgreen;
+        }
+        &.currently-reading {
+            background: peachpuff;
+        }
     }
 
     input {
         display: initial;
-    }
-
-    td.read {
-        background: palegreen;
     }
 }

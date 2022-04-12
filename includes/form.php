@@ -46,5 +46,22 @@
             <!-- </datalist> -->
         <!-- </div> -->
     </div>
-    <button type="button" class="update-btn btn btn-primary" data-user="<?php echo $row['userID'];?>" id="saveBookChangesBtn">Save</button>
+    <div class='mb-3 row'>
+        <div class='col'>
+            <label class='form-label'>Prompt</label>
+            <input class="form-control" data-user='<?php // echo $row['userID'];?>' list="datalistOptions<?php // echo $row['userID'];?>" id="promptDatalist<?php // echo $row['$userID'];?>" placeholder="Type to search prompts">
+            <datalist id="datalistOptions<?php // echo $row['userID'];?>">
+                <option value=''>Select prompt</option>
+                <?php
+                foreach($prompts as $prompt) {
+                    // echo $prompt['id'] . ": " . $prompt['prompt'] . "\n";
+            ?>
+                <option data-id='<?php echo $prompt['id'];?>' value='<?php echo $prompt['id'];?>'><?php echo $prompt['prompt'];?></option>
+            <?php
+                }
+            ?>
+            </datalist>
+        </div>
+    </div>
+    <button type="button" class="update-btn btn btn-primary" data-user="" id="saveBookChangesBtn">Save</button>
 </form>

@@ -10,7 +10,6 @@
     $users = $User->getAll();
     $userBooksForPrompts = $User->getUserBooksForPrompts();
     $freeReads = $User->getFreeReads();
-    var_dump($freeReads);
     $prompts = $Prompt->getAll();
 ?>
 <table class="table table-bordered" id="challengeTable">
@@ -55,7 +54,9 @@
             foreach($users as $user) {
                 if($read['user_id'] == $user['id']) {
                     ?>
-                    <td><?php echo $read['title'];?></td>
+            <td class='<?php echo $Prompt->format('status', $read['status']);?>'><?php echo $read['title'];?>
+                <button type='button' data-user='<?php echo $user['id'];?>' data-toggle="modal" class='btn' data-target="#editBookModal" class='edit-book-btn'><i class="fa-solid fa-pen" data-toggle='tooltip' title='Edit entry'></i></button>       
+            </td>
                     <?php
                 }
                 else {
