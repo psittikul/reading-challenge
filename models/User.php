@@ -93,7 +93,7 @@ class User {
                 // 'fill' => $fill,
             ];
         }
-        return json_encode($data);
+        return $data;
     }
 
     public function getFreeReads() {
