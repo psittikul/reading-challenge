@@ -1,11 +1,12 @@
 <form data-user='<?php // echo $row['userID'];?>' method='post'>
     <div class="mb-3">
+        <?php 
+            $allBooks = $User->getUserBooks($users);
+            var_dump($allBooks);?>
         <label class='form-label'>Title</label>
         <input class="form-control" data-user='<?php // echo $row['userID'];?>' list="" id="titleDatalist" placeholder="Search your titles or add a new one">
         <datalist id="titleOptions4">
             <?php
-            $allBooks = $User->getUserBooks($users);
-            var_dump($allBooks);
             // foreach($prompts as $prompt) {
                 // echo $prompt['id'] . ": " . $prompt['prompt'] . "\n";
             ?>
