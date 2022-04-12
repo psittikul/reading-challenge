@@ -192,6 +192,19 @@ $(function () {
         if (prompt.length > 0) {
             var prompt_selected = document.getElementById('datalistOptions').querySelector('[value="' + prompt + '"]');
             prompt_id = $(prompt_selected).data('id');
+            
+            // IF user selected a prompt that already has a book assigned, show a confirmation message
+            if($("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') > 0) {
+                var title = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").parent().text().trim();
+                let text = 'The book: ' + title + ' is currently assigned to this prompt. Saving changes will move it to a free space.';
+                if (confirm(text) == true) {
+                    console.log("Confirmed");
+                }
+                else {
+                    console.log("Cancel");
+                    return;
+                }
+            }
         }
     
         if (book_id > 0) {
