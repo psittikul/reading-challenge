@@ -54,6 +54,7 @@
         ) as y on x.userID = y.userID) as z) as aza)
     order by bookCount desc, name asc;";
     $result = $conn->query($query);
+    var_dump($result);
     while($row = $result->fetch_assoc()) {
 ?>
         <div class='row user-row'>
@@ -95,6 +96,7 @@
                             //     ") as y on x.userID = y.userID) as z) as az;";
                             // $q1 = $conn->query($query);
                             // while ($q1Row = $q1->fetch_assoc()) {
+                                return;
                             $data = $User->getQuarter($row['userID'], 'q1');  
                         ?>
                         <h3 data-toggle='tooltip' title='<?php echo "Challenge books: " . $data['promptBooks'] . " Free reads: " . $data['freeReads'];?>'>Q1 📚: 
