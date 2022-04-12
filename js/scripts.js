@@ -155,6 +155,7 @@ $(function () {
         var button = $(e.relatedTarget)[0];
         var userID = $(button).data('user');
         var book_id = $(button).data('book');
+        var author = $(button).parent().data('author');
         var date_read = $(button).parent().data('date');
         var status = $(button).parent().data('status');
         if($(button).data('prompt')) {
@@ -171,6 +172,7 @@ $(function () {
         console.log(title);
         $(this).find("[data-column='status']").val(status);
         $(this).find("[data-column='date_read']").val(date_read);
+        $(this).find("[data-column='author']").val(author);
         $(this).find('form').attr('data-user', userID);
         $(this).find("button#saveBookChangesBtn").attr('data-user', userID);
         $(this).find("button#saveBookChangesBtn").attr('data-book', book_id);
