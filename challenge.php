@@ -60,12 +60,16 @@
             ?>
                 var selector = ".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']";
                 // console.log(selector);
-                $(".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']").on('click', function() {
-                    console.log('Set up modal for user: ' + user_id + ' prompt: ' + prompt_id + ' book: ' + title);
-                    $("#editBookModal").find(".modal-title").text(prompt_text);
-                    $("#editBookModal").find("[data-column='title']").val(title);
-                    $("#editBookModal").modal('show');
-                });
+                $("#challengeTable").on("click", $(".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']"),
+                    function() {
+                        console.log('Set up modal for user: ' + user_id + ' prompt: ' + prompt_id + ' book: ' + title);
+                    });
+                // $(".edit-book-btn[data-user='" + user_id + "'][data-prompt='" + prompt_id + "']").on('click', function() {
+                //     console.log('Set up modal for user: ' + user_id + ' prompt: ' + prompt_id + ' book: ' + title);
+                //     $("#editBookModal").find(".modal-title").text(prompt_text);
+                //     $("#editBookModal").find("[data-column='title']").val(title);
+                //     $("#editBookModal").modal('show');
+                // });
             </script>
             <td data-author='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['author'];?>' data-status='<?php echo $userBooksForPrompts[$user['id']][$prompt['id']]['status'];?>'
                 class='<?php echo $Prompt->format('status', $userBooksForPrompts[$user['id']][$prompt['id']]['status']);?>'>
