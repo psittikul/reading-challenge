@@ -144,7 +144,7 @@ $(function () {
                         modal: true,
                         buttons: {
                           "Update entry": function() {
-                            // set variables accordingly for AJAX call
+                            book_id = old_book_id;
                             $( this ).dialog( "close" );
                           },
                           "Replace": function() {
@@ -157,8 +157,6 @@ $(function () {
                         }
                       });
                 }
-            return;    
-            console.log("Save changes to book");
                 // if (confirm(text) == true) {
                 //     title = prevTitle;
                 //     console.log("Confirmed");

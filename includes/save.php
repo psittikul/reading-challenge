@@ -17,7 +17,7 @@
             echo "Error: " . $GLOBALS['conn']->error;
         }
     }
-    if ($book_id > 0) {
+    if ($book_id) {
         $sql = "UPDATE BOOKS SET prompt_id = ?, title = ?, author = ?, status = ?, date_read = ? WHERE id = $book_id";
         $stmt= $conn->prepare($sql);
         $stmt->bind_param("sssss", $prompt_id, $title, $author, $status, $date_read);
