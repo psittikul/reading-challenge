@@ -242,7 +242,7 @@ $(function () {
                 && $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') != book_id) {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
                 var old_title = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").parent().text().trim();
-                let text = 'The book: ' + prevtitle + ' is currently assigned to this prompt. Do you want to overwrite this entry or move it to a new space?';
+                let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to overwrite this entry or move it to a new space?';
                 if (confirm(text) == true) {
                     title = prevTitle;
                     console.log("Confirmed");
@@ -331,6 +331,5 @@ $(function () {
 
     $("#editBookModal").on('shown.bs.modal', function() {
         prevTitle = $("#titleDatalist").val();
-        console.log("Current title is: " + prevTitle);
     });
   })
