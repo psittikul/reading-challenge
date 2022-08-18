@@ -24,139 +24,29 @@ function formatDate(date) {
     return year + '-' + month + '-' + day;
 }
 
-// const ctx = document.getElementById('myChart').getContext('2d');
-// const myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Q1'],
-//         datasets: [{
-//             // label: '# of Votes',
-//             data: [2],
-//             backgroundColor: [
-//                 'rgba(204, 204, 255, .8)',
-//                 // 'rgba(54, 162, 235, 0.2)',
-//                 // 'rgba(255, 206, 86, 0.2)',
-//                 // 'rgba(75, 192, 192, 0.2)',
-//                 // 'rgba(153, 102, 255, 0.2)',
-//                 // 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             // borderColor: [
-//             //     'rgba(255, 99, 132, 1)',
-//             //     'rgba(54, 162, 235, 1)',
-//             //     'rgba(255, 206, 86, 1)',
-//             //     'rgba(75, 192, 192, 1)',
-//             //     // 'rgba(153, 102, 255, 1)',
-//             //     // 'rgba(255, 159, 64, 1)'
-//             // ],
-//             // borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         indexAxis: 'y',
-//         datasets: {
-//             label: {
-//                 display: false,
-//             }
-//         },
-//         scales: {
-//             y: {
-//                 display: false,
-//             },
-//             x: {
-//                 display: false,
-//             }
-//         }
-//     }
-// });
-
 // $('#saveBookChangesBtn').on('click', function() {
 //     var user_id = $(this).attr('data-user');
 //     var title = $(this).parent().find("[data-column='title']").val();
 //     var author = $(this).parent().find("[data-column='author']").val();
-//     var date_read = $(this).parent().find("[data-column='date_read']").val();
+//     var dateRead = $(this).parent().find("[data-column='date_read']").val();
 //     var status = $(this).parent().find("[data-column='status']").val();
-//     var prompt = $("#promptDatalist").val();
 //     var book_id = $(this).attr('data-book');
+//     var prompt_id = null;
+
+//     // Get ID that corresponds to selected prompt
+//     var prompt = $("#promptDatalist").val();
+//     if (prompt.length > 0) {
+//         var prompt_selected = document.getElementById('datalistOptions').querySelector('[value="' + prompt + '"]');
+//         prompt_id = $(prompt_selected).data('id');
+//     }
+
 //     if (book_id > 0) {
-//         console.log('UPDATE books SET prompt_id = [GET ID FOR] ' + prompt + ' WHERE id = ' + book_id);
+//         console.log("UPDATE books SET prompt_id = " + prompt_id + 
+//             ", title = '" + title + "', date_read = " + dateRead + ", status = '" + status + "' WHERE id = " + book_id);
 //     }
 //     else {
 //         console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
 //     }
-// });
-
-$('#saveBookChangesBtn').on('click', function() {
-    var user_id = $(this).attr('data-user');
-    var title = $(this).parent().find("[data-column='title']").val();
-    var author = $(this).parent().find("[data-column='author']").val();
-    var dateRead = $(this).parent().find("[data-column='date_read']").val();
-    var status = $(this).parent().find("[data-column='status']").val();
-    var book_id = $(this).attr('data-book');
-    var prompt_id = null;
-
-    // Get ID that corresponds to selected prompt
-    var prompt = $("#promptDatalist").val();
-    if (prompt.length > 0) {
-        var prompt_selected = document.getElementById('datalistOptions').querySelector('[value="' + prompt + '"]');
-        prompt_id = $(prompt_selected).data('id');
-    }
-
-    if (book_id > 0) {
-        console.log("UPDATE books SET prompt_id = " + prompt_id + 
-            ", title = '" + title + "', date_read = " + dateRead + ", status = '" + status + "' WHERE id = " + book_id);
-    }
-    else {
-        console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
-    }
-    // $.ajax({
-    //     method: "POST",
-    //     url: "../includes/save.php",
-    //     // dataType: 'JSON',
-    //     data: {
-    //         title: title,
-    //         author: author,
-    //         date_read: dateRead != '' ? dateRead : null,
-    //         status: status,
-    //         user_id: user_id,
-    //         prompt_id: prompt_id,
-    //     },
-    //     success: function(response) {
-    //         console.log(response);
-    //         location.reload();
-    //     },
-    //     fail: function(response) {
-    //         console.log(response);
-    //     }
-    // });
-});
-
-// $('.update-btn').on('click', function() {
-//     var user_id = $(this).data('user');
-//     var title = $(this).parent().find("[data-column='title']").val();
-//     var author = $(this).parent().find("[data-column='author']").val();
-//     var dateRead = $(this).parent().find("[data-column='date_read']").val();
-//     var status = $(this).parent().find("[data-column='status']").val();
-//     var prompt_id = $("#promptDatalist").val();
-//     $.ajax({
-//         method: "POST",
-//         url: "../includes/save.php",
-//         // dataType: 'JSON',
-//         data: {
-//             title: title,
-//             author: author,
-//             date_read: dateRead != '' ? dateRead : null,
-//             status: status,
-//             user_id: user_id,
-//             prompt_id: prompt_id != '' ? prompt_id : null,
-//         },
-//         success: function(response) {
-//             console.log(response);
-//             location.reload();
-//         },
-//         fail: function(response) {
-//             console.log(response);
-//         }
-//     });
 // });
 
 $(function () {
@@ -241,6 +131,9 @@ $(function () {
                 && $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') != book_id) {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
                 let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to update this entry or replace it? The original book will be moved to a free space.';
+                console.log("old_book_id: " + old_book_id);
+                console.log("book_id: " + book_id);
+                console.log("prompt_id: " + prompt_id);
                 if (prevTitle !== $("#titleDatalist").val()) {
                     $("#dialogConfirm").find("#confirmText").text(text);
                     $( "#dialogConfirm" ).dialog({

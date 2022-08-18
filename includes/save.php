@@ -6,11 +6,11 @@
     $status = $_POST['status'];
     $date_read = $_POST['date_read'] != '' ? $_POST['date_read'] : '0000-00-00';
     $user_id = $_POST['user_id'];
-    $prompt_id = $_POST['prompt_id'] == '' ? NULL : $_POST['prompt_id'];
+    $prompt_id = $_POST['prompt_id'] ?? null;
     $book_id = $_POST['book_id'];
-    $old_book_id = $_POST['old_book_id'] > 0 ? $_POST['old_book_id'] : NULL;
+    $old_book_id = $_POST['old_book_id'] ?? null;
 
-    if($old_book_id > 0) {
+    if($old_book_id) {
         $query = "UPDATE books SET prompt_id = NULL where id = $old_book_id";   
         $result = $conn->query($query);
         if(!$result) {
