@@ -92,17 +92,17 @@ table#challengeTable input {
   display: initial;
 }
 
-#dialogConfirm {
+.ui-dialog {
   background: #ccccff;
   z-index: 2000;
   padding: 1rem;
 }
-#dialogConfirm button {
+.ui-dialog button {
   border: none;
   border-radius: 0.2rem;
   margin: 0.5rem;
 }
-#dialogConfirm button:hover {
+.ui-dialog button:hover {
   background-color: #e4c8e0;
   transition-duration: 0.4s;
 }

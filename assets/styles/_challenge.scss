@@ -39,7 +39,8 @@ table#challengeTable {
     }
 }
 
-#dialogConfirm {
+.ui-dialog
+ {
     background: $Periwinkli-opaque;
     z-index: 2000;
     padding: 1rem;
