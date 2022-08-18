@@ -241,15 +241,31 @@ $(function () {
             if($("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') > 0 
                 && $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') != book_id) {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
-                var old_title = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").parent().text().trim();
-                let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to overwrite this entry or move it to a new space?';
-                if (confirm(text) == true) {
-                    title = prevTitle;
-                    console.log("Confirmed");
-                }
-                else {
-                    console.log("Move old one to new space");
-                }
+                let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to update this entry or replace it? The original book will be moved to a free space.';
+                $("#dialog-confirm").find("#confirmText").text(text);
+                $( "#dialog-confirm" ).dialog({
+                    resizable: false,
+                    height: "auto",
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                      "Update entry": function() {
+                        console.log("Call update function lol");
+                        $( this ).dialog( "close" );
+                      },
+                      "Replace": function() {
+                        console.log("Do the replace function");
+                        $( this ).dialog( "close" );
+                      }
+                    }
+                  });
+                // if (confirm(text) == true) {
+                //     title = prevTitle;
+                //     console.log("Confirmed");
+                // }
+                // else {
+                //     console.log("Move old one to new space");
+                // }
             }
         }
         $.ajax({
