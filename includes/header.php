@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>2022 walmart PP gang reading challenge</title>
+        <title>2022 reading challenge</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class='container-fluid'>
-            <h1 id='pageTitle'>2022 WALMART PP GANG READING CHALLENGE</h1>
+            <h1 id='pageTitle'>2022 READING CHALLENGE</h1>
             <ul class="list-group list-group-horizontal" id='topNav'>
                 <a href='<?php echo $_SERVER['REQUEST_URI'] == '/challenge.php' ? 'index.php' : '#';?>'><li class="list-group-item">LEADERBOARD</li></a>
                 <a href='<?php echo $_SERVER['REQUEST_URI'] == '/challenge.php' ? '#' : 'challenge.php';?>'><li class="list-group-item">SPREADSHEET</li></a>
