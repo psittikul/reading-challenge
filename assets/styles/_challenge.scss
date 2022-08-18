@@ -45,7 +45,7 @@ table#challengeTable {
     z-index: 2000;
     padding: 1rem;
 
-    .no-close .ui-dialog-titlebar-close {
+    &.no-close .ui-dialog-titlebar-close {
         display: none;
     }
 

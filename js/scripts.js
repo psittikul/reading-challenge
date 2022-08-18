@@ -24,30 +24,6 @@ function formatDate(date) {
     return year + '-' + month + '-' + day;
 }
 
-function updateBooks() {
-    $.ajax({
-        method: "POST",
-        url: "../includes/save.php",
-        // dataType: 'JSON',
-        data: {
-            user_id: user_id,
-            title: title,
-            author: author,
-            date_read: dateRead != '' ? dateRead : null,
-            status: status,
-            book_id: book_id,
-            old_book_id: old_book_id,
-            prompt_id: prompt_id,
-        },
-        success: function(response) {
-            console.log(response);
-            location.reload();
-        },
-        fail: function(response) {
-            console.log(response);
-        }
-    });
-}
 
 // $('#saveBookChangesBtn').on('click', function() {
 //     var user_id = $(this).attr('data-user');
@@ -186,14 +162,32 @@ $(function () {
                         }
                       });
                 }
-                // if (confirm(text) == true) {
-                //     title = prevTitle;
-                //     console.log("Confirmed");
-                // }
-                // else {
-                //     console.log("Move old one to new space");
-                // }
             }
+        }
+        
+        function updateBooks() {
+            $.ajax({
+                method: "POST",
+                url: "../includes/save.php",
+                // dataType: 'JSON',
+                data: {
+                    user_id: user_id,
+                    title: title,
+                    author: author,
+                    date_read: dateRead != '' ? dateRead : null,
+                    status: status,
+                    book_id: book_id,
+                    old_book_id: old_book_id,
+                    prompt_id: prompt_id,
+                },
+                success: function(response) {
+                    console.log(response);
+                    location.reload();
+                },
+                fail: function(response) {
+                    console.log(response);
+                }
+            });
         }
     });
     $("#editBookModal").on("hide.bs.modal", function() {
