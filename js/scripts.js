@@ -280,8 +280,6 @@ $(function () {
     });
 
     $("#editBookModal").on('show.bs.modal', function(e) {
-        prevTitle = $("#editBookModal").find("[data-column='title']").val();
-        console.log($("#editBookModal").find("[data-column='title']").val());
         var button = $(e.relatedTarget)[0];
         if ($(button).attr('class') == 'add-book-btn btn') {
             var userID = $(button).data('user');
@@ -329,5 +327,10 @@ $(function () {
                 $(this).find("[data-column='status']").change();
             }
         }
+    });
+
+    $("#editBookModal").on('shown.bs.modal', function() {
+        prevTitle = $("#titleDatalist").val();
+        console.log(prevTitle);
     });
   })
