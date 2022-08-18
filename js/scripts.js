@@ -331,6 +331,6 @@ $(function () {
 
     $("#editBookModal").on('shown.bs.modal', function() {
         prevTitle = $("#titleDatalist").val();
-        console.log(prevTitle);
+        console.log("Current title is: " + prevTitle);
     });
   })
