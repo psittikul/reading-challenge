@@ -3,7 +3,7 @@ body {
   background-size: cover;
   font-family: "Maven Pro", sans-serif;
 }
-body .btn, body form .update-btn, form body .update-btn, body .user-row button.show-add-book-btn, .user-row body button.show-add-book-btn {
+body .btn, body .user-row button.show-add-book-btn, .user-row body button.show-add-book-btn, body form .update-btn, form body .update-btn {
   background: #ccccff;
   border: none;
   text-transform: uppercase;
@@ -30,34 +30,36 @@ body .btn, body form .update-btn, form body .update-btn, body .user-row button.s
   border-radius: 1rem;
 }
 
-.user-row {
-  margin: 2rem auto;
+body {
+  background-image: url("/assets/images/cherry-blossoms.jpeg");
+  background-size: cover;
+  font-family: "Maven Pro", sans-serif;
 }
-.user-row .user-name {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  margin-bottom: 0;
+body .btn, body .user-row button.show-add-book-btn, .user-row body button.show-add-book-btn, body form .update-btn, form body .update-btn {
+  background: #ccccff;
+  border: none;
   text-transform: uppercase;
-  color: white;
+  color: darkslategray;
 }
-.user-row .user-name p {
-  display: inline;
-}
-.user-row .user-pic {
-  text-align: center;
-}
-.user-row .user-pic img {
-  width: 100%;
-}
-.user-row .stat-row {
-  background: rgba(253, 237, 244, 0.65);
-}
-.user-row .stat-row:first-of-type {
-  border-bottom: solid thin darkslategray;
-}
-.user-row button.show-add-book-btn {
+
+#topNav {
   width: fit-content;
-  margin: 1rem;
+  margin: auto;
+}
+#topNav a {
+  text-decoration: none;
+}
+#topNav li {
+  background: rgba(204, 204, 255, 0.65);
+}
+
+#pageTitle {
+  font-family: "Maven Pro", sans-serif;
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem auto 2rem auto;
+  background: rgba(204, 204, 255, 0.65);
+  border-radius: 1rem;
 }
 
 form {
@@ -88,6 +90,51 @@ table#challengeTable td.currently-reading {
 }
 table#challengeTable input {
   display: initial;
+}
+
+#dialogConfirm {
+  background: #ccccff;
+  z-index: 2000;
+  padding: 1rem;
+}
+#dialogConfirm button {
+  border: none;
+  border-radius: 0.2rem;
+  margin: 0.5rem;
+}
+#dialogConfirm button:hover {
+  background-color: #e4c8e0;
+  transition-duration: 0.4s;
+}
+
+.user-row {
+  margin: 2rem auto;
+}
+.user-row .user-name {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: white;
+}
+.user-row .user-name p {
+  display: inline;
+}
+.user-row .user-pic {
+  text-align: center;
+}
+.user-row .user-pic img {
+  width: 100%;
+}
+.user-row .stat-row {
+  background: rgba(253, 237, 244, 0.65);
+}
+.user-row .stat-row:first-of-type {
+  border-bottom: solid thin darkslategray;
+}
+.user-row button.show-add-book-btn {
+  width: fit-content;
+  margin: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,57 @@
+@import './global';
+
+form {
+    margin: 2rem 0;
+    text-transform: uppercase;
+    // display: none;
+    // transition: 0.5s;
+
+    .update-btn {
+        @extend .btn;
+        float: right;
+    }
+}
+
+table#challengeTable {
+    margin-top: 2rem;
+    background: ghostwhite;
+
+    .add-book-btn {
+        float: right;
+    }
+
+    td {
+        button {
+            background: $Periwinkli-opaque;
+            float: right;
+            font-size: small;
+        }
+        &.read {
+            background: lightgreen;
+        }
+        &.currently-reading {
+            background: peachpuff;
+        }
+    }
+
+    input {
+        display: initial;
+    }
+}
+
+#dialogConfirm {
+    background: $Periwinkli-opaque;
+    z-index: 2000;
+    padding: 1rem;
+
+    button {
+        border: none;
+        border-radius: 0.2rem;
+        margin: 0.5rem;
+
+        &:hover {
+            background-color: $Thistle;
+            transition-duration: 0.4s;
+        }
+    }
+}

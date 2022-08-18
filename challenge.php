@@ -155,7 +155,7 @@
       ?>
   </tbody>
 </table>
-<div id="dialog-confirm" title="">
+<div id="dialogConfirm" title="">
   <p id="confirmText"><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span></p>
 </div>
 <?php

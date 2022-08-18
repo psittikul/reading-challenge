@@ -242,8 +242,9 @@ $(function () {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
                 let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to update this entry or replace it? The original book will be moved to a free space.';
                 if (prevTitle !== $("#titleDatalist").val()) {
-                    $("#dialog-confirm").find("#confirmText").text(text);
-                    $( "#dialog-confirm" ).dialog({
+                    $("#dialogConfirm").find("#confirmText").text(text);
+                    $( "#dialogConfirm" ).dialog({
+                        dialogClass: 'no-close',
                         resizable: false,
                         height: "auto",
                         width: 400,
@@ -256,6 +257,9 @@ $(function () {
                           "Replace": function() {
                             console.log("Do the replace function");
                             $( this ).dialog( "close" );
+                          },
+                          'Cancel': function() {
+                            $( this ).dialog("close");
                           }
                         }
                       });

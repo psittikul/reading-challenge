@@ -1,0 +1,39 @@
+$Maven: 'Maven Pro', sans-serif;
+$Oswald: 'Oswald', sans-serif;
+$Periwinkli: rgba(204, 204, 255, .65);
+$Periwinkli-opaque: rgba(204, 204, 255, 1);
+$Thistle: rgba(228, 200, 224, 1);
+$pale: rgba(253, 237, 244, .65);
+
+body {
+    background-image: url('/assets/images/cherry-blossoms.jpeg');
+    background-size: cover;
+    font-family: $Maven;
+
+    .btn {
+        background: rgba(204, 204, 255, 1);
+        border: none;
+        text-transform: uppercase;
+        color: darkslategray;
+    }
+}
+
+#topNav {
+    width: fit-content;
+    margin: auto;
+    a {
+        text-decoration: none;
+    }
+    li {
+        background: $Periwinkli;
+    }
+}
+
+#pageTitle {
+    font-family: $Maven;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem auto 2rem auto;
+    background: $Periwinkli;
+    border-radius: 1rem;
+}
