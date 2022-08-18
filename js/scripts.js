@@ -1,3 +1,5 @@
+var prevTitle = $("#editBookModal").find("[data-column='title']").val();
+
 $("[data-column='status']").on('change', function() {
     var dateRead = $(this).parent().next().find("[data-column='date_read']");
     if($(this).val() !== 'Read') {
@@ -240,23 +242,15 @@ $(function () {
                 && $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') != book_id) {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
                 var old_title = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").parent().text().trim();
-                let text = 'The book: ' + old_title + ' is currently assigned to this prompt. Saving changes will move that to a free space.';
+                let text = 'The book: ' + prevtitle + ' is currently assigned to this prompt. Do you want to overwrite this entry or move it to a new space?';
                 if (confirm(text) == true) {
+                    title = prevTitle;
                     console.log("Confirmed");
                 }
                 else {
-                    console.log("Cancel");
-                    return;
+                    console.log("Move old one to new space");
                 }
             }
-        }
-    
-        if (book_id > 0) {
-            console.log("UPDATE books SET prompt_id = " + prompt_id + 
-                ", title = '" + title + "', date_read = '" + dateRead + "', status = '" + status + "' WHERE id = " + book_id);
-        }
-        else {
-            console.log('INSERT INTO books(title, author, date_read, status, prompt_id) VALUES (' + title + '...)');
         }
         $.ajax({
             method: "POST",
@@ -281,12 +275,13 @@ $(function () {
             }
         });
     });
-
     $("#editBookModal").on("hide.bs.modal", function() {
         $(this).find("#promptDatalist").val('');
     });
 
     $("#editBookModal").on('show.bs.modal', function(e) {
+        prevTitle = $("#editBookModal").find("[data-column='title']").val();
+        console.log($("#editBookModal").find("[data-column='title']").val());
         var button = $(e.relatedTarget)[0];
         if ($(button).attr('class') == 'add-book-btn btn') {
             var userID = $(button).data('user');
