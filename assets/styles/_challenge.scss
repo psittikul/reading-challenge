@@ -45,6 +45,10 @@ table#challengeTable {
     z-index: 2000;
     padding: 1rem;
 
+    .no-close .ui-dialog-titlebar-close {
+        display: none;
+    }
+
     button {
         border: none;
         border-radius: 0.2rem;

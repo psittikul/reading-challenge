@@ -144,7 +144,7 @@ $(function () {
                         modal: true,
                         buttons: {
                           "Update entry": function() {
-                            console.log("Call update function lol");
+                            // set variables accordingly for AJAX call
                             $( this ).dialog( "close" );
                           },
                           "Replace": function() {

@@ -97,6 +97,9 @@ table#challengeTable input {
   z-index: 2000;
   padding: 1rem;
 }
+.ui-dialog .no-close .ui-dialog-titlebar-close {
+  display: none;
+}
 .ui-dialog button {
   border: none;
   border-radius: 0.2rem;
