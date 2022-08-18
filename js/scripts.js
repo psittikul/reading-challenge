@@ -215,7 +215,6 @@ $(function () {
     });
 
     $('#saveBookChangesBtn').on('click', function() {
-        console.log("Save changes to book");
         var user_id = $(this).attr('data-user');
         // var title = $(this).parent().find("[data-column='title']").val();
         var title = $("#titleDatalist").val();
@@ -242,23 +241,27 @@ $(function () {
                 && $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') != book_id) {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
                 let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to update this entry or replace it? The original book will be moved to a free space.';
-                $("#dialog-confirm").find("#confirmText").text(text);
-                $( "#dialog-confirm" ).dialog({
-                    resizable: false,
-                    height: "auto",
-                    width: 400,
-                    modal: true,
-                    buttons: {
-                      "Update entry": function() {
-                        console.log("Call update function lol");
-                        $( this ).dialog( "close" );
-                      },
-                      "Replace": function() {
-                        console.log("Do the replace function");
-                        $( this ).dialog( "close" );
-                      }
-                    }
-                  });
+                if (prevTitle !== $("#titleDatalist").val()) {
+                    $("#dialog-confirm").find("#confirmText").text(text);
+                    $( "#dialog-confirm" ).dialog({
+                        resizable: false,
+                        height: "auto",
+                        width: 400,
+                        modal: true,
+                        buttons: {
+                          "Update entry": function() {
+                            console.log("Call update function lol");
+                            $( this ).dialog( "close" );
+                          },
+                          "Replace": function() {
+                            console.log("Do the replace function");
+                            $( this ).dialog( "close" );
+                          }
+                        }
+                      });
+                }
+            return;    
+            console.log("Save changes to book");
                 // if (confirm(text) == true) {
                 //     title = prevTitle;
                 //     console.log("Confirmed");
