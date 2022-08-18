@@ -24,6 +24,31 @@ function formatDate(date) {
     return year + '-' + month + '-' + day;
 }
 
+function updateBooks() {
+    $.ajax({
+        method: "POST",
+        url: "../includes/save.php",
+        // dataType: 'JSON',
+        data: {
+            user_id: user_id,
+            title: title,
+            author: author,
+            date_read: dateRead != '' ? dateRead : null,
+            status: status,
+            book_id: book_id,
+            old_book_id: old_book_id,
+            prompt_id: prompt_id,
+        },
+        success: function(response) {
+            console.log(response);
+            location.reload();
+        },
+        fail: function(response) {
+            console.log(response);
+        }
+    });
+}
+
 // $('#saveBookChangesBtn').on('click', function() {
 //     var user_id = $(this).attr('data-user');
 //     var title = $(this).parent().find("[data-column='title']").val();
@@ -144,12 +169,16 @@ $(function () {
                         modal: true,
                         buttons: {
                           "Update entry": function() {
+                            console.log("UPDATE book");
                             book_id = old_book_id;
+                            old_book_id = null;
                             $( this ).dialog( "close" );
+                            updateBooks();
                           },
                           "Replace": function() {
                             console.log("Do the replace function");
                             $( this ).dialog( "close" );
+                            updateBooks();
                           },
                           'Cancel': function() {
                             $( this ).dialog("close");
@@ -166,28 +195,6 @@ $(function () {
                 // }
             }
         }
-        $.ajax({
-            method: "POST",
-            url: "../includes/save.php",
-            // dataType: 'JSON',
-            data: {
-                user_id: user_id,
-                title: title,
-                author: author,
-                date_read: dateRead != '' ? dateRead : null,
-                status: status,
-                book_id: book_id,
-                old_book_id: old_book_id,
-                prompt_id: prompt_id,
-            },
-            success: function(response) {
-                console.log(response);
-                location.reload();
-            },
-            fail: function(response) {
-                console.log(response);
-            }
-        });
     });
     $("#editBookModal").on("hide.bs.modal", function() {
         $(this).find("#promptDatalist").val('');
