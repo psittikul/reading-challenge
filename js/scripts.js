@@ -131,7 +131,7 @@ $(function () {
             if($("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') > 0 
                 && $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book') != book_id) {
                 old_book_id = $("[data-prompt='" + prompt_id + "'][data-user='" + user_id + "']").data('book');
-                let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to update this entry or replace it? The original book will be moved to a free space.';
+                let text = 'The book: ' + prevTitle + ' is currently assigned to this prompt. Do you want to update this entry or replace it? (Replacing the original book will move it to a free space.)';
                 console.log("old_book_id: " + old_book_id);
                 console.log("book_id: " + book_id);
                 console.log("prompt_id: " + prompt_id);
